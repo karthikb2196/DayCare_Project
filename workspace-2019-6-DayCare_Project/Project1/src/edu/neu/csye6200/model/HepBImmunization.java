@@ -1,0 +1,18 @@
+package edu.neu.csye6200.model;
+
+import java.util.Date;
+
+public class HepBImmunization extends Immunization{
+
+	public HepBImmunization(String immunizationName, int ageReceived, Date dateReceived) {
+		
+		// TODO Auto-generated constructor stub
+	}
+
+	@Override
+	public void CheckImmunization() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

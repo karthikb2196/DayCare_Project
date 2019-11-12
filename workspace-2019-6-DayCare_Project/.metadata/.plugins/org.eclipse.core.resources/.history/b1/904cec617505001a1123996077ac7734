@@ -1,0 +1,27 @@
+package edu.neu.csye6200.controller;
+
+import java.util.List;
+
+import edu.neu.csye6200.model.ClassRoom;
+import edu.neu.csye6200.model.ImmunizationRecord;
+import edu.neu.csye6200.model.Student;
+import edu.neu.csye6200.model.Teacher;
+
+public class DayCareCompany {
+
+	private List<Teacher> teachers;
+	private List<Student> students;
+	private List<ImmunizationRecord> immunizationDirectory;
+	private List<ClassRoom> classRooms;
+	
+	public DayCareCompany(List<Teacher> teachers, List<Student> students,
+			List<ImmunizationRecord> immunizationDirectory, List<ClassRoom> classRooms) {
+		super();
+		this.teachers = teachers;
+		this.students = students;
+		this.immunizationDirectory = immunizationDirectory;
+		this.classRooms = classRooms;
+	}
+	
+	
+}

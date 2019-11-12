@@ -1,0 +1,19 @@
+package edu.neu.csye6200.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import edu.neu.csye6200.model.ClassRoom;
+import edu.neu.csye6200.model.ImmunizationRecord;
+import edu.neu.csye6200.model.Person;
+
+
+public class DayCareCompany {
+
+	private List<Person> teachers = new ArrayList<>();
+	private List<Person> students = new ArrayList<>();
+	private List<ImmunizationRecord> immunizationDirectory = new ArrayList<ImmunizationRecord>();
+	private List<ClassRoom> classRooms = new ArrayList<ClassRoom>();
+		
+	
+}

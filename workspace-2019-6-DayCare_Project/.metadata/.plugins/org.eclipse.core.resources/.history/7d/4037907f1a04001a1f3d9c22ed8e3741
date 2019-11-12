@@ -1,0 +1,5 @@
+package edu.neu.csye6200.model;
+
+public class ImmunizationRecord {
+private List<Immunization> immunizationList = new ArrayList<>();
+}

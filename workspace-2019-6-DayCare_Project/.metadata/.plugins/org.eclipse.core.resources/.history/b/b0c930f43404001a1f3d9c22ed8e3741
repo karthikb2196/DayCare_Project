@@ -1,0 +1,9 @@
+package edu.neu.csye6200.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ClassRoom {
+
+	List<Teacher> teachers = new ArrayList<>();
+}

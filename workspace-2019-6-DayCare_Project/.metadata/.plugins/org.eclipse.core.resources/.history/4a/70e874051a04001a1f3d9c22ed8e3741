@@ -1,0 +1,9 @@
+package edu.neu.csye6200.model;
+
+public class Person {
+private int id;
+private String firstName;
+private String lastName;
+private int age;
+private ImmunizationRecord immunizationRecord;
+}

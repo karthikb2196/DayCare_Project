@@ -1,0 +1,10 @@
+package edu.neu.csye6200.model;
+
+import java.util.Date;
+
+public class Immunization {
+	private String immunizationName;
+	private int ageReceived;
+//	private Rule rule;
+	private Date dateReceived;
+}

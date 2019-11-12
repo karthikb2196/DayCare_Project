@@ -1,0 +1,19 @@
+package edu.neu.csye6200.model;
+
+import java.util.Date;
+
+public class DTapImmunization extends Immunization {
+	
+	public DTapImmunization(int ageReceived, Date dateReceived) {
+		this.getImmunizationName();
+		// TODO Auto-generated constructor stub
+	}
+
+	
+	@Override
+	public void CheckImmunization() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

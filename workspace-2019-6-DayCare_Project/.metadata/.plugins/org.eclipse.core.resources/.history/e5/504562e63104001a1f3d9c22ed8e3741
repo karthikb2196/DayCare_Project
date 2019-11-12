@@ -1,0 +1,35 @@
+package edu.neu.csye6200.model;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class ImmunizationRecord {
+
+private List<Immunization> immunizationList = new ArrayList<>();
+
+public void AddImmunization(Immunization immunization) {
+	
+}
+public void RemoveImmunization() {
+	
+}
+
+public void UpdateImmunization(Immunization immunization) {
+	
+}
+public List<Immunization> getImmunizationList() {
+	return immunizationList;
+}
+public void setImmunizationList(List<Immunization> immunizationList) {
+	this.immunizationList = immunizationList;
+}
+
+
+
+
+
+
+
+
+
+}

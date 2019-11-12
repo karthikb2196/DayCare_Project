@@ -1,0 +1,28 @@
+package edu.neu.csye6200.controller;
+
+import java.util.ArrayList;
+import java.util.List;
+
+import edu.neu.csye6200.model.ClassRoom;
+import edu.neu.csye6200.model.ImmunizationRecord;
+import edu.neu.csye6200.model.Student;
+import edu.neu.csye6200.model.Teacher;
+
+public class DayCareCompany {
+
+	private List<Teacher> teachers = new ArrayList<Teacher>();
+	private List<Student> students = new ArrayList<Student>();
+	private List<ImmunizationRecord> immunizationDirectory = new ArrayList<ImmunizationRecord>();
+	private List<ClassRoom> classRooms = new ArrayList<ClassRoom>();
+	
+	public DayCareCompany(List<Teacher> teachers, List<Student> students,
+			List<ImmunizationRecord> immunizationDirectory, List<ClassRoom> classRooms) {
+		super();
+		this.teachers = teachers;
+		this.students = students;
+		this.immunizationDirectory = immunizationDirectory;
+		this.classRooms = classRooms;
+	}
+	
+	
+}

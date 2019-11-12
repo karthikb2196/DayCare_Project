@@ -1,0 +1,11 @@
+package edu.neu.csye6200.model;
+
+public class HibImmunization extends Immunization {
+
+	@Override
+	public void CheckImmunization() {
+		// TODO Auto-generated method stub
+		
+	}
+
+}

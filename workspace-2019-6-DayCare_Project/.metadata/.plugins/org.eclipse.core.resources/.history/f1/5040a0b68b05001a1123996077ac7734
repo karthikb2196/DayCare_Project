@@ -1,0 +1,8 @@
+package edu.neu.csye6200.model;
+
+public class Rule {
+
+	public void demo() {
+		System.out.println("Rule class is done");
+	}
+}
