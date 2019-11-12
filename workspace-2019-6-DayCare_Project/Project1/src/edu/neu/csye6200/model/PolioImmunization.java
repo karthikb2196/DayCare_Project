@@ -2,10 +2,10 @@ package edu.neu.csye6200.model;
 
 import java.util.Date;
 
-public class PolioVaccination extends Immunization{
+public class PolioImmunization extends Immunization{
 
 	private String polioVaccine = "Polio Immunization"; 
-	public PolioVaccination(int ageReceived, Date dateReceived) {
+	public PolioImmunization(int ageReceived, Date dateReceived) {
 		this.setImmunizationName(polioVaccine);
 		this.setAgeReceived(ageReceived);
 		this.setDateReceived(dateReceived);
