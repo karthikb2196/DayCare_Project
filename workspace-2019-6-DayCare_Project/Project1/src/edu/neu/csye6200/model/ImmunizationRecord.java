@@ -58,9 +58,12 @@ public void UpdateImmunization(Immunization immunization) {
 }
 
 public void CheckImmunizationRecord(int age) {
+	StringBuilder sb = new StringBuilder();
 	for(Immunization im : immunizationList) {
-		
+		int numberOfDoses=im.expectedDose(age);
+		sb.append(im.getImmunizationName() + numberOfDoses +" ," );
 	}
+	this.toGet = sb.toString();
 }
 
 

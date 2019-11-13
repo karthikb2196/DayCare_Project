@@ -11,6 +11,7 @@ public class ClassRoom {
 	private float classRatio;
 	private int maxStudents;
 	private int maxTeachers;
+	private List<ClassRoomRule> classRoomRule;
 	
 	public int getClassRoomID() {
 		return classRoomID;
