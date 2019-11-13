@@ -9,16 +9,10 @@ public class VaricellaImmunization extends Immunization {
 		this.setImmunizationName(varicellaVaccine);
 		this.setAgeReceived(ageReceived);
 		this.setDateReceived(dateReceived);
-		this.setRule(new Rule()); // should be PolioRule
+	//	this.setRule(new Rule()); // should be PolioRule
 		this.setNumberOfDosesGiven(numberOfDosesGiven);
 		// TODO Auto-generated constructor stub
 	}
 
-
-	@Override
-	public void CheckImmunization() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

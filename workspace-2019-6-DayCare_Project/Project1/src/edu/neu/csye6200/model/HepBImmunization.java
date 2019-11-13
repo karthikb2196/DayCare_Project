@@ -8,15 +8,10 @@ public class HepBImmunization extends Immunization{
 		this.setImmunizationName(hepBVaccine);
 		this.setAgeReceived(ageReceived);
 		this.setDateReceived(dateReceived);
-		this.setRule(new Rule()); // should be HepBRule
+	//	this.setRule(new Rule()); // should be HepBRule
 		this.setNumberOfDosesGiven(numberOfDosesGiven);
 		// TODO Auto-generated constructor stub
 	}
 
-	@Override
-	public void CheckImmunization() {
-		// TODO Auto-generated method stub
-		
-	}
 
 }

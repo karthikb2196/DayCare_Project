@@ -11,14 +11,10 @@ public class DTapImmunization extends Immunization {
 		this.setAgeReceived(ageReceived);
 		this.setDateReceived(dateReceived);
 		this.setNumberOfDosesGiven(numberOfDosesGiven);
-		this.setRule(new Rule()); // should be DTapRule
+		//this.setRule(new Rule()); // should be DTapRule
 		// TODO Auto-generated constructor stub
 	}
 	
-	@Override
-	public void CheckImmunization() {
-		// TODO Auto-generated method stub
-		
-	}
+
 
 }

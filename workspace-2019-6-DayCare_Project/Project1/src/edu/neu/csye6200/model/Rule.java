@@ -1,9 +1,7 @@
 package edu.neu.csye6200.model;
 
-public class Rule {
+public interface Rule {
 
-	public boolean demo() {
-		System.out.println("Rule class is done");
-		return true;
-	}
+	String getRuleDescription();
+	void setRuleDescription(String descr);
 }
