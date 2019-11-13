@@ -8,6 +8,7 @@ public abstract class Immunization {
 	private int ageReceived;
 	private Rule rule;
 	private Date dateReceived;
+	private int numberOfDosesGiven;
 	
 
 	public String getImmunizationName() {
@@ -35,5 +36,11 @@ public abstract class Immunization {
 		this.dateReceived = dateReceived;
 	}
 	
+	public int getNumberOfDosesGiven() {
+		return numberOfDosesGiven;
+	}
+	public void setNumberOfDosesGiven(int numberOfDosesGiven) {
+		this.numberOfDosesGiven = numberOfDosesGiven;
+	}
 	public abstract void CheckImmunization();
 }
