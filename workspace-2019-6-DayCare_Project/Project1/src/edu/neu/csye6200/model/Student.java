@@ -1,5 +1,7 @@
 package edu.neu.csye6200.model;
 
+import java.util.Date;
+
 public class Student extends Person implements Comparable<Student> {
 
 	private String fatherName;
@@ -7,9 +9,8 @@ public class Student extends Person implements Comparable<Student> {
 
 	// This constructor should only be used for initialization
 	public Student(int id, String firstName, String lastName, 
-			int age, String FatherName, String MotherName
-		) {
-		super(id, firstName, lastName, age);
+			int age, String FatherName, String MotherName,Date dateOfEnrollment) {
+		super(id, firstName, lastName, age,dateOfEnrollment);
 		fatherName = FatherName;
 		motherName = MotherName;
 	}

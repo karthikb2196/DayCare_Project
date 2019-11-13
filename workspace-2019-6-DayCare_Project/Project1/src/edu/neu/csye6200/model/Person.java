@@ -1,18 +1,23 @@
 package edu.neu.csye6200.model;
 
+import java.time.Instant;
+import java.util.Date;
+
 public class Person {
 private int id;
 private String firstName;
 private String lastName;
 private int age;
 private ImmunizationRecord immunizationRecord;
+private Date dateOfEnrollment;
 
-public Person(int id, String firstName, String lastName, int age) {
+public Person(int id, String firstName, String lastName, int age,Date dateOfEnrollment) {
 	super();
 	this.id = id;
 	this.firstName = firstName;
 	this.lastName = lastName;
 	this.age = age;
+	this.dateOfEnrollment = dateOfEnrollment;
 	this.immunizationRecord = new ImmunizationRecord(id);
 }
 
@@ -28,8 +33,9 @@ public void createPersonUsingString(String stringData) {
 	 String firstName = args[1];
 	 String lastName = args[2];
 	 int age = Integer.parseInt(args[3]);
-	 
-	 new Person(id,firstName,lastName,age);
+	 Instant instantDateOfEnrollment = Instant.parse(args[4]);
+	 Date dateOfEnrollment = Date.from(instantDateOfEnrollment);
+	 new Person(id,firstName,lastName,age,dateOfEnrollment);
 }
 
 public int getId() {
@@ -62,6 +68,15 @@ public ImmunizationRecord getImmunizationRecord() {
 public void setImmunizationRecord(ImmunizationRecord immunizationRecord) {
 	this.immunizationRecord = immunizationRecord;
 }
+
+public Date getDateOfEnrollment() {
+	return dateOfEnrollment;
+}
+
+public void setDateOfEnrollment(Date dateOfEnrollment) {
+	this.dateOfEnrollment = dateOfEnrollment;
+}
+
 
 
 }
