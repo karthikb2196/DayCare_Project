@@ -5,6 +5,7 @@ import java.util.List;
 
 public abstract class Immunization {
 
+	private int immunizationID;
 	private String immunizationName;
 	private int ageReceived;
 	private List<ImmunizationRule> rules; 
@@ -15,6 +16,14 @@ ImmunizationRule objects in the list
 	*/
 	private Date dateReceived;
 	private int numberOfDosesGiven;
+
+	public int getImmunizationID() {
+		return immunizationID;
+	}
+
+	public void setImmunizationID(int immunizationID) {
+		this.immunizationID = immunizationID;
+	}
 
 	public String getImmunizationName() {
 		return immunizationName;
