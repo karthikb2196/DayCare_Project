@@ -40,11 +40,9 @@ public class Student extends Person implements Comparable<Student> {
 		this.motherName = motherName;
 	}
 
-	@Override
+		@Override
 	public String toString() {
-		return "Student [studentId=" + studentId + ", fatherName=" + fatherName + ", motherName=" + motherName
-				+ ", getId()=" + getId() + ", getFirstName()=" + getFirstName() + ", getLastName()=" + getLastName()
-				+ ", getAge()=" + getAge() + ", getImmunizationRecord()=" + getImmunizationRecord() + "]";
+		return "Student [studentId=" + studentId + ", fatherName=" + fatherName + ", motherName=" + motherName + "]";
 	}
 
 	@Override
