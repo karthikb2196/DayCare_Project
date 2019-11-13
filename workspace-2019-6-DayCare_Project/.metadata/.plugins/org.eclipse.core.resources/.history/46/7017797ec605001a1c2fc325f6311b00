@@ -1,0 +1,14 @@
+package edu.neu.csye6200.model;
+
+import java.util.Date;
+
+public class Driver {
+
+	public static void main(String[] args) {
+		Date date1 = new Date();
+		System.err.println(date1);
+		DTapImmunization dtap = new DTapImmunization(2,date1);
+		System.out.println(dtap.getRule().demo());
+	}
+
+}

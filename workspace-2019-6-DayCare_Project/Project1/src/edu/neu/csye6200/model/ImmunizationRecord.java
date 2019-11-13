@@ -7,6 +7,8 @@ public class ImmunizationRecord {
 
 private int studentId;
 private List<Immunization> immunizationList = new ArrayList<>();
+private String toGet = new String();
+
 
 public ImmunizationRecord(int studentId) {
 	super();
@@ -29,6 +31,15 @@ public void setImmunizationList(List<Immunization> immunizationList) {
 	this.immunizationList = immunizationList;
 }
 
+
+public String getToGet() {
+	return toGet;
+}
+
+public void setToGet(String toGet) {
+	this.toGet = toGet;
+}
+
 public void AddImmunization(Immunization immunization) {
 	immunizationList.add(immunization);
 	System.out.println("Immunization "+immunization.getImmunizationName()+"added to list");
@@ -46,7 +57,11 @@ public void UpdateImmunization(Immunization immunization) {
 	
 }
 
-
+public void CheckImmunizationRecord(int age) {
+	for(Immunization im : immunizationList) {
+		
+	}
+}
 
 
 
