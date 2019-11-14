@@ -31,10 +31,17 @@ public class Student extends Person implements Comparable<Student> {
 		this.motherName = motherName;
 	}
 
-		@Override
-	public String toString() {
-		return "Student [studentId=" + this.getId() + ", fatherName=" + fatherName + ", motherName=" + motherName + "]";
+	public String output() {
+	return this.getId() + " " + this.getStudentId() + " " + this.getFirstName() + " " + this.getLastName() + " "
+			+ this.getAge() + " " + this.getClass() + " " + this.getFatherName() + " " + this.getMotherName() + " "
+			+ this.getImmunizationRecord();
+
 	}
+//	@Override
+//	public String toString() {
+//		return "Student [studentId=" + studentId + "firstName=" + firstName + ", fatherName=" + fatherName + ", motherName=" + motherName + "]";
+//	}
+
 
 	@Override
 	public int compareTo(Student o) {
