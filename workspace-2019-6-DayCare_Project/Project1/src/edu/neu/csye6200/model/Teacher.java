@@ -10,7 +10,6 @@ public class Teacher extends Person implements Comparable<Teacher> {
 	private int stateLevel;// the level this teacher is available to teach. 1 means 6-12month, etc.
 	private Date registerTime;
 
-
 	public Teacher(int teacherId, String firstName, String lastName, Date registerTime, int stateLevel, int age,
 			int id) {
 		super(id, firstName, lastName, age);
@@ -19,12 +18,12 @@ public class Teacher extends Person implements Comparable<Teacher> {
 		this.stateLevel = stateLevel;
 	}
 
-	public int getTchId() {
+	public int getTeacherId() {
 		return teacherId;
 	}
 
-	public void setTchId(int tchId) {
-		this.teacherId = tchId;
+	public void setTeacherId(int teacherId) {
+		this.teacherId = teacherId;
 	}
 
 	public boolean isIdle() {
@@ -43,11 +42,16 @@ public class Teacher extends Person implements Comparable<Teacher> {
 		this.stateLevel = stateLevel;
 	}
 
-	@Override
-	public String toString() {
-		return "Teacher [teacherId=" + teacherId + ", isIdle=" + isIdle + ", stateLevel=" + stateLevel
-				+ ", registerTime=" + registerTime + "]";
+	public String output() {
+		return this.getId() + "  " + this.getTeacherId() + " " + this.getFirstName() + " " + this.getLastName() + " "
+				+ this.getStateLevel() + this.getAge() + " " + this.getClass() + " " + this.getImmunizationRecord();
+
 	}
+//	@Override
+//	public String toString() {
+//		return "Teacher [teacherId=" + teacherId + ", isIdle=" + isIdle + ", stateLevel=" + stateLevel
+//				+ ", registerTime=" + registerTime + "]";
+//	}
 
 	@Override
 	public int compareTo(Teacher tch) {
