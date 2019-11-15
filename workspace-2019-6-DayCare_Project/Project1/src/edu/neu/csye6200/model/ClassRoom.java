@@ -6,31 +6,23 @@ import java.util.List;
 public class ClassRoom {
 
 	private int classRoomID;
-	private List<Teacher> teachers = new ArrayList<>();
-	private List<Student> students = new ArrayList<>();
+	private List<Integer> teachers = new ArrayList<>(); //list of teacher id
+	private List<Integer> students = new ArrayList<>(); //list of student id
 	private float classRatio;
 	private int maxStudents;
 	private int maxTeachers;
-	private List<ClassRoomRule> classRoomRule;
+	private List<ClassRoomRule> classRoomRule = new ArrayList<>();
 	
+	public ClassRoom(int classRoomID) {
+		this.classRoomID = classRoomID;
+	}
 	public int getClassRoomID() {
 		return classRoomID;
 	}
 	public void setClassRoomID(int classRoomID) {
 		this.classRoomID = classRoomID;
 	}
-	public List<Teacher> getTeachers() {
-		return teachers;
-	}
-	public void setTeachers(List<Teacher> teachers) {
-		this.teachers = teachers;
-	}
-	public List<Student> getStudents() {
-		return students;
-	}
-	public void setStudents(List<Student> students) {
-		this.students = students;
-	}
+	
 	public float getClassRatio() {
 		return classRatio;
 	}
@@ -50,6 +42,13 @@ public class ClassRoom {
 		this.maxTeachers = maxTeachers;
 	}
 	
+	public void addStudent(int s) {
+		this.students.add(s);
+	}
+	
+	public void addTeacher(int t) {
+		this.teachers.add(t);
+	}
 
 	
 }

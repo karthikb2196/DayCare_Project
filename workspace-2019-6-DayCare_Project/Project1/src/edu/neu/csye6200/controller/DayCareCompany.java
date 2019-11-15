@@ -61,4 +61,8 @@ public class DayCareCompany {
 	public void addImmunization(Immunization i) {
 		this.immunizations.add(i);
 	}
+	
+	public void addClassRoom(ClassRoom c) {
+		this.getClassRooms().add(c);
+	}
 }
