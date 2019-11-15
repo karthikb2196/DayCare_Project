@@ -15,6 +15,7 @@ public class Teacher extends Person implements Comparable<Teacher> {
 	private int stateLevel;// the level this teacher is available to teach. 1 means 6-12month, etc.
 	private Date registerTime;
 
+	
 //	public Teacher(int teacherId, String firstName, String lastName, Date registerTime, int stateLevel, int age,
 //			int id) {
 //		super(id, firstName, lastName, age);

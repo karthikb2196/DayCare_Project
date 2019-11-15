@@ -12,6 +12,7 @@ public class ClassRoom {
 	private int maxStudents;
 	private int maxTeachers;
 	private List<ClassRoomRule> classRoomRule = new ArrayList<>();
+	private int numberOfStudents;
 	
 	public ClassRoom(int classRoomID) {
 		this.classRoomID = classRoomID;
@@ -51,4 +52,31 @@ public class ClassRoom {
 	}
 
 	
+	public int getNumberOfStudents() {
+		return numberOfStudents;
+	}
+	public void setNumberOfStudents(int numberOfStudents) {
+		this.numberOfStudents = numberOfStudents;
+	}
+	
+	//Check if the classroom is full or not, and check the ratio for the student
+	public boolean CheckClassroom(Student student) {
+		if(this.getNumberOfStudents() < this.getMaxStudents()) {
+			for(ClassRoomRule classRoomRule : classRoomRule) {
+			if((student.getAge() <= classRoomRule.getAgeUpperLimit()) && (student.getAge() >= classRoomRule.getAgeUpperLimit())) {
+				return true;
+			}
+		}
+	}
+			return false;	
+		}
+		
+	public String addStudent(Student student) {
+		boolean check = CheckClassroom(student);
+		if(check == true) {
+				this.students.add(student.getId());
+				return "Sucess! Student added to class" + classRoomID;
+			}
+		return "Failed! Student not added to this class" ;
+		}
 }
