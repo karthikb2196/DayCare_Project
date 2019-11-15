@@ -23,11 +23,39 @@ public class Student extends Person implements Comparable<Student> {
 		super(Integer.parseInt(info[0]), 
 				info[1], info[2], 
 				Integer.parseInt(info[3]),
-				new SimpleDateFormat("dd/MM/yyyy").parse(info[4]));
+				new SimpleDateFormat("MM-dd-yyyy").parse(info[4]));
 		fatherName = info[5];
 		motherName = info[6];
 	}
 
+	public Student(String csvData) {
+		super();
+		try {
+			String[] args = csvData.split(",");
+			 int id = Integer.parseInt(args[0]);
+			 String firstName = args[1];
+			 String lastName = args[2];
+			 int age = Integer.parseInt(args[3]);
+			 Date dateOfEnrollment = null;
+			 dateOfEnrollment = ft.parse(args[4]);
+			 String fatherName = args[5];
+			 String motherName = args[6];
+			 
+			 this.setId(id);
+			 this.setFirstName(firstName);
+			 this.setLastName(lastName);
+			 this.setAge(age);
+			 this.setDateOfEnrollment(dateOfEnrollment);
+			 this.setImmunizationRecord(new ImmunizationRecord(id));
+			 this.setFatherName(fatherName);
+			 this.setMotherName(motherName);
+			 
+			}
+			catch(Exception e) {
+				e.printStackTrace();
+			}
+	}
+	
 	public String getFatherName() {
 		return fatherName;
 	}
