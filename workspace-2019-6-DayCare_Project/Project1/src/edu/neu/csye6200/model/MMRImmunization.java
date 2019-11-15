@@ -4,13 +4,13 @@ import java.util.Date;
 
 public class MMRImmunization extends Immunization {
 
-	private String mmrVaccine = "MMR Immunization";
+	private final String NAME = "MMR Immunization";
 
-	public MMRImmunization(int ageReceived, Date dateReceived, int numberOfDosesGiven) {
-		this.setImmunizationName(mmrVaccine);
-		this.setAgeReceived(ageReceived);
-		this.setDateReceived(dateReceived);
-		this.setNumberOfDosesGiven(numberOfDosesGiven);
+
+	public MMRImmunization(int immunizationID, String immunizationName, int ageReceived, Date dateReceived,
+			int numberOfDosesGiven) {
+		super(immunizationID, immunizationName, ageReceived, dateReceived, numberOfDosesGiven);
+		this.setImmunizationName(NAME);
 	}
 
 }

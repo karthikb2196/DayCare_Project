@@ -4,6 +4,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 import edu.neu.csye6200.model.ClassRoom;
+import edu.neu.csye6200.model.Immunization;
 import edu.neu.csye6200.model.ImmunizationRecord;
 import edu.neu.csye6200.model.Person;
 
@@ -14,6 +15,8 @@ public class DayCareCompany {
 	private List<Person> students = new ArrayList<>();
 	private List<ImmunizationRecord> immunizationDirectory = new ArrayList<ImmunizationRecord>();
 	private List<ClassRoom> classRooms = new ArrayList<ClassRoom>();
+	private List<Immunization> immunizations = new ArrayList<>();
+	
 	public List<Person> getTeachers() {
 		return teachers;
 	}
@@ -38,6 +41,12 @@ public class DayCareCompany {
 	public void setClassRooms(List<ClassRoom> classRooms) {
 		this.classRooms = classRooms;
 	}
-		
 	
+	public void addStudent(Person s) {
+		this.students.add(s);
+	}
+		
+	public void addTeacher(Person s) {
+		this.teachers.add(s);
+	}
 }

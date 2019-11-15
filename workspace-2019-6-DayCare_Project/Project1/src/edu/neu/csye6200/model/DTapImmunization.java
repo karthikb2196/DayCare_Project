@@ -3,17 +3,14 @@ package edu.neu.csye6200.model;
 import java.util.Date;
 
 public class DTapImmunization extends Immunization {
-	private String dtapVaccine = "DTaP Immunization";
+	private final String dtapVaccine = "DTaP Immunization";
 	
-	
-	public DTapImmunization(int ageReceived, Date dateReceived,int numberOfDosesGiven) {
+	public DTapImmunization(int immunizationID, String immunizationName, int ageReceived, Date dateReceived,
+			int numberOfDosesGiven) {
+		super(immunizationID, immunizationName, ageReceived, dateReceived, numberOfDosesGiven);
 		this.setImmunizationName(dtapVaccine);
-		this.setAgeReceived(ageReceived);
-		this.setDateReceived(dateReceived);
-		this.setNumberOfDosesGiven(numberOfDosesGiven);
-		//this.setRule(new Rule()); // should be DTapRule
-		// TODO Auto-generated constructor stub
 	}
+	
 	
 
 

@@ -1,14 +1,15 @@
 package edu.neu.csye6200.model;
 
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 
-public abstract class Immunization {
+public class Immunization {
 
 	private int immunizationID;
 	private String immunizationName;
 	private int ageReceived;
-	private List<ImmunizationRule> rules; 
+	private List<ImmunizationRule> rules=new ArrayList<>(); 
 	/*
 Each immunization has a list of rules
 To decide the immunization requirement, go through all the 
@@ -16,6 +17,18 @@ ImmunizationRule objects in the list
 	*/
 	private Date dateReceived;
 	private int numberOfDosesGiven;
+	
+	
+
+	public Immunization(int immunizationID, String immunizationName, int ageReceived, 
+			Date dateReceived, int numberOfDosesGiven) {
+		super();
+		this.immunizationID = immunizationID;
+		this.immunizationName = immunizationName;
+		this.ageReceived = ageReceived;
+		this.dateReceived = dateReceived;
+		this.numberOfDosesGiven = numberOfDosesGiven;
+	}
 
 	public int getImmunizationID() {
 		return immunizationID;

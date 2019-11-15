@@ -5,13 +5,11 @@ import java.util.Date;
 public class PolioImmunization extends Immunization{
 
 	private String polioVaccine = "Polio Immunization"; 
-	public PolioImmunization(int ageReceived, Date dateReceived,int numberOfDosesGiven) {
+
+	public PolioImmunization(int immunizationID, String immunizationName, int ageReceived, Date dateReceived,
+			int numberOfDosesGiven) {
+		super(immunizationID, immunizationName, ageReceived, dateReceived, numberOfDosesGiven);
 		this.setImmunizationName(polioVaccine);
-		this.setAgeReceived(ageReceived);
-		this.setDateReceived(dateReceived);
-		//this.setRule(new Rule()); // should be PolioRule
-		this.setNumberOfDosesGiven(numberOfDosesGiven);
-		// TODO Auto-generated constructor stub
 	}
 
 
