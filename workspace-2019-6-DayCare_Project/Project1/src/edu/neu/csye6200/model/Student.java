@@ -26,6 +26,7 @@ public class Student extends Person implements Comparable<Student> {
 				new SimpleDateFormat("MM-dd-yyyy").parse(info[4]));
 		fatherName = info[5];
 		motherName = info[6];
+		
 	}
 
 	public Student(String csvData) {
