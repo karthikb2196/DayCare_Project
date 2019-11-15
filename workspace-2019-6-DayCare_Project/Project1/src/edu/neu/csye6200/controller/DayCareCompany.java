@@ -15,8 +15,16 @@ public class DayCareCompany {
 	private List<Person> students = new ArrayList<>();
 	private List<ImmunizationRecord> immunizationDirectory = new ArrayList<ImmunizationRecord>();
 	private List<ClassRoom> classRooms = new ArrayList<ClassRoom>();
-	private List<Immunization> immunizations = new ArrayList<>();
+	private List<Immunization> immunizations = new ArrayList<>();//a list of all immunizations we have right now
 	
+	
+	
+	public List<Immunization> getImmunizations() {
+		return immunizations;
+	}
+	public void setImmunizations(List<Immunization> immunizations) {
+		this.immunizations = immunizations;
+	}
 	public List<Person> getTeachers() {
 		return teachers;
 	}
@@ -48,5 +56,9 @@ public class DayCareCompany {
 		
 	public void addTeacher(Person s) {
 		this.teachers.add(s);
+	}
+	
+	public void addImmunization(Immunization i) {
+		this.immunizations.add(i);
 	}
 }
