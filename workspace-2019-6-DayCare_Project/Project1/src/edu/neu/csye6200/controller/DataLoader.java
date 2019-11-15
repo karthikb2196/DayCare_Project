@@ -82,7 +82,7 @@ public class DataLoader {
 				if (person_id == person.getId()) {
 					// create an immunization object
 					Immunization i = new Immunization(immu_id, info[2], Integer.parseInt(info[3]),
-							new SimpleDateFormat("dd/MM/yyyy").parse(info[4]), Integer.parseInt(info[5]));
+							new SimpleDateFormat("MM-dd-yyyy").parse(info[4]), Integer.parseInt(info[5]));
 					// add the immunization object to the person's record
 					person.getImmunizationRecord().AddImmunization(i);
 				}
