@@ -16,7 +16,9 @@ import java.util.Scanner;
 
 import edu.neu.csye6200.model.ClassRoom;
 import edu.neu.csye6200.model.Immunization;
+import edu.neu.csye6200.model.ImmunizationRule;
 import edu.neu.csye6200.model.Person;
+import edu.neu.csye6200.model.Rule;
 import edu.neu.csye6200.model.Student;
 import edu.neu.csye6200.model.Teacher;
 
@@ -27,6 +29,8 @@ public class DataLoader {
 	private final String teacherCSV = "teachers.csv";
 	private final String recordCSV = "record.csv";
 	private final String classroomCSV = "classrooms.csv";
+	private final String ImmunizationRuleCSV = "ImmunizationRules.csv";
+	
 
 	public DataLoader(DayCareCompany company) {
 		this.company = company;
@@ -92,12 +96,14 @@ public class DataLoader {
 
 	public void readClassrooms() throws FileNotFoundException, NumberFormatException, ParseException {
 		/*
-		 * read classroom.csv: 1) create classroom objects 2) load all persons to each
-		 * classroom
+		 * read classroom.csv: 1) create classroom objects 
+		 * 2) load all persons to each classroom
 		 * 
-		 * classroom.csv format: ClassRoomID;student_id1,student_id2;teacher_id e.g.,
-		 * 1;1,2,3;4 means classroom(ID=1) has three students whose IDs are 1, 2, 3 and
-		 * one teacher whose ID is 4
+		 * classroom.csv format: "ClassRoomID;student_id1,student_id2;teacher_id"
+		 * e.g.,
+		 * 		1;1,2,3;4 
+		 * means classroom(ID=1) has three students whose IDs are 1, 2, 3 and
+		 * 								one teacher whose ID is 4
 		 */
 		List<String> classrooms = readFile(classroomCSV);
 		for (String classroom : classrooms) {
@@ -125,17 +131,27 @@ public class DataLoader {
 		}
 	}
 
-	public static String[] sliceArray(String[] arr, int start, int end) {
-
-		// Function to get slice of a primitive array
-		String[] slice = new String[end - start];
-
-		// Copy elements of arr to slice
-		for (int i = 0; i < slice.length; i++) {
-			slice[i] = arr[start + i];
+	public void readImmunizationRules() throws FileNotFoundException, NumberFormatException, ParseException {
+		/*
+		 * read ImmunizationRuleCSV
+		 * create Rule objects
+		 * load Rule objects into DayCare Company
+		 * 
+		 * Format: "ImmuID, ageLowerLimit, ageUpperLimit, immunization,requiredAmt,duration"
+		 */
+		List<String> rules = readFile(ImmunizationRuleCSV);
+		
+		// create Rule object and add it to the company rule list
+		for(String rule:rules) {
+			Rule r = new ImmunizationRule(rule);
+			this.company.addRule(r);
 		}
-		// return the slice
-		return slice;
+		
+		// associate rules with immunizations
+
+		
+		
+		
 	}
 
 }

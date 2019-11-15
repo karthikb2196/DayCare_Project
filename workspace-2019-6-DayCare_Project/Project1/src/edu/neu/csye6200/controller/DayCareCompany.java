@@ -7,6 +7,7 @@ import edu.neu.csye6200.model.ClassRoom;
 import edu.neu.csye6200.model.Immunization;
 import edu.neu.csye6200.model.ImmunizationRecord;
 import edu.neu.csye6200.model.Person;
+import edu.neu.csye6200.model.Rule;
 
 
 public class DayCareCompany {
@@ -15,8 +16,8 @@ public class DayCareCompany {
 	private List<Person> students = new ArrayList<>();
 	private List<ImmunizationRecord> immunizationDirectory = new ArrayList<ImmunizationRecord>();
 	private List<ClassRoom> classRooms = new ArrayList<ClassRoom>();
-	private List<Immunization> immunizations = new ArrayList<>();//a list of all immunizations we have right now
-	
+	private List<Immunization> immunizations = new ArrayList<>();//a list of all immunizations
+	private List<Rule> immunizationRules = new ArrayList<>();//a list of all immunization rules 
 	
 	
 	public List<Immunization> getImmunizations() {
@@ -64,5 +65,15 @@ public class DayCareCompany {
 	
 	public void addClassRoom(ClassRoom c) {
 		this.getClassRooms().add(c);
+	}
+	
+	public List<Rule> getImmunizationRules() {
+		return immunizationRules;
+	}
+	public void setImmunizationRules(List<Rule> immunizationRules) {
+		this.immunizationRules = immunizationRules;
+	}
+	public void addRule(Rule r) {
+		this.immunizationRules.add(r);
 	}
 }
