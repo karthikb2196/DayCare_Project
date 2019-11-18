@@ -75,14 +75,16 @@ public class Student extends Person implements Comparable<Student> {
 
 	public String output() {
 	return this.getId() + " " + " " + this.getFirstName() + " " + this.getLastName() + " "
-			+ this.getAge() + " " + this.getClass() + " " + this.getFatherName() + " " + this.getMotherName() + " "
-			+ this.getImmunizationRecord()+ ft.format(this.getDateOfEnrollment());
+			+ this.getAge() + " " + this.getFatherName() + " " + this.getMotherName() + " "
+			+ this.getImmunizationRecord()+ this.getDateOfEnrollment();
 
 	}
-//	@Override
-//	public String toString() {
-//		return "Student [studentId=" + studentId + "firstName=" + firstName + ", fatherName=" + fatherName + ", motherName=" + motherName + "]";
-//	}
+	
+	@Override
+	public String toString() {
+		return this.getId() + "," + this.getFirstName() + "," + this.getLastName() + ","
++ this.getAge() + "," + this.getFatherName() + "," + this.getMotherName() + "," + ft.format(this.getDateOfEnrollment());
+	}
 
 
 	private int getStudentId() {
@@ -98,9 +100,9 @@ public class Student extends Person implements Comparable<Student> {
 	
 	public static void demo() {
 		Student student1 = new Student(1,"bsvg","vcgveg",1,new Date(),"GG","JJ");
-		System.out.println(student1.output());
+		System.out.println(student1);
 		Student student2 = new Student("25,jim,hello,1,10-22-2019,john,JJ");
-		System.out.println(student2.output());
+		System.out.println(student2);
 	}
 }
 
