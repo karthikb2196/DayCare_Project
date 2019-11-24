@@ -167,7 +167,7 @@ public class DataLoader {
 		// create Rule object and add it to the company rule list
 		for(String rule:rules) {
 			ImmunizationRule r = new ImmunizationRule(rule);
-			
+			this.company.getImmunizationRules().add(r);
 		}
 		
 	

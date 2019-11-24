@@ -22,10 +22,16 @@ public class DayCareCompany {
 	private List<ClassRoom> classRooms = new ArrayList<ClassRoom>();
 	private List<Immunization> immunizations = new ArrayList<>();//a list of all immunizations we have right now
 	private int numberOfClassrooms;
-	private List<ImmunizationRule> immunizationRules = new ArrayList<>();;
+	private List<ImmunizationRule> immunizationRules = new ArrayList<>();
 	
 	
 	
+	public List<ImmunizationRule> getImmunizationRules() {
+		return immunizationRules;
+	}
+	public void setImmunizationRules(List<ImmunizationRule> immunizationRules) {
+		this.immunizationRules = immunizationRules;
+	}
 	public List<Immunization> getImmunizations() {
 		return immunizations;
 	}
