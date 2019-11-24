@@ -88,11 +88,6 @@ public class Student extends Person implements Comparable<Student> {
 	}
 
 
-	private int getStudentId() {
-		// TODO Auto-generated method stub
-		return this.getId();
-	}
-
 	@Override
 	public int compareTo(Student o) {
 		// TODO Auto-generated method stub
