@@ -6,8 +6,8 @@ import java.util.List;
 public class ClassRoom {
 
 	private int classRoomID;
-	private List<Integer> teachers = new ArrayList<>(); //list of teacher id
-	private List<Integer> students = new ArrayList<>(); //list of student id
+	private List<Person> teachers = new ArrayList<>(); //list of teacher id
+	private List<Person> students = new ArrayList<>(); //list of student id
 	private float classRatio;
 	private int maxStudents;
 	private int maxTeachers;
@@ -43,11 +43,7 @@ public class ClassRoom {
 		this.maxTeachers = maxTeachers;
 	}
 	
-	public void addStudent(int s) {
-		this.students.add(s);
-	}
-	
-	public void addTeacher(int t) {
+	public void addTeacher(Person t) {
 		this.teachers.add(t);
 	}
 
@@ -60,10 +56,10 @@ public class ClassRoom {
 	}
 	
 	//Check if the classroom is full or not, and check the ratio for the student
-	public boolean CheckClassroom(Student student) {
+	public boolean CheckClassroom(Person person) {
 		if(this.getNumberOfStudents() < this.getMaxStudents()) {
 			for(ClassRoomRule classRoomRule : classRoomRule) {
-			if((student.getAge() <= classRoomRule.getAgeUpperLimit()) && (student.getAge() >= classRoomRule.getAgeUpperLimit())) {
+			if((person.getAge() <= classRoomRule.getAgeUpperLimit()) && (person.getAge() >= classRoomRule.getAgeUpperLimit())) {
 				return true;
 			}
 		}
@@ -71,10 +67,10 @@ public class ClassRoom {
 			return false;	
 		}
 		
-	public String addStudent(Student student) {
-		boolean check = CheckClassroom(student);
+	public String addStudent(Person person) {
+		boolean check = CheckClassroom(person);
 		if(check == true) {
-				this.students.add(student.getId());
+				this.students.add(person);
 				return "Sucess! Student added to class" + classRoomID;
 			}
 		return "Failed! Student not added to this class" ;

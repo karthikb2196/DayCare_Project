@@ -18,8 +18,6 @@ ImmunizationRule objects in the list
 	private Date dateReceived;
 	private int numberOfDosesGiven;
 	
-	
-
 	public Immunization(int immunizationID, String immunizationName, int ageReceived, 
 			Date dateReceived, int numberOfDosesGiven) {
 		super();

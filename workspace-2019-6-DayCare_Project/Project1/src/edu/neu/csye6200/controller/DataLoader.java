@@ -117,18 +117,38 @@ public class DataLoader {
 			
 			//add students to the classroom
 			for(String student_id:students) {
-				aClass.addStudent(Integer.parseInt(student_id));
+				aClass.addStudent(findStudent(Integer.parseInt(student_id)));
 			}
 			
 			//add teachers to the classroom
 			for(String teacher_id:teachers) {
-				aClass.addStudent(Integer.parseInt(teacher_id));
+				aClass.addTeacher(findStudent(Integer.parseInt(teacher_id)));
 			}
 			
 			// add the new classroom object to the company
 			this.company.addClassRoom(aClass);
 
 		}
+	}
+	
+	public Person findStudent(int id) {
+		//look for a specific student based on id
+		for(Person s:this.company.getStudents()) {
+			if(s.getId()==id) {
+				return s;
+			}
+		}
+		return null;
+	}
+	
+	public Person findTeacher(int id) {
+		//look for a specific teacher based on id
+		for(Person t:this.company.getTeachers()) {
+			if(t.getId()==id) {
+				return t;
+			}
+		}
+		return null;
 	}
 
 	public void readImmunizationRules() throws FileNotFoundException, NumberFormatException, ParseException {
@@ -146,10 +166,6 @@ public class DataLoader {
 			Rule r = new ImmunizationRule(rule);
 			this.company.addRule(r);
 		}
-		
-		// associate rules with immunizations
-
-		
 		
 		
 	}

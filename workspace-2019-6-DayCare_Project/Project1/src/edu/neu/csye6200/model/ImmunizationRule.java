@@ -74,12 +74,12 @@ public class ImmunizationRule implements Rule {
 	@Override
 	public String getRuleDescription() {
 		// TODO Auto-generated method stub
-		return null;
+		return this.ruleDescription;
 	}
 
 	@Override
 	public void setRuleDescription(String descr) {
-		// TODO Auto-generated method stub
+		this.ruleDescription=descr;
 		
 	} 
 
