@@ -8,6 +8,7 @@ import edu.neu.csye6200.model.ClassRoom;
 import edu.neu.csye6200.model.ClassRoomRule;
 import edu.neu.csye6200.model.Immunization;
 import edu.neu.csye6200.model.ImmunizationRecord;
+import edu.neu.csye6200.model.ImmunizationRule;
 import edu.neu.csye6200.model.Person;
 import edu.neu.csye6200.model.Student;
 
@@ -21,6 +22,7 @@ public class DayCareCompany {
 	private List<ClassRoom> classRooms = new ArrayList<ClassRoom>();
 	private List<Immunization> immunizations = new ArrayList<>();//a list of all immunizations we have right now
 	private int numberOfClassrooms;
+	private List<ImmunizationRule> immunizationRules = new ArrayList<>();;
 	
 	
 	
@@ -107,6 +109,40 @@ public class DayCareCompany {
 //	public void show() {
 //		
 //	}
+	
+
+	public int checkRequiredDose(int age, Immunization immu) {
+		// decide how many dose of an immunization should be taken based on age
+		for (ImmunizationRule rule : this.immunizationRules) {
+			if (rule.getAgeLowerLimit() < age && age < rule.getAgeUpperLimit()
+					&& rule.getRuleID() == immu.getImmunizationID()) {
+				return rule.getRequiredAmt();
+			}
+		}
+		System.err.println("Invalid Age Input. Unable to decide required dose. ");
+		return -1;
+	}
+
+	public int expectedDose(int age, Immunization immu) {
+		// how many vaccine should be taken in the future
+		return (checkRequiredDose(age, immu) - immu.getNumberOfDosesGiven());
+	}
+
+	public void CheckImmunizationRecord(Person p) {
+		/*
+		 * Check a person's immu record and decide what requirements are not meet yet
+		 */
+		StringBuilder sb = new StringBuilder();
+		for (Immunization im : p.getImmunizationRecord().getImmunizationList()) {
+			int needDoseAmt = expectedDose(p.getAge(), im);
+			int doseTaken = im.getNumberOfDosesGiven();
+			if(needDoseAmt > doseTaken) {
+				sb.append("Still need to take "+(needDoseAmt-doseTaken)+" "+im.getImmunizationName());
+			}
+		}
+		System.out.println(sb);
+	}
+
 	
 	public static void demo() {
 		DayCareCompany dayCareCompany = new DayCareCompany();

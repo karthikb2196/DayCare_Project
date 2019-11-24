@@ -38,7 +38,8 @@ public class DataLoader {
 
 	public List<String> readFile(String csv) throws FileNotFoundException {
 		/*
-		 * read a csv file and return a list of strings each element is a line
+		 * read a csv file and return a list of strings.
+		 *  each element is a line
 		 */
 		List<String> strings = new ArrayList<String>();
 		Scanner inLine = new Scanner(new BufferedReader(new FileReader(csv)));
@@ -138,6 +139,7 @@ public class DataLoader {
 				return s;
 			}
 		}
+		System.err.println("Unable to locate student "+id);
 		return null;
 	}
 	
@@ -148,6 +150,7 @@ public class DataLoader {
 				return t;
 			}
 		}
+		System.err.println("Unable to locate teacher "+id);
 		return null;
 	}
 
@@ -157,17 +160,20 @@ public class DataLoader {
 		 * create Rule objects
 		 * load Rule objects into DayCare Company
 		 * 
-		 * Format: "ImmuID, ageLowerLimit, ageUpperLimit, immunization,requiredAmt,duration"
+		 * Format: "ImmuID, ageLowerLimit, ageUpperLimit, immunization,requiredAmt"
 		 */
 		List<String> rules = readFile(ImmunizationRuleCSV);
 		
 		// create Rule object and add it to the company rule list
 		for(String rule:rules) {
-			Rule r = new ImmunizationRule(rule);
-			this.company.addRule(r);
+			ImmunizationRule r = new ImmunizationRule(rule);
+			
 		}
+		
+	
 		
 		
 	}
+	
 
 }

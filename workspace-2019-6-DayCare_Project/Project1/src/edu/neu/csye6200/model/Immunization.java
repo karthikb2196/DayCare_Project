@@ -76,32 +76,5 @@ ImmunizationRule objects in the list
 		this.numberOfDosesGiven = numberOfDosesGiven;
 	}
 
-	public int checkDuration(int age) {
-		// go through all the rules in the rule list
-		// decide the duration
-		for (ImmunizationRule rule : this.rules) {
-			if (rule.getAgeLowerLimit() < age && age < rule.getAgeUpperLimit()) {
-				return rule.getDuration();
-			}
-		}
-		System.err.println("Invalid Age Input. Unable to decide duration. ");
-		return -1;
-	}
 
-	public int checkRequiredDose(int age) {
-		// go through all the rules in the rule list
-		// decide how many dose should be taken
-		for (ImmunizationRule rule : this.rules) {
-			if (rule.getAgeLowerLimit() < age && age < rule.getAgeUpperLimit()) {
-				return rule.getRequiredAmt();
-			}
-		}
-		System.err.println("Invalid Age Input. Unable to decide required dose. ");
-		return -1;
-	}
-	
-	public int expectedDose(int age) {
-		//how many vaccine should be taken in the future
-		return (checkRequiredDose(age)-this.numberOfDosesGiven);
-	}
 }

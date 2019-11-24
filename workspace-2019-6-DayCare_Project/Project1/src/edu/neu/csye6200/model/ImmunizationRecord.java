@@ -57,28 +57,6 @@ public void UpdateImmunization(Immunization immunization) {
 	
 }
 
-public void CheckImmunizationRecord(int age) {
-	StringBuilder sb = new StringBuilder();
-	for(Immunization im : immunizationList) {
-		int numberOfDoses=im.expectedDose(age);
-		sb.append(im.getImmunizationName() + numberOfDoses +" ," );
-	}
-	this.toGet = sb.toString();
-}
-public String showOutput() {
-	return "Required by Student studentId=" + studentId + ":" + toGet ;
-}
-
-public List<String> createCSVString() {
-	List<String> immunizations = new ArrayList<String>();
-	for(Immunization immunization : immunizationList) {
-		String currentImmunization = this.getStudentId()+","+immunization.toString();
-		immunizations.add(currentImmunization);
-	}
-	return immunizations;
-}
-
-
 
 
 

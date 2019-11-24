@@ -7,8 +7,6 @@ public class ImmunizationRule implements Rule {
 	private int ageUpperLimit;
 	private String ruleDescription;
 	private int requiredAmt; //how many doses are required
-	private int duration;
-	
 	
 	public ImmunizationRule(int ruleID, int ageLowerLimit, int ageUpperLimit, String immunization, int requiredAmt,
 			int duration) {
@@ -17,13 +15,12 @@ public class ImmunizationRule implements Rule {
 		this.ageUpperLimit = ageUpperLimit;
 		this.ruleDescription = immunization;
 		this.requiredAmt = requiredAmt;
-		this.duration = duration;
 	}
 	
 	public ImmunizationRule(String rule) {
 		/*
 		 * create based on a csv row. 
-		 * Format: "ImmuID, ageLowerLimit, ageUpperLimit, immunization,requiredAmt,duration"
+		 * Format: "ImmuID, ageLowerLimit, ageUpperLimit, immunization,requiredAmt"
 		 */
 		String[] info = rule.split(",");
 		this.ruleID = Integer.parseInt(info[0]);
@@ -31,7 +28,6 @@ public class ImmunizationRule implements Rule {
 		this.ageUpperLimit = Integer.parseInt(info[2]);
 		this.ruleDescription = info[3];
 		this.requiredAmt = Integer.parseInt(info[4]);
-		this.duration = Integer.parseInt(info[5]);
 	}
 	
 	public int getRuleID() {
@@ -63,12 +59,6 @@ public class ImmunizationRule implements Rule {
 	}
 	public void setRequiredAmt(int requiredAmt) {
 		this.requiredAmt = requiredAmt;
-	}
-	public int getDuration() {
-		return duration;
-	}
-	public void setDuration(int duration) {
-		this.duration = duration;
 	}
 
 	@Override
