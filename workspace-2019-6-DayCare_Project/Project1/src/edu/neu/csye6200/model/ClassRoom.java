@@ -34,6 +34,30 @@ public class ClassRoom {
 		this.classRoomID = classRoomID;
 	}
 	
+	public List<Person> getTeachers() {
+		return teachers;
+	}
+	public void setTeachers(List<Person> teachers) {
+		this.teachers = teachers;
+	}
+	public List<Person> getStudents() {
+		return students;
+	}
+	public void setStudents(List<Person> students) {
+		this.students = students;
+	}
+	public ClassRoomRule getClassRoomRule() {
+		return classRoomRule;
+	}
+	public void setClassRoomRule(ClassRoomRule classRoomRule) {
+		this.classRoomRule = classRoomRule;
+	}
+	public int getRuleID() {
+		return ruleID;
+	}
+	public void setRuleID(int ruleID) {
+		this.ruleID = ruleID;
+	}
 	public float getClassRatio() {
 		return classRatio;
 	}

@@ -64,6 +64,7 @@ public class DayCareCompany {
 				classRooms.add(c);
 			}
 		}
+		
 		return classRooms;
 	}
 	
@@ -174,7 +175,7 @@ public class DayCareCompany {
 		
 		dayCareCompany.addStudent(student1);
 		dayCareCompany.addStudent(student2);
-//		dayCareCompany.toString();
+		System.out.println(dayCareCompany);
 		
 		
 	}
