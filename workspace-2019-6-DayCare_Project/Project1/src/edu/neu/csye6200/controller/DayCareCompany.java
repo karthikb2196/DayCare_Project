@@ -55,17 +55,20 @@ public class DayCareCompany {
 		this.classRooms = classRooms;
 	}
 	
-//	public List<ClassRoom> getClassRoomList(Person s){
-//		List<ClassRoom> classRooms = new ArrayList<ClassRoom>();
-//		for(ClassRoom c : this.getClassRooms()) {
-//			if(s.getAge() <= c.getA() && s.getAge() >= c.getMaxStudents())
-//		}
-//	}
-//	
+	public List<ClassRoom> getClassRoomList(Person s){
+		List<ClassRoom> classRooms = new ArrayList<ClassRoom>();
+		for(ClassRoom c : this.getClassRooms()) {
+			if(s.getRuleID()==c.getRuleID()) {
+				classRooms.add(c);
+			}
+		}
+		return classRooms;
+	}
+	
 	public void addStudent(Person s) {
 		this.getStudents().add(s);
 		
-		for(ClassRoom classRoom : this.getClassRooms()) {
+		for(ClassRoom classRoom : getClassRoomList(s)) {
 			int addStudent= classRoom.addStudent(s);
 			if(addStudent < classRoom.getMaxStudents() && addStudent> 0) {
 				System.out.println("Student added to classroom: "+classRoom.getClassRoomID());
@@ -133,10 +136,6 @@ public class DayCareCompany {
 		Student student1 = new Student(1,"bsvg","vcgveg",7,new Date(),"GG","JJ");
 		Student student2 = new Student("25,jim,hello,26,10-22-2019,john,JJ");
 		
-//		for(ClassRoom classRoom : dayCareCompany.getClassRooms()) {
-//			classRoom.addStudent(student1);
-////			classRoom.addStudent(student2);
-//		}
 		dayCareCompany.addStudent(student1);
 		dayCareCompany.addStudent(student2);
 //		dayCareCompany.toString();

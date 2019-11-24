@@ -50,6 +50,7 @@ public class Student extends Person implements Comparable<Student> {
 			 this.setImmunizationRecord(new ImmunizationRecord(id));
 			 this.setFatherName(fatherName);
 			 this.setMotherName(motherName);
+			 setRuleID(age);
 			 
 			}
 			catch(Exception e) {

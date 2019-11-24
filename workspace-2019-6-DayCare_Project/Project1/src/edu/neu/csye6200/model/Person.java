@@ -14,6 +14,7 @@ private ImmunizationRecord immunizationRecord;
 //to add to csv
 SimpleDateFormat ft = new SimpleDateFormat ("MM-dd-yyyy");//MM-dd-yyyy
 private Date dateOfEnrollment;
+private int ruleID;
 
 
 public Person() {
@@ -29,6 +30,7 @@ public Person(int id, String firstName, String lastName, int age,Date dateOfEnro
 	this.age = age;
 	this.dateOfEnrollment = dateOfEnrollment;
 	this.immunizationRecord = new ImmunizationRecord(id);
+	setRuleID(age);
 }
 
 // To get back 
@@ -50,6 +52,8 @@ public Person(String csvData) {
 	 this.setAge(age);
 	 this.setDateOfEnrollment(dateOfEnrollment);
 	 this.setImmunizationRecord(new ImmunizationRecord(id));
+	 setRuleID(age);
+	 
 	}
 	catch(Exception e) {
 		e.printStackTrace();
@@ -117,6 +121,30 @@ public void setDateOfEnrollment(Date dateOfEnrollment) {
 	this.dateOfEnrollment = dateOfEnrollment;
 }
 
+public int getRuleID() {
+	return ruleID;
+}
+
+public void setRuleID(int age) {
+	if(age <= 12 && age>=6) {
+		this.ruleID = 1;
+	}
+	else if(age <= 24 && age>=13) {
+		this.ruleID = 2;
+	}
+	else if(age <= 35 && age>=25) {
+		this.ruleID = 3;
+	}
+	else if(age<= 47 && age>=36) {
+		this.ruleID = 4;
+	}
+	else if(age<= 59 && age>=48) {
+		this.ruleID = 5;
+	}
+	else {
+		this.ruleID = 6;
+	}
+}
 
 @Override
 public String toString() {

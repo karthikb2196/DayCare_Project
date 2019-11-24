@@ -65,6 +65,20 @@ public void CheckImmunizationRecord(int age) {
 	}
 	this.toGet = sb.toString();
 }
+public String showOutput() {
+	return "Required by Student studentId=" + studentId + ":" + toGet ;
+}
+
+public List<String> createCSVString() {
+	List<String> immunizations = new ArrayList<String>();
+	for(Immunization immunization : immunizationList) {
+		String currentImmunization = this.getStudentId()+","+immunization.toString();
+		immunizations.add(currentImmunization);
+	}
+	return immunizations;
+}
+
+
 
 
 
