@@ -136,9 +136,8 @@ public class DayCareCompany {
 		StringBuilder sb = new StringBuilder();
 		for (Immunization im : p.getImmunizationRecord().getImmunizationList()) {
 			int needDoseAmt = expectedDose(p.getAge(), im);
-			int doseTaken = im.getNumberOfDosesGiven();
-			if(needDoseAmt > doseTaken) {
-				sb.append("Still need to take "+(needDoseAmt-doseTaken)+" "+im.getImmunizationName());
+			if(needDoseAmt > 0) {
+				sb.append("Still need to take "+(needDoseAmt)+" "+im.getImmunizationName());
 			}
 		}
 		System.out.println(sb);
