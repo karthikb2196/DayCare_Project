@@ -13,7 +13,7 @@ public class ClassRoom {
 	private int maxStudents;
 	private int maxTeachers;
 	private ClassRoomRule classRoomRule;
-	private int numberOfStudents=0;
+	private int numberOfStudents=1;
 
 	public ClassRoom(int classRoomID) {
 		this.classRoomID = classRoomID;
@@ -96,27 +96,29 @@ public class ClassRoom {
 				+ students + ", classRatio=" + classRatio + ", maxStudents=" + maxStudents + ", maxTeachers="
 				+ maxTeachers + ", classRoomRule=" + classRoomRule + ", numberOfStudents=" + numberOfStudents + "]";
 	}
+	
 	//Check if the classroom is full or not, and check the ratio for the student
 	public boolean CheckClassroom(Person student) {
-		if(this.getNumberOfStudents() < classRoomRule.getMaxStudents()) {	
+		if(this.getNumberOfStudents() <= classRoomRule.getMaxStudents()) {	
 			if((student.getAge() <= classRoomRule.getAgeUpperLimit()) && (student.getAge() >= classRoomRule.getAgeLowerLimit())) {
 				return true;
 		}
 	}
+		else {
 			return false;	
 		}
+		return false;
+	}
 		
 	public int addStudent(Person student) {
 		boolean check = CheckClassroom(student);
 		if(check == true) {
 				this.students.add(student);
-				System.out.println("Sucess! Student added to class" + classRoomID);
 				numberOfStudents+=1;
 				return numberOfStudents;
 			}
-		if(numberOfStudents == this.getMaxStudents()) {
-			System.out.println("Failed! Student not added to this class as the class is full");
-			return numberOfStudents;
+		if(numberOfStudents > this.getMaxStudents()) {
+			return numberOfStudents+1;
 		}
 		else {
 			System.out.println("Failed! Student not added as the student did not meet the credentials for this class");

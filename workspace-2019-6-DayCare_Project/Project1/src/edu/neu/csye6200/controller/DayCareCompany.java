@@ -23,7 +23,7 @@ public class DayCareCompany {
 	private List<Immunization> immunizations = new ArrayList<>();//a list of all immunizations we have right now
 	private int numberOfClassrooms;
 	private List<ImmunizationRule> immunizationRules = new ArrayList<>();
-	
+	private int classRoomID = 7; //next classrooms if students exceed
 	
 	
 	public List<ImmunizationRule> getImmunizationRules() {
@@ -64,13 +64,29 @@ public class DayCareCompany {
 	}
 	
 	public List<ClassRoom> getClassRoomList(Person s){
+		int ruleID =s.getRuleID();
+		ClassRoomRule classRoomrule =null;
 		List<ClassRoom> classRooms = new ArrayList<ClassRoom>();
 		for(ClassRoom c : this.getClassRooms()) {
 			if(s.getRuleID()==c.getRuleID()) {
 				classRooms.add(c);
 			}
 		}
-		
+		//Adding new class
+		boolean isFull = false;
+		for(ClassRoom c : classRooms) {
+			classRoomrule = c.getClassRoomRule();
+			if(c.getNumberOfStudents() == c.getMaxStudents()) {
+				isFull = true;
+			}
+			else {
+				isFull=false;
+			}
+		}
+		if(isFull == true) {
+			this.addClassRoom(new ClassRoom(classRoomID, ruleID, classRoomrule));
+			classRoomID+=1;
+		}
 		return classRooms;
 	}
 	
@@ -79,7 +95,7 @@ public class DayCareCompany {
 		
 		for(ClassRoom classRoom : getClassRoomList(s)) {
 			int addStudent= classRoom.addStudent(s);
-			if(addStudent < classRoom.getMaxStudents() && addStudent> 0) {
+			if(addStudent <= classRoom.getMaxStudents()+1 && addStudent >=  0) {
 				System.out.println("Student added to classroom: "+classRoom.getClassRoomID());
 			}
 		}
@@ -169,17 +185,48 @@ public class DayCareCompany {
 		ClassRoom classRoom1 = new ClassRoom(1,1,rule1);
 		ClassRoom classRoom2 = new ClassRoom(2,2,rule2);
 		ClassRoom classRoom3 = new ClassRoom(3,3,rule3);
+		ClassRoom classRoom4 = new ClassRoom(4,4,rule4);
+		ClassRoom classRoom5 = new ClassRoom(5,5,rule5);
+		ClassRoom classRoom6 = new ClassRoom(6,5,rule6);
 	
 		
 		dayCareCompany.addClassRoom(classRoom1);
 		dayCareCompany.addClassRoom(classRoom2);
 		dayCareCompany.addClassRoom(classRoom3);
+		dayCareCompany.addClassRoom(classRoom4);
+		dayCareCompany.addClassRoom(classRoom5);
+		dayCareCompany.addClassRoom(classRoom6);
 		
 		Student student1 = new Student(1,"bsvg","vcgveg",7,new Date(),"GG","JJ");
-		Student student2 = new Student("25,jim,hello,26,10-22-2019,john,JJ");
+		Student student2 = new Student(2,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student3 = new Student(3,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student4 = new Student(4,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student5 = new Student(5,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student6 = new Student(6,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student7 = new Student(7,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student8 = new Student(8,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student9 = new Student(9,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student10 = new Student(10,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student11 = new Student(11,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student12 = new Student(12,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student13 = new Student(13,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student14 = new Student(14,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student15 = new Student("25,jim,hello,26,10-22-2019,john,JJ");
 		
 		dayCareCompany.addStudent(student1);
 		dayCareCompany.addStudent(student2);
+		dayCareCompany.addStudent(student3);
+		dayCareCompany.addStudent(student4);
+		dayCareCompany.addStudent(student5);
+		dayCareCompany.addStudent(student6);
+		dayCareCompany.addStudent(student7);
+		dayCareCompany.addStudent(student8);
+		dayCareCompany.addStudent(student9);
+		dayCareCompany.addStudent(student10);
+		dayCareCompany.addStudent(student11);
+		dayCareCompany.addStudent(student12);
+		dayCareCompany.addStudent(student13);
+		dayCareCompany.addStudent(student14);
 		System.out.println(dayCareCompany);
 		
 		
