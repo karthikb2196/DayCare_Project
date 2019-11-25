@@ -15,6 +15,7 @@ import java.util.List;
 import java.util.Scanner;
 
 import edu.neu.csye6200.model.ClassRoom;
+import edu.neu.csye6200.model.ClassRoomRule;
 import edu.neu.csye6200.model.Immunization;
 import edu.neu.csye6200.model.ImmunizationRule;
 import edu.neu.csye6200.model.Person;
@@ -97,24 +98,24 @@ public class DataLoader {
 
 	public void readClassrooms() throws FileNotFoundException, NumberFormatException, ParseException {
 		/*
-		 * read classroom.csv: 1) create classroom objects 
+		 * read classroom.csv: 
+		 * 1) create classroom objects 
 		 * 2) load all persons to each classroom
+		 * 3) add classrooms to daycare_company
 		 * 
-		 * classroom.csv format: "ClassRoomID;student_id1,student_id2;teacher_id"
-		 * e.g.,
-		 * 		1;1,2,3;4 
-		 * means classroom(ID=1) has three students whose IDs are 1, 2, 3 and
-		 * 								one teacher whose ID is 4
+			File Format: 
+		 * 		classroomID; Rule_ID;student1_ID, student2_ID,student3_ID;teacherID
 		 */
 		List<String> classrooms = readFile(classroomCSV);
 		for (String classroom : classrooms) {
 			String[] info = classroom.split(";");
 			int classroom_id = Integer.parseInt(info[0]); // classroom id
-			String[] students = info[1].split(","); // students'id
-			String[] teachers = info[2].split(","); // teachers'id
+			int classroom_rule_id = Integer.parseInt(info[1]); // classroomRule id
+			String[] students = info[2].split(","); // students'id
+			String[] teachers = info[3].split(","); // teachers'id
 
 			// create a classroom object
-			ClassRoom aClass = new ClassRoom(classroom_id);
+			ClassRoom aClass = new ClassRoom(classroom_id,classroom_rule_id,findClassroomRule(classroom_rule_id));
 			
 			//add students to the classroom
 			for(String student_id:students) {
@@ -130,6 +131,17 @@ public class DataLoader {
 			this.company.addClassRoom(aClass);
 
 		}
+	}
+	
+	public ClassRoomRule findClassroomRule(int rule_id) {
+		//find classroom rule object
+		for(ClassRoomRule r:this.company.getClassRuleSet()) {
+			if(r.getRuleID()==rule_id) {
+				return r;
+			}
+		}
+		System.err.println("Unable to locate Classroom_Rule "+rule_id);
+		return null;
 	}
 	
 	public Person findStudent(int id) {
