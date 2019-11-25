@@ -3,6 +3,7 @@ package edu.neu.csye6200.controller;
 import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
+import java.util.ListIterator;
 
 import edu.neu.csye6200.model.ClassRoom;
 import edu.neu.csye6200.model.ClassRoomRule;
@@ -20,6 +21,7 @@ public class DayCareCompany {
 	private List<ImmunizationRecord> immunizationDirectory = new ArrayList<ImmunizationRecord>();
 	private List<ClassRoomRule> classRuleSet = new ArrayList<ClassRoomRule>();
 	private List<ClassRoom> classRooms = new ArrayList<ClassRoom>();
+	private List<ClassRoom> tempClassRooms = new ArrayList<ClassRoom>();
 	private List<Immunization> immunizations = new ArrayList<>();//a list of all immunizations we have right now
 	private int numberOfClassrooms;
 	private List<ImmunizationRule> immunizationRules = new ArrayList<>();
@@ -64,38 +66,36 @@ public class DayCareCompany {
 	}
 	
 	public List<ClassRoom> getClassRoomList(Person s){
-		int ruleID =s.getRuleID();
-		ClassRoomRule classRoomrule =null;
 		List<ClassRoom> classRooms = new ArrayList<ClassRoom>();
 		for(ClassRoom c : this.getClassRooms()) {
-			if(s.getRuleID()==c.getRuleID()) {
+			if(s.getRuleID()==c.getRuleID() && c.getNumberOfStudents() != c.getMaxStudents()) {
 				classRooms.add(c);
 			}
 		}
-		//Adding new class
-		boolean isFull = false;
-		for(ClassRoom c : classRooms) {
-			classRoomrule = c.getClassRoomRule();
-			if(c.getNumberOfStudents() == c.getMaxStudents()) {
-				isFull = true;
+		//Adding new classroom
+		if(classRooms.size() == 0) {
+			int ruleID = s.getRuleID();
+			ClassRoomRule tempRule=null;
+			for(ClassRoomRule rule : classRuleSet) {
+				if(ruleID == rule.getRuleID()) {
+					tempRule = rule;
+				}
 			}
-			else {
-				isFull=false;
-			}
-		}
-		if(isFull == true) {
-			this.addClassRoom(new ClassRoom(classRoomID, ruleID, classRoomrule));
+			ClassRoom newClass = new ClassRoom(classRoomID,ruleID,tempRule);
 			classRoomID+=1;
+			this.addClassRoom(newClass);
+			classRooms.add(newClass);
 		}
 		return classRooms;
+	
 	}
 	
 	public void addStudent(Person s) {
 		this.getStudents().add(s);
-		
-		for(ClassRoom classRoom : getClassRoomList(s)) {
+		tempClassRooms = getClassRoomList(s);
+		for(ClassRoom classRoom : tempClassRooms) {
 			int addStudent= classRoom.addStudent(s);
-			if(addStudent <= classRoom.getMaxStudents()+1 && addStudent >=  0) {
+			if(addStudent <= classRoom.getMaxStudents() && addStudent >=  0) {
 				System.out.println("Student added to classroom: "+classRoom.getClassRoomID());
 			}
 		}
@@ -227,6 +227,7 @@ public class DayCareCompany {
 		dayCareCompany.addStudent(student12);
 		dayCareCompany.addStudent(student13);
 		dayCareCompany.addStudent(student14);
+		dayCareCompany.addStudent(student15);
 		System.out.println(dayCareCompany);
 		
 		

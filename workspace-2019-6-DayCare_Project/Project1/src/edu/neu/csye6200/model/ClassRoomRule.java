@@ -122,4 +122,10 @@ public class ClassRoomRule implements Rule {
 		this.ruleDescription=descr;
 	}
 
+	@Override
+	public String toString() {
+		return "ClassRoomRule [ruleID=" + ruleID + ", ruleDescription=" + ruleDescription + ", maxStudents="
+				+ maxStudents + ", maxTeachers=" + maxTeachers + "]";
+	}
+
 }

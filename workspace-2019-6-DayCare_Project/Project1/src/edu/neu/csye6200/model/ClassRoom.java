@@ -13,7 +13,7 @@ public class ClassRoom {
 	private int maxStudents;
 	private int maxTeachers;
 	private ClassRoomRule classRoomRule;
-	private int numberOfStudents=1;
+	private int numberOfStudents=0;
 
 	public ClassRoom(int classRoomID) {
 		this.classRoomID = classRoomID;
@@ -104,9 +104,6 @@ public class ClassRoom {
 				return true;
 		}
 	}
-		else {
-			return false;	
-		}
 		return false;
 	}
 		
@@ -115,14 +112,16 @@ public class ClassRoom {
 		if(check == true) {
 				this.students.add(student);
 				numberOfStudents+=1;
+				System.out.println("Number of Students:"+ numberOfStudents);
+				System.out.println("Maximum number of students: "+this.getMaxStudents());
 				return numberOfStudents;
 			}
 		if(numberOfStudents > this.getMaxStudents()) {
-			return numberOfStudents+1;
+			return -1;
 		}
 		else {
 			System.out.println("Failed! Student not added as the student did not meet the credentials for this class");
-			return -1;
+			return -2;
 		}
 		
 		}
