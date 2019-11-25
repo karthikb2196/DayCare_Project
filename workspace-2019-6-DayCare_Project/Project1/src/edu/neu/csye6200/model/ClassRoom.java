@@ -10,10 +10,13 @@ public class ClassRoom {
 	private List<Person> teachers = new ArrayList<>(); //list of teacher id
 	private List<Person> students = new ArrayList<>(); //list of student id
 	private float classRatio;
+	private int groupSize;
 	private int maxStudents;
-	private int maxTeachers;
+	private int maxTeachers; // also number of groups
 	private ClassRoomRule classRoomRule;
 	private int numberOfStudents=0;
+	private int numberOfTeachers=0;
+	private int numberOfGroups = 0;
 
 	public ClassRoom(int classRoomID) {
 		this.classRoomID = classRoomID;
@@ -25,6 +28,8 @@ public class ClassRoom {
 		this.classRoomRule=classRoomrule;
 		this.maxStudents = classRoomRule.getMaxStudents();
 		this.maxTeachers = classRoomRule.getMaxTeachers();
+		this.groupSize=classRoomRule.getGroupSize();
+		this.numberOfGroups = this.maxTeachers; 
 	}
 	
 	public int getClassRoomID() {
@@ -77,6 +82,12 @@ public class ClassRoom {
 		this.maxTeachers = maxTeachers;
 	}
 	
+	public int getGroupSize() {
+		return groupSize;
+	}
+	public void setGroupSize(int groupSize) {
+		this.groupSize = groupSize;
+	}
 	public void addTeacher(Person t) {
 		this.teachers.add(t);
 	}
@@ -90,6 +101,18 @@ public class ClassRoom {
 	}
 	
 
+	public int getNumberOfTeachers() {
+		return numberOfTeachers;
+	}
+	public void setNumberOfTeachers(int numberOfTeachers) {
+		this.numberOfTeachers = numberOfTeachers;
+	}
+	public int getNumberOfGroups() {
+		return numberOfGroups;
+	}
+	public void setNumberOfGroups(int numberOfGroups) {
+		this.numberOfGroups = numberOfGroups;
+	}
 	@Override
 	public String toString() {
 		return "ClassRoom [classRoomID=" + classRoomID + ", ruleID=" + ruleID + ", teachers=" + teachers + ", students="
@@ -106,14 +129,15 @@ public class ClassRoom {
 	}
 		return false;
 	}
-		
+	
+	//Adding student 
 	public int addStudent(Person student) {
 		boolean check = CheckClassroom(student);
 		if(check == true) {
 				this.students.add(student);
 				numberOfStudents+=1;
-				System.out.println("Number of Students:"+ numberOfStudents);
-				System.out.println("Maximum number of students: "+this.getMaxStudents());
+//				System.out.println("Number of Students:"+ numberOfStudents);
+//				System.out.println("Maximum number of students: "+this.getMaxStudents());
 				return numberOfStudents;
 			}
 		if(numberOfStudents > this.getMaxStudents()) {
@@ -125,5 +149,26 @@ public class ClassRoom {
 		}
 		
 		}
+	
+	//Checking teacher eligibility
+	
+	
+	//adding teacher
+	public int addTeacher(Teacher teacher) {
+		if(this.numberOfTeachers<this.maxTeachers) {
+			teacher.setIdle(false);
+			this.setTeachertoClass(teacher);
+			numberOfTeachers+=1;
+			return numberOfTeachers;
+		}
+		else {
+			return -1;
+		}
+		
+	}
+	public void setTeachertoClass(Teacher teacher) {
+		this.getTeachers().add(teacher);
+		
+	}
 	
 }

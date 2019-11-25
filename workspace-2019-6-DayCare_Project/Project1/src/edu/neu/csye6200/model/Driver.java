@@ -13,6 +13,7 @@ public class Driver {
 ////		DTapImmunization dtap = new DTapImmunization(2,date1);
 ////		System.out.println(dtap.getRule().demo());
 //		Student.demo();
+//		Teacher.demo();
 		DayCareCompany.demo();
 	}
 

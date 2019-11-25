@@ -12,6 +12,7 @@ import edu.neu.csye6200.model.ImmunizationRecord;
 import edu.neu.csye6200.model.ImmunizationRule;
 import edu.neu.csye6200.model.Person;
 import edu.neu.csye6200.model.Student;
+import edu.neu.csye6200.model.Teacher;
 
 
 public class DayCareCompany {
@@ -98,9 +99,60 @@ public class DayCareCompany {
 			if(addStudent <= classRoom.getMaxStudents() && addStudent >=  0) {
 				System.out.println("Student added to classroom: "+classRoom.getClassRoomID());
 			}
+			else {
+				System.out.println("Student not added");
+			}
+			
+			if(addStudent==1) {
+				Teacher teacher = getTeacher(classRoom.getRuleID());
+				if(teacher!=null) {
+				System.out.println("Teacher"+teacher.getId()+" added to class"+classRoom.getClassRoomID());
+				classRoom.addTeacher(teacher);
+				}
+				else {
+					System.out.println("No teacher available");
+				}
+			}
+			
+			for(int i=1;i<=classRoom.getNumberOfGroups()-1;i++) {
+				if(addStudent==classRoom.getGroupSize()*i+1) {
+					Teacher teacher = getTeacher(classRoom.getRuleID());
+					if(teacher!=null) {
+					System.out.println("Teacher"+teacher.getId()+" added to class"+classRoom.getClassRoomID());
+					classRoom.addTeacher(teacher);
+					}
+					else {
+						System.out.println("No teacher available");
+					}
+				}
+				else {
+					
+				}
+			}
 		}
 	}
-		
+	
+	public boolean CheckTeacherEligibility(Teacher teacher,int classRoomRuleID) {
+		if(teacher.isIdle()== true) {
+				return true;
+		}
+		return false;
+	}
+	
+	public Teacher getTeacher(int classRoomRuleID) {
+		Teacher teacher = null;
+		for(Person t: this.getTeachers()) {
+			if(((Teacher) t).getStateLevel()==classRoomRuleID) {
+				boolean check = CheckTeacherEligibility((Teacher) t,classRoomRuleID);
+				if(check==true) {
+					teacher = (Teacher) t;
+					break;
+				}
+			}	
+		}
+		return teacher;
+	}
+	
 	public void addTeacher(Person s) {
 		this.teachers.add(s);
 	}
@@ -211,7 +263,35 @@ public class DayCareCompany {
 		Student student12 = new Student(12,"bsvg","vcgveg",7,new Date(),"GG","JJ");
 		Student student13 = new Student(13,"bsvg","vcgveg",7,new Date(),"GG","JJ");
 		Student student14 = new Student(14,"bsvg","vcgveg",7,new Date(),"GG","JJ");
-		Student student15 = new Student("25,jim,hello,26,10-22-2019,john,JJ");
+		Student student15 = new Student(15,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student16 = new Student(16,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student17 = new Student(17,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student18 = new Student(18,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student19 = new Student(19,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student20 = new Student(20,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student21 = new Student(21,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student22 = new Student(22,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student23 = new Student(23,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student24 = new Student(24,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student25 = new Student(25,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+//		Student student15 = new Student("25,jim,hello,26,10-22-2019,john,JJ");
+		
+		Teacher teacher1 = new Teacher(12, "Jogn", "jssn", 25, new Date(), 1);
+		Teacher teacher2 = new Teacher(13, "J1", "j1", 25, new Date(), 1);
+		Teacher teacher3 = new Teacher(14, "J2", "j2", 25, new Date(), 1);
+		Teacher teacher4 = new Teacher(15, "J3", "j3", 25, new Date(), 1);
+		Teacher teacher5 = new Teacher(16, "J4", "j4", 25, new Date(), 1);
+		Teacher teacher6 = new Teacher(17, "J5", "j5", 25, new Date(), 1);
+		Teacher teacher7 = new Teacher(18, "J6", "j6", 25, new Date(), 1);
+		Teacher teacher8 = new Teacher(19, "J7", "j7", 25, new Date(), 1);
+		Teacher teacher9 = new Teacher(20, "J8", "j8", 25, new Date(), 1);
+		dayCareCompany.addTeacher(teacher1);
+		dayCareCompany.addTeacher(teacher2);
+		dayCareCompany.addTeacher(teacher3);
+		dayCareCompany.addTeacher(teacher4);
+		dayCareCompany.addTeacher(teacher5);
+		dayCareCompany.addTeacher(teacher6);
+		dayCareCompany.addTeacher(teacher7);
 		
 		dayCareCompany.addStudent(student1);
 		dayCareCompany.addStudent(student2);
@@ -228,6 +308,16 @@ public class DayCareCompany {
 		dayCareCompany.addStudent(student13);
 		dayCareCompany.addStudent(student14);
 		dayCareCompany.addStudent(student15);
+		dayCareCompany.addStudent(student16);
+		dayCareCompany.addStudent(student17);
+		dayCareCompany.addStudent(student18);
+		dayCareCompany.addStudent(student19);
+		dayCareCompany.addStudent(student20);
+		dayCareCompany.addStudent(student21);
+		dayCareCompany.addStudent(student22);
+		dayCareCompany.addStudent(student23);
+		dayCareCompany.addStudent(student24);
+		dayCareCompany.addStudent(student25);
 		System.out.println(dayCareCompany);
 		
 		
