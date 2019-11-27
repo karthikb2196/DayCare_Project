@@ -83,8 +83,7 @@ public class DataWriter {
 				info = info + i.getImmunizationID() + "," 
 							+ i.getImmunizationName() + "," 
 							+ i.getAgeReceived() + ","
-							+ i.getDateReceived() + "," 
-							+ i.getNumberOfDosesGiven();
+							+ i.getDateReceived();
 				// write the info line to records.csv
 				bufferWriter.write(info);
 				bufferWriter.newLine();

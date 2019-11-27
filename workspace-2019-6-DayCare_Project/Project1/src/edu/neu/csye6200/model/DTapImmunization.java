@@ -5,9 +5,8 @@ import java.util.Date;
 public class DTapImmunization extends Immunization {
 	private final String dtapVaccine = "DTaP Immunization";
 	
-	public DTapImmunization(int immunizationID, String immunizationName, int ageReceived, Date dateReceived,
-			int numberOfDosesGiven) {
-		super(immunizationID, immunizationName, ageReceived, dateReceived, numberOfDosesGiven);
+	public DTapImmunization(int immunizationID, String immunizationName, int ageReceived, Date dateReceived) {
+		super(immunizationID, immunizationName, ageReceived, dateReceived);
 		this.setImmunizationName(dtapVaccine);
 	}
 	

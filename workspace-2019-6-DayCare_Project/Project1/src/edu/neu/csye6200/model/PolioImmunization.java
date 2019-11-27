@@ -6,9 +6,8 @@ public class PolioImmunization extends Immunization{
 
 	private String polioVaccine = "Polio Immunization"; 
 
-	public PolioImmunization(int immunizationID, String immunizationName, int ageReceived, Date dateReceived,
-			int numberOfDosesGiven) {
-		super(immunizationID, immunizationName, ageReceived, dateReceived, numberOfDosesGiven);
+	public PolioImmunization(int immunizationID, String immunizationName, int ageReceived, Date dateReceived) {
+		super(immunizationID, immunizationName, ageReceived, dateReceived);
 		this.setImmunizationName(polioVaccine);
 	}
 

@@ -7,9 +7,8 @@ public class MMRImmunization extends Immunization {
 	private final String NAME = "MMR Immunization";
 
 
-	public MMRImmunization(int immunizationID, String immunizationName, int ageReceived, Date dateReceived,
-			int numberOfDosesGiven) {
-		super(immunizationID, immunizationName, ageReceived, dateReceived, numberOfDosesGiven);
+	public MMRImmunization(int immunizationID, String immunizationName, int ageReceived, Date dateReceived) {
+		super(immunizationID, immunizationName, ageReceived, dateReceived);
 		this.setImmunizationName(NAME);
 	}
 

@@ -7,9 +7,8 @@ public class VaricellaImmunization extends Immunization {
 	private String varicellaVaccine = "Varicella Immunization"; 
 
 
-	public VaricellaImmunization(int immunizationID, String immunizationName, int ageReceived, Date dateReceived,
-			int numberOfDosesGiven) {
-		super(immunizationID, immunizationName, ageReceived, dateReceived, numberOfDosesGiven);
+	public VaricellaImmunization(int immunizationID, String immunizationName, int ageReceived, Date dateReceived) {
+		super(immunizationID, immunizationName, ageReceived, dateReceived);
 		this.setImmunizationName(varicellaVaccine);
 	}
 

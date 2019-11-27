@@ -19,7 +19,11 @@ public class Student extends Person implements Comparable<Student> {
 	}
 	
 	public Student(String[] info) throws NumberFormatException, ParseException {
-		//create a student by a line in csv
+		/*
+		 * create a student by a line in csv
+		 * File format:
+		 * 		id,fname,lname,age,dateOfEnroll,fatherName,motherName
+		 */
 		super(Integer.parseInt(info[0]), 
 				info[1], info[2], 
 				Integer.parseInt(info[3]),

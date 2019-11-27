@@ -197,10 +197,15 @@ public class DayCareCompany {
 		System.err.println("Invalid Age Input. Unable to decide required dose. ");
 		return -1;
 	}
+	
+	public int doseTaken(Person p,int immu_id) {
+		//count how many doses have been taken
+		return p.getImmunizationRecord().doseTaken(immu_id);	
+	}
 
-	public int expectedDose(int age, Immunization immu) {
+	public int expectedDose(Person p, Immunization immu) {
 		// how many vaccine should be taken in the future
-		return (checkRequiredDose(age, immu) - immu.getNumberOfDosesGiven());
+		return (checkRequiredDose(p.getAge(), immu) - doseTaken(p,immu.getImmunizationID()));
 	}
 
 	public void CheckImmunizationRecord(Person p) {
@@ -209,7 +214,7 @@ public class DayCareCompany {
 		 */
 		StringBuilder sb = new StringBuilder();
 		for (Immunization im : p.getImmunizationRecord().getImmunizationList()) {
-			int needDoseAmt = expectedDose(p.getAge(), im);
+			int needDoseAmt = expectedDose(p, im);
 			if(needDoseAmt > 0) {
 				sb.append("Still need to take "+(needDoseAmt)+" "+im.getImmunizationName());
 			}

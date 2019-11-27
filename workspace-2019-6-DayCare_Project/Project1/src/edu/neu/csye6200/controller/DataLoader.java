@@ -54,6 +54,8 @@ public class DataLoader {
 	public void readStudents() throws FileNotFoundException, NumberFormatException, ParseException {
 		/*
 		 * read the students.csv create and load all Student objects into the company
+		 * File format:
+		 * 		id,fname,lname,age,dateOfEnroll,fatherName,motherName
 		 */
 		List<String> students = readFile(studentCSV);
 		for (String student : students) {
@@ -62,21 +64,11 @@ public class DataLoader {
 		}
 	}
 
-//	########Will work on this part once decide the teachers.csv format
-//	public void readTeachers() throws FileNotFoundException, NumberFormatException, ParseException {
-//		/* read the teachers.csv
-//		 * create and load all Teacher objects into the company
-//		 */
-//		List<String> teachers = readFile(teacherCSV);
-//		for(String t:teachers) {
-//			String[] info = t.split(",");
-//			this.company.addTeacher(new Teacher(info));
-//		}
-//	}
-
 	public void readRecord() throws FileNotFoundException, NumberFormatException, ParseException {
 		/*
 		 * read record.csv load all record to each person's immunizationRecord
+		 * Format:
+		 * 		person_id,immunization_id,immunizationName,age,date
 		 */
 		List<String> records = readFile(recordCSV);
 		for (String record : records) {
@@ -87,8 +79,10 @@ public class DataLoader {
 				// find the person
 				if (person_id == person.getId()) {
 					// create an immunization object
-					Immunization i = new Immunization(immu_id, info[2], Integer.parseInt(info[3]),
-							new SimpleDateFormat("MM-dd-yyyy").parse(info[4]), Integer.parseInt(info[5]));
+					Immunization i = new Immunization(immu_id, 
+													info[2], 
+													Integer.parseInt(info[3]),
+													new SimpleDateFormat("MM-dd-yyyy").parse(info[4]));
 					// add the immunization object to the person's record
 					person.getImmunizationRecord().AddImmunization(i);
 				}
@@ -104,7 +98,7 @@ public class DataLoader {
 		 * 3) add classrooms to daycare_company
 		 * 
 			File Format: 
-		 * 		classroomID; Rule_ID;student1_ID, student2_ID,student3_ID;teacherID
+		 * 		classroomID;Rule_ID;student1_ID,student2_ID,student3_ID;teacherID
 		 */
 		List<String> classrooms = readFile(classroomCSV);
 		for (String classroom : classrooms) {

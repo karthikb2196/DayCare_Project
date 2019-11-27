@@ -6,9 +6,8 @@ public class HibImmunization extends Immunization {
 
 	private final String NAME = "HIB Immunization"; 
 
-	public HibImmunization(int immunizationID, String immunizationName, int ageReceived, Date dateReceived,
-			int numberOfDosesGiven) {
-		super(immunizationID, immunizationName, ageReceived, dateReceived, numberOfDosesGiven);
+	public HibImmunization(int immunizationID, String immunizationName, int ageReceived, Date dateReceived) {
+		super(immunizationID, immunizationName, ageReceived, dateReceived);
 		this.setImmunizationName(NAME);
 	}
 

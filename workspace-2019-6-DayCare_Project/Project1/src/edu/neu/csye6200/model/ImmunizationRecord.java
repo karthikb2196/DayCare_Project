@@ -53,9 +53,21 @@ public void ClearAll() {
 	immunizationList.clear();
 	System.out.println("Removing all immunizations from record");
 }
+
+public int doseTaken(int immu_id) {
+	//count how many doses are taken
+	int count=0;
+	for(Immunization i:this.getImmunizationList()) {
+		if(i.getImmunizationID()==immu_id) {
+			count+=1;
+		}
+	}
+	return count;
+}
 public void UpdateImmunization(Immunization immunization) {
 	
 }
+
 
 
 

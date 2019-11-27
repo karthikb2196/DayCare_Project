@@ -16,16 +16,14 @@ To decide the immunization requirement, go through all the
 ImmunizationRule objects in the list
 	*/
 	private Date dateReceived;
-	private int numberOfDosesGiven;
 	
 	public Immunization(int immunizationID, String immunizationName, int ageReceived, 
-			Date dateReceived, int numberOfDosesGiven) {
+			Date dateReceived) {
 		super();
 		this.immunizationID = immunizationID;
 		this.immunizationName = immunizationName;
 		this.ageReceived = ageReceived;
 		this.dateReceived = dateReceived;
-		this.numberOfDosesGiven = numberOfDosesGiven;
 	}
 
 	public int getImmunizationID() {
@@ -66,14 +64,6 @@ ImmunizationRule objects in the list
 
 	public void setDateReceived(Date dateReceived) {
 		this.dateReceived = dateReceived;
-	}
-
-	public int getNumberOfDosesGiven() {
-		return numberOfDosesGiven;
-	}
-
-	public void setNumberOfDosesGiven(int numberOfDosesGiven) {
-		this.numberOfDosesGiven = numberOfDosesGiven;
 	}
 
 
