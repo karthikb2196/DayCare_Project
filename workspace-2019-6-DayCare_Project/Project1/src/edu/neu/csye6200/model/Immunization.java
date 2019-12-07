@@ -9,7 +9,6 @@ public class Immunization {
 	private int immunizationID;
 	private String immunizationName;
 	private int ageReceived;
-	private List<ImmunizationRule> rules=new ArrayList<>(); 
 	/*
 Each immunization has a list of rules
 To decide the immunization requirement, go through all the 
@@ -50,13 +49,6 @@ ImmunizationRule objects in the list
 		this.ageReceived = ageReceived;
 	}
 
-	public List<ImmunizationRule> getRule() {
-		return this.rules;
-	}
-
-	public void addRule(ImmunizationRule rule) {
-		this.rules.add(rule);
-	}
 
 	public Date getDateReceived() {
 		return dateReceived;

@@ -36,9 +36,10 @@ public class DataWriter {
 		BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
 		String info = "";
 		for (Person s : this.company.getStudents()) {
-			info = s.getId() + "," + s.getFirstName() + "," + s.getLastName() + "," + s.getAge() + ","
-					+ s.getDateOfEnrollment() + "," + ((Student) s).getFatherName() + ","
-					+ ((Student) s).getMotherName();
+//			info = s.getId() + "," + s.getFirstName() + "," + s.getLastName() + "," + s.getAge() + ","
+//					+ s.getDateOfEnrollment() + "," + ((Student) s).getFatherName() + ","
+//					+ ((Student) s).getMotherName();
+			info=s.toString();
 			// write info line to csv
 			bufferWriter.write(info);
 			bufferWriter.newLine();
@@ -57,8 +58,9 @@ public class DataWriter {
 		BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
 		String info = "";
 		for (Person t : this.company.getTeachers()) {
-			info = t.getId() + "," + t.getFirstName() + "," + t.getLastName() + "," + t.getAge() + ","
-					+ t.getDateOfEnrollment() + "," + ((Teacher) t).getStateLevel();
+//			info = t.getId() + "," + t.getFirstName() + "," + t.getLastName() + "," + t.getAge() + ","
+//					+ t.getDateOfEnrollment() + "," + ((Teacher) t).getStateLevel();
+			info=t.toString();
 			// write info line to csv
 			bufferWriter.write(info);
 			bufferWriter.newLine();
@@ -123,6 +125,8 @@ public class DataWriter {
 		 * write classroom info into classrooms.csv 
 		 * File Format: 
 		 * 		classroomID; Rule_ID;student1_ID, student2_ID,student3_ID;teacherID
+		 * 
+		 * when a teacher is added to a classroom, set t.idle = False
 		 */
 		FileWriter fileWriter = new FileWriter(classroomCSV);
 		BufferedWriter bufferWriter = new BufferedWriter(fileWriter);

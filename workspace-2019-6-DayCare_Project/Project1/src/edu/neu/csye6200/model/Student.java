@@ -87,8 +87,9 @@ public class Student extends Person implements Comparable<Student> {
 	
 	@Override
 	public String toString() {
+		//Student_id,firstName,lastName,age,dateOfEnrollment,FatherName,MotherName
 		return this.getId() + "," + this.getFirstName() + "," + this.getLastName() + ","
-+ this.getAge() + "," + this.getFatherName() + "," + this.getMotherName() + "," + ft.format(this.getDateOfEnrollment());
++ this.getAge() + "," + ft.format(this.getDateOfEnrollment())+ "," + this.getFatherName() + "," + this.getMotherName() ;
 	}
 
 

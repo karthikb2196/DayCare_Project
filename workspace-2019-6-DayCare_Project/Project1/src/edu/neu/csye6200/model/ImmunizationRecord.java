@@ -54,6 +54,11 @@ public void ClearAll() {
 	System.out.println("Removing all immunizations from record");
 }
 
+@Override
+public String toString() {
+	return "ImmunizationRecord [studentId=" + studentId + ", immunizationList=" + immunizationList + "]";
+}
+
 public int doseTaken(int immu_id) {
 	//count how many doses are taken
 	int count=0;

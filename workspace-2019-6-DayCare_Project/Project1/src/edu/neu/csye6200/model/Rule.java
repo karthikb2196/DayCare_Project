@@ -4,4 +4,5 @@ public interface Rule {
 
 	String getRuleDescription();
 	void setRuleDescription(String descr);
+	int getAgeUpperLimit();
 }

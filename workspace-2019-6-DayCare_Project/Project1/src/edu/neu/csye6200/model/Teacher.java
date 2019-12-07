@@ -16,8 +16,11 @@ public class Teacher extends Person implements Comparable<Teacher> {
 		stateLevel = StateLevel;
 		// TODO Auto-generated constructor stub
 	}
+	
+	
 
 	public Teacher(String csvData) {
+		//id,fname,lname,age,dateOfEnrollment,stateLevel
 		super();
 		try {
 			String[] args = csvData.split(",");
@@ -66,8 +69,9 @@ public class Teacher extends Person implements Comparable<Teacher> {
 
 	@Override
 	public String toString() {
-		return  getId() + "," + isIdle + "," + stateLevel + "," + getFirstName() + "," + getLastName() ;
-//		+ ","+ getAge() + "," + getImmunizationRecord() + ","+ getDateOfEnrollment() ;
+		//id,fname,lname,age,dateOfEnrollment,stateLevel
+		return  this.getId() + "," + this.getFirstName() + "," + this.getLastName() + ","+this.getAge()
+		+"," +ft.format(this.getDateOfEnrollment())+ "," + this.getStateLevel();
 	}
 
 	@Override

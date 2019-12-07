@@ -63,6 +63,14 @@ public class DataLoader {
 			this.company.addStudent(new Student(info));
 		}
 	}
+	
+	public void readTeachers(String csv) throws FileNotFoundException, NumberFormatException, ParseException{
+		//id,fname,lname,age,dateOfEnrollment,stateLevel
+		List<String> teacher = readFile(teacherCSV);
+		for (String t : teacher) {
+			this.company.addTeacher(new Teacher(t));
+		}
+	}
 
 	public void readRecord() throws FileNotFoundException, NumberFormatException, ParseException {
 		/*

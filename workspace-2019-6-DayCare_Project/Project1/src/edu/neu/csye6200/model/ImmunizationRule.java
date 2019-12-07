@@ -8,8 +8,7 @@ public class ImmunizationRule implements Rule {
 	private String ruleDescription;
 	private int requiredAmt; //how many doses are required
 	
-	public ImmunizationRule(int ruleID, int ageLowerLimit, int ageUpperLimit, String immunization, int requiredAmt,
-			int duration) {
+	public ImmunizationRule(int ruleID, int ageLowerLimit, int ageUpperLimit, String immunization, int requiredAmt) {
 		this.ruleID = ruleID;
 		this.ageLowerLimit = ageLowerLimit;
 		this.ageUpperLimit = ageUpperLimit;
