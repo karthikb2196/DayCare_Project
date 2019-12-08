@@ -42,7 +42,7 @@ public void setToGet(String toGet) {
 
 public void AddImmunization(Immunization immunization) {
 	immunizationList.add(immunization);
-	System.out.println("Immunization "+immunization.getImmunizationName()+" added to student "+this.studentId);
+	System.out.println(immunization.getImmunizationName()+" added to student "+this.studentId);
 }
 public void RemoveImmunization(Immunization immunization) {
 	immunizationList.remove(immunization);

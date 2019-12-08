@@ -365,104 +365,104 @@ public class DayCareCompany {
 		Teacher teacher7 = new Teacher(18, "J6", "j6", 25, new Date(), 1);
 		Teacher teacher8 = new Teacher(19, "J7", "j7", 25, new Date(), 1);
 		Teacher teacher9 = new Teacher(20, "J8", "j8", 25, new Date(), 2);
-		dayCareCompany.addTeacher(teacher1);
-		dayCareCompany.addTeacher(teacher2);
-		dayCareCompany.addTeacher(teacher3);
-		dayCareCompany.addTeacher(teacher4);
-		dayCareCompany.addTeacher(teacher5);
-		dayCareCompany.addTeacher(teacher6);
-		dayCareCompany.addTeacher(teacher7);
-		dayCareCompany.addTeacher(teacher8);
-		dayCareCompany.addTeacher(teacher9);
-		
-		dayCareCompany.addStudent(student1);
-		dayCareCompany.addStudent(student2);
-		dayCareCompany.addStudent(student3);
-		dayCareCompany.addStudent(student4);
-		dayCareCompany.addStudent(student5);
-		dayCareCompany.addStudent(student6);
-		dayCareCompany.addStudent(student7);
-		dayCareCompany.addStudent(student8);
-		dayCareCompany.addStudent(student9);
-		dayCareCompany.addStudent(student10);
-		dayCareCompany.addStudent(student11);
-		dayCareCompany.addStudent(student12);
-		dayCareCompany.addStudent(student13);
-		dayCareCompany.addStudent(student14);
-		dayCareCompany.addStudent(student15);
-		dayCareCompany.addStudent(student16);
-		dayCareCompany.addStudent(student17);
-		dayCareCompany.addStudent(student18);
-		dayCareCompany.addStudent(student19);
-		dayCareCompany.addStudent(student20);
-		dayCareCompany.addStudent(student21);
-		dayCareCompany.addStudent(student22);
-		dayCareCompany.addStudent(student23);
-		dayCareCompany.addStudent(student24);
-		dayCareCompany.addStudent(student25);
-		System.out.println(dayCareCompany);
+//		dayCareCompany.addTeacher(teacher1);
+//		dayCareCompany.addTeacher(teacher2);
+//		dayCareCompany.addTeacher(teacher3);
+//		dayCareCompany.addTeacher(teacher4);
+//		dayCareCompany.addTeacher(teacher5);
+//		dayCareCompany.addTeacher(teacher6);
+//		dayCareCompany.addTeacher(teacher7);
+//		dayCareCompany.addTeacher(teacher8);
+//		dayCareCompany.addTeacher(teacher9);
+//		
+//		dayCareCompany.addStudent(student1);
+//		dayCareCompany.addStudent(student2);
+//		dayCareCompany.addStudent(student3);
+//		dayCareCompany.addStudent(student4);
+//		dayCareCompany.addStudent(student5);
+//		dayCareCompany.addStudent(student6);
+//		dayCareCompany.addStudent(student7);
+//		dayCareCompany.addStudent(student8);
+//		dayCareCompany.addStudent(student9);
+//		dayCareCompany.addStudent(student10);
+//		dayCareCompany.addStudent(student11);
+//		dayCareCompany.addStudent(student12);
+//		dayCareCompany.addStudent(student13);
+//		dayCareCompany.addStudent(student14);
+//		dayCareCompany.addStudent(student15);
+//		dayCareCompany.addStudent(student16);
+//		dayCareCompany.addStudent(student17);
+//		dayCareCompany.addStudent(student18);
+//		dayCareCompany.addStudent(student19);
+//		dayCareCompany.addStudent(student20);
+//		dayCareCompany.addStudent(student21);
+//		dayCareCompany.addStudent(student22);
+//		dayCareCompany.addStudent(student23);
+//		dayCareCompany.addStudent(student24);
+//		dayCareCompany.addStudent(student25);
+//		System.out.println(dayCareCompany);
 		
 		//write student data into csv
-		try {
-			dayCareCompany.getWriter().writeStudentData();
-		} catch (IOException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
+//		try {
+//			dayCareCompany.getWriter().writeStudentData();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
 		
 		//read students.csv
-//		try {
-//			loader.readStudents();
-//		} catch (NumberFormatException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (ParseException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-//		System.out.println(dayCareCompany);
-//		
-		
-		//write teachers
 		try {
-			dayCareCompany.getWriter().writeTeacherData();
-		} catch (IOException e) {
+			loader.readStudents();
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+		System.out.println(dayCareCompany);
 		
-		//read teachers.csv
+		
+		//write teachers
 //		try {
-//			loader.readTeachers(teacherCSV);
-//		} catch (NumberFormatException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (FileNotFoundException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		} catch (ParseException e) {
+//			dayCareCompany.getWriter().writeTeacherData();
+//		} catch (IOException e) {
 //			// TODO Auto-generated catch block
 //			e.printStackTrace();
 //		}
-//		dayCareCompany.setTeacherStatus();
-//		System.out.println(dayCareCompany);
+		
+		//read teachers.csv
+		try {
+			loader.readTeachers(teacherCSV);
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		dayCareCompany.setTeacherStatus();
+		System.out.println(dayCareCompany);
 		
 		//add students to classroom
 		
-		//create sample immunization record for student1
-		Immunization dtap1 = new DTapImmunization(1, "DTap", 10, new Date());
-		Immunization hepB = new HepBImmunization(2, "HepB", 10, new Date());
-		Immunization mmr = new MMRImmunization(3, "MMR", 10, new Date());
-		dayCareCompany.addImmunizationToStudent(1,dtap1);
-		dayCareCompany.addImmunizationToStudent(1,hepB);
-		dayCareCompany.addImmunizationToStudent(1,mmr);
-		
-		//create sample immunization record for student2
-		Immunization dtap3 = new DTapImmunization(1, "DTap", 9, new Date());
-		dayCareCompany.addImmunizationToStudent(2,dtap3);
+//		//create sample immunization record for student1
+//		Immunization dtap1 = new DTapImmunization(10, new Date());
+//		Immunization hepB = new HepBImmunization(10, new Date());
+//		Immunization mmr = new MMRImmunization(10, new Date());
+//		dayCareCompany.addImmunizationToStudent(1,dtap1);
+//		dayCareCompany.addImmunizationToStudent(1,hepB);
+//		dayCareCompany.addImmunizationToStudent(1,mmr);
+//		
+//		//create sample immunization record for student2
+//		Immunization dtap3 = new DTapImmunization(9, new Date());
+//		dayCareCompany.addImmunizationToStudent(2,dtap3);
 		
 		//create immu rules
 		/*
@@ -475,12 +475,34 @@ public class DayCareCompany {
 		dayCareCompany.getImmunizationRules().add(r2);
 		dayCareCompany.getImmunizationRules().add(r3);
 		
+		
+		
+		//write immunization records to records.csv
+//		try {
+//			dayCareCompany.getWriter().writeImmunizationRecordData();
+//		} catch (IOException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+		
+		//read immunization records from records.csv
+		try {
+			loader.readImmunizationRecord();
+		} catch (NumberFormatException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (FileNotFoundException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		} catch (ParseException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
 		//check student1's requirement
 		dayCareCompany.CheckImmunizationRecord(1);
 		//check student2's requirement
 		dayCareCompany.CheckImmunizationRecord(2);
-		
-		
 		
 	}
 	

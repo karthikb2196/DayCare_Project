@@ -28,7 +28,7 @@ public class DataLoader {
 	private DayCareCompany company;
 	private final String studentCSV = "students.csv";
 	private final String teacherCSV = "teachers.csv";
-	private final String recordCSV = "record.csv";
+	private final String recordCSV = "records.csv";
 	private final String classroomCSV = "classrooms.csv";
 	private final String ImmunizationRuleCSV = "ImmunizationRules.csv";
 	
@@ -72,13 +72,14 @@ public class DataLoader {
 		}
 	}
 
-	public void readRecord() throws FileNotFoundException, NumberFormatException, ParseException {
+	public void readImmunizationRecord() throws FileNotFoundException, NumberFormatException, ParseException {
 		/*
 		 * read record.csv load all record to each person's immunizationRecord
 		 * Format:
 		 * 		person_id,immunization_id,immunizationName,age,date
 		 */
 		List<String> records = readFile(recordCSV);
+		SimpleDateFormat ft = new SimpleDateFormat ("MM-dd-yyyy");//MM-dd-yyyy
 		for (String record : records) {
 			String[] info = record.split(",");
 			int person_id = Integer.parseInt(info[0]);
@@ -90,7 +91,8 @@ public class DataLoader {
 					Immunization i = new Immunization(immu_id, 
 													info[2], 
 													Integer.parseInt(info[3]),
-													new SimpleDateFormat("MM-dd-yyyy").parse(info[4]));
+													//new SimpleDateFormat("MM-dd-yyyy").parse(info[4]));
+													ft.parse(info[4]));
 					// add the immunization object to the person's record
 					person.getImmunizationRecord().AddImmunization(i);
 				}

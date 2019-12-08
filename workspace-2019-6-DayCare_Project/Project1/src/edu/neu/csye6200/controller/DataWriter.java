@@ -3,6 +3,7 @@ package edu.neu.csye6200.controller;
 import java.io.BufferedWriter;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.text.SimpleDateFormat;
 import java.util.Date;
 
 import edu.neu.csye6200.model.ClassRoom;
@@ -21,6 +22,7 @@ public class DataWriter {
 	private final String recordCSV = "records.csv";
 	private final String classroomCSV = "classrooms.csv";
 	private final String ImmunizationRuleCSV = "ImmunizationRules.csv";
+	SimpleDateFormat ft = new SimpleDateFormat ("MM-dd-yyyy");//MM-dd-yyyy
 
 	public DataWriter(DayCareCompany company) {
 		this.company = company;
@@ -78,14 +80,15 @@ public class DataWriter {
 		 */
 		FileWriter fileWriter = new FileWriter(recordCSV);
 		BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
-		String info = "";
+		
 		for (Person s : this.company.getStudents()) {
-			info = s.getId() + ",";
 			for (Immunization i : s.getImmunizationRecord().getImmunizationList()) {
+				String info = "";
+				info = s.getId() + ",";
 				info = info + i.getImmunizationID() + "," 
 							+ i.getImmunizationName() + "," 
 							+ i.getAgeReceived() + ","
-							+ i.getDateReceived();
+							+ ft.format(i.getDateReceived());
 				// write the info line to records.csv
 				bufferWriter.write(info);
 				bufferWriter.newLine();
