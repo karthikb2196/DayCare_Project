@@ -36,15 +36,15 @@ public class DayCareCompany {
 	private int classRoomID = 7; //next classrooms if students exceed
 	private final String studentCSV = "students.csv";
 	private final static String teacherCSV = "teachers.csv";
-	private DataWriter w;
+	private DataWriter writer;
 	
 	
 	
-	public DataWriter getW() {
-		return w;
+	public DataWriter getWriter() {
+		return writer;
 	}
 	public void setW(DataWriter w) {
-		this.w = w;
+		this.writer = w;
 	}
 	public List<ImmunizationRule> getImmunizationRules() {
 		return immunizationRules;
@@ -209,13 +209,11 @@ public class DayCareCompany {
 		
 	@Override
 	public String toString() {
-		return "DayCareCompany [teachers=" + teachers + ", students=" + students + ", immunizationDirectory="
-				+ immunizationDirectory + ", classRuleSet=" + classRuleSet + ", classRooms=" + classRooms
-				+ ", immunizations=" + immunizations + "]";
+		this.getTeachers().forEach(System.out::println);
+		this.getStudents().forEach(System.out::println);
+		return "";
 	}
-//	public void show() {
-//		
-//	}
+
 	
 
 	public int checkRequiredDose(int age, Immunization immu) {
@@ -249,7 +247,24 @@ public class DayCareCompany {
 			int needDoseAmt = expectedDose(p, im);
 			if(needDoseAmt > 0) {
 				System.out.println();
-				sb.append("Still need to take "+(needDoseAmt)+" "+im.getImmunizationName()+"\n");
+				sb.append("Student "+p.getId()+" still needs to take "+(needDoseAmt)+" "+im.getImmunizationName()+"\n");
+			}
+		}
+		System.out.println(sb);
+	}
+	
+
+	public void CheckImmunizationRecord(int id) {
+		/*
+		 * Check a person's immu record and decide what requirements are not meet yet
+		 */
+		StringBuilder sb = new StringBuilder();
+		Person p = findStudentByID(id);
+		for (Immunization im : p.getImmunizationRecord().getImmunizationList()) {
+			int needDoseAmt = expectedDose(p, im);
+			if(needDoseAmt > 0) {
+				System.out.println();
+				sb.append("Student "+id+" still needs to take "+(needDoseAmt)+" "+im.getImmunizationName()+"\n");
 			}
 		}
 		System.out.println(sb);
@@ -258,11 +273,27 @@ public class DayCareCompany {
 	public void addStudentToCSV() {
 		System.out.println("Write student data into students.csv");
 		try {
-			this.getW().writeStudentData();
+			this.getWriter().writeStudentData();
 		} catch (IOException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
+	}
+	
+	public Person findStudentByID(int id) {
+		//find student by id
+		for(Person s:this.getStudents()) {
+			if(s.getId()==id) {
+				return s;
+			}
+		}
+		System.out.println("Unable to find student (ID= "+id+")");
+		return null;
+	}
+	
+	public void addImmunizationToStudent(int student_id,Immunization i) {
+		//add an immunization to a student 
+		findStudentByID(student_id).getImmunizationRecord().AddImmunization(i);
 	}
 	
 	public static void demo() {
@@ -299,7 +330,7 @@ public class DayCareCompany {
 		dayCareCompany.addClassRoom(classRoom6);
 		
 		Student student1 = new Student(1,"john","kinkade",15,new Date(),"GG","JJ");
-		Student student2 = new Student(2,"bsvg","vcgveg",7,new Date(),"GG","JJ");
+		Student student2 = new Student(2,"dan","manheim",15,new Date(),"GG","JJ");
 		Student student3 = new Student(3,"bsvg","vcgveg",7,new Date(),"GG","JJ");
 		Student student4 = new Student(4,"bsvg","vcgveg",7,new Date(),"GG","JJ");
 		Student student5 = new Student(5,"bsvg","vcgveg",7,new Date(),"GG","JJ");
@@ -371,18 +402,71 @@ public class DayCareCompany {
 		dayCareCompany.addStudent(student25);
 		System.out.println(dayCareCompany);
 		
-//		Immunization dtap = new DTapImmunization(1, "DTap", 10, new Date());
-//		Immunization hepB = new HepBImmunization(2, "HepB", 10, new Date());
-//		Immunization mmr = new MMRImmunization(3, "MMR", 10, new Date());
-//		student1.getImmunizationRecord().AddImmunization(dtap);
-//		student1.getImmunizationRecord().AddImmunization(hepB);
-//		student1.getImmunizationRecord().AddImmunization(mmr);
-//		System.out.println(student1.output());
+		//write student data into csv
+		try {
+			dayCareCompany.getWriter().writeStudentData();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//read students.csv
+//		try {
+//			loader.readStudents();
+//		} catch (NumberFormatException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		System.out.println(dayCareCompany);
+//		
+		
+		//write teachers
+		try {
+			dayCareCompany.getWriter().writeTeacherData();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
+		
+		//read teachers.csv
+//		try {
+//			loader.readTeachers(teacherCSV);
+//		} catch (NumberFormatException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		dayCareCompany.setTeacherStatus();
+//		System.out.println(dayCareCompany);
+		
+		//add students to classroom
+		
+		//create sample immunization record for student1
+		Immunization dtap1 = new DTapImmunization(1, "DTap", 10, new Date());
+		Immunization hepB = new HepBImmunization(2, "HepB", 10, new Date());
+		Immunization mmr = new MMRImmunization(3, "MMR", 10, new Date());
+		dayCareCompany.addImmunizationToStudent(1,dtap1);
+		dayCareCompany.addImmunizationToStudent(1,hepB);
+		dayCareCompany.addImmunizationToStudent(1,mmr);
+		
+		//create sample immunization record for student2
+		Immunization dtap3 = new DTapImmunization(1, "DTap", 9, new Date());
+		dayCareCompany.addImmunizationToStudent(2,dtap3);
 		
 		//create immu rules
 		/*
-		 * ImmunizationRule(int ruleID, int ageLowerLimit, int ageUpperLimit, String immunization, int requiredAmt,
-			int duration)
+		 * ImmunizationRule(int ruleID, int ageLowerLimit, int ageUpperLimit, String immunization, int requiredAmt)
 		 */
 		ImmunizationRule r1 = new ImmunizationRule(1,12,30,"DTap",4);
 		ImmunizationRule r2 = new ImmunizationRule(2,12,30,"HepB",3);
@@ -392,57 +476,11 @@ public class DayCareCompany {
 		dayCareCompany.getImmunizationRules().add(r3);
 		
 		//check student1's requirement
-//		/dayCareCompany.CheckImmunizationRecord(student1);
-		
-		//write student data into csv
-//		try {
-//			w.writeStudentData();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
+		dayCareCompany.CheckImmunizationRecord(1);
+		//check student2's requirement
+		dayCareCompany.CheckImmunizationRecord(2);
 		
 		
-		//read students.csv
-		try {
-			loader.readStudents();
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(dayCareCompany);
-//		
-		
-		//write teachers
-//		try {
-//			dayCareCompany.getW().writeTeacherData();
-//		} catch (IOException e) {
-//			// TODO Auto-generated catch block
-//			e.printStackTrace();
-//		}
-		
-		//read teachers.csv
-		try {
-			loader.readTeachers(teacherCSV);
-		} catch (NumberFormatException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (FileNotFoundException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		} catch (ParseException e) {
-			// TODO Auto-generated catch block
-			e.printStackTrace();
-		}
-		System.out.println(dayCareCompany);
-		
-		//add students to classroom
 		
 	}
 	

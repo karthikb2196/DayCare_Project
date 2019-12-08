@@ -42,7 +42,7 @@ public void setToGet(String toGet) {
 
 public void AddImmunization(Immunization immunization) {
 	immunizationList.add(immunization);
-	System.out.println("Immunization "+immunization.getImmunizationName()+"added to list");
+	System.out.println("Immunization "+immunization.getImmunizationName()+" added to student "+this.studentId);
 }
 public void RemoveImmunization(Immunization immunization) {
 	immunizationList.remove(immunization);
@@ -56,7 +56,8 @@ public void ClearAll() {
 
 @Override
 public String toString() {
-	return "ImmunizationRecord [studentId=" + studentId + ", immunizationList=" + immunizationList + "]";
+	this.getImmunizationList().forEach(System.out::println);
+	return "";
 }
 
 public int doseTaken(int immu_id) {

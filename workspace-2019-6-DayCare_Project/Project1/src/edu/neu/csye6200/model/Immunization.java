@@ -58,5 +58,12 @@ ImmunizationRule objects in the list
 		this.dateReceived = dateReceived;
 	}
 
+	@Override
+	public String toString() {
+		return "Immunization [immunizationID=" + immunizationID + ", immunizationName=" + immunizationName
+				+ ", ageReceived=" + ageReceived + ", dateReceived=" + dateReceived + "]";
+	}
+
+	
 
 }
