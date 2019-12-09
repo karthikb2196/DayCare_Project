@@ -36,6 +36,27 @@ public class DataLoader {
 	public DataLoader(DayCareCompany company) {
 		this.company = company;
 	}
+	
+	public void readEverything() {
+		//read everything from csvs
+		try {
+			readStudents();
+			readTeachers(teacherCSV);
+			readClassrooms();
+			//company.setTeacherStatus();
+			readImmunizationRules();
+			readImmunizationRecord();
+		} catch (NumberFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
+	}
 
 	public List<String> readFile(String csv) throws FileNotFoundException {
 		/*

@@ -28,6 +28,20 @@ public class DataWriter {
 		this.company = company;
 	}
 
+	public void writeEverything() {
+		//write all data into csvx
+		try {
+		writeStudentData();
+		writeTeacherData();
+		writeImmunizationRuleData();
+		writeClassRoomData();
+		writeImmunizationRecordData();
+	} catch (IOException e) {
+		// TODO Auto-generated catch block
+		e.printStackTrace();
+	}
+	}
+	
 	public void writeStudentData() throws IOException {
 		/*
 		 * write all students' info to teacher.csv 
