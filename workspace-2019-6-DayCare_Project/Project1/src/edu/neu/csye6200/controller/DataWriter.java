@@ -107,8 +107,9 @@ public class DataWriter {
 		 */
 		FileWriter fileWriter = new FileWriter(ImmunizationRuleCSV);
 		BufferedWriter bufferWriter = new BufferedWriter(fileWriter);
-		String info = "";
+		
 		for (ImmunizationRule r : this.company.getImmunizationRules()) {
+			String info = "";
 			info = r.getRuleID() + "," 
 					+ r.getAgeLowerLimit() + "," 
 					+ r.getAgeUpperLimit() + ","

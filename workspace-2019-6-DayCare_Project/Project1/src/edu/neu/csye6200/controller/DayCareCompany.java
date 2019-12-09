@@ -20,6 +20,7 @@ import edu.neu.csye6200.model.Person;
 import edu.neu.csye6200.model.Rule;
 import edu.neu.csye6200.model.Student;
 import edu.neu.csye6200.model.Teacher;
+import edu.neu.csye6200.model.VaricellaImmunization;
 
 
 public class DayCareCompany {
@@ -246,7 +247,6 @@ public class DayCareCompany {
 		for (Immunization im : p.getImmunizationRecord().getImmunizationList()) {
 			int needDoseAmt = expectedDose(p, im);
 			if(needDoseAmt > 0) {
-				System.out.println();
 				sb.append("Student "+p.getId()+" still needs to take "+(needDoseAmt)+" "+im.getImmunizationName()+"\n");
 			}
 		}
@@ -260,11 +260,13 @@ public class DayCareCompany {
 		 */
 		StringBuilder sb = new StringBuilder();
 		Person p = findStudentByID(id);
-		for (Immunization im : p.getImmunizationRecord().getImmunizationList()) {
-			int needDoseAmt = expectedDose(p, im);
-			if(needDoseAmt > 0) {
-				System.out.println();
-				sb.append("Student "+id+" still needs to take "+(needDoseAmt)+" "+im.getImmunizationName()+"\n");
+		for(ImmunizationRule r:this.getImmunizationRules()) {
+			if(r.getAgeLowerLimit()<=p.getAge() && r.getAgeUpperLimit()>p.getAge()) {
+				int taken = p.getImmunizationRecord().doseTaken(r.getRuleID());
+				int stillNeed = r.getRequiredAmt()-taken;
+				if(stillNeed>0) {
+					sb.append("Student "+p.getId()+" still needs to take "+(stillNeed)+" "+r.getImmunization()+"\n");
+				}
 			}
 		}
 		System.out.println(sb);
@@ -294,6 +296,12 @@ public class DayCareCompany {
 	public void addImmunizationToStudent(int student_id,Immunization i) {
 		//add an immunization to a student 
 		findStudentByID(student_id).getImmunizationRecord().AddImmunization(i);
+	}
+	
+	public void addImmunizationRule(ImmunizationRule r) {
+		//add an immunizationRule
+		this.getImmunizationRules().add(r);
+		System.out.println("Add new immunization rule: \n"+r.toString());
 	}
 	
 	public static void demo() {
@@ -452,30 +460,71 @@ public class DayCareCompany {
 		
 		//add students to classroom
 		
-//		//create sample immunization record for student1
+////		//create sample immunization record for student1
 //		Immunization dtap1 = new DTapImmunization(10, new Date());
 //		Immunization hepB = new HepBImmunization(10, new Date());
 //		Immunization mmr = new MMRImmunization(10, new Date());
 //		dayCareCompany.addImmunizationToStudent(1,dtap1);
 //		dayCareCompany.addImmunizationToStudent(1,hepB);
 //		dayCareCompany.addImmunizationToStudent(1,mmr);
-//		
-//		//create sample immunization record for student2
-//		Immunization dtap3 = new DTapImmunization(9, new Date());
-//		dayCareCompany.addImmunizationToStudent(2,dtap3);
+////		
+////		//create sample immunization record for student2
+//		Immunization dtap2 = new DTapImmunization(9, new Date());
+//		Immunization v = new VaricellaImmunization(9, new Date());
+//		dayCareCompany.addImmunizationToStudent(2,dtap2);
+//		dayCareCompany.addImmunizationToStudent(2,v);
 		
 		//create immu rules
 		/*
 		 * ImmunizationRule(int ruleID, int ageLowerLimit, int ageUpperLimit, String immunization, int requiredAmt)
 		 */
-		ImmunizationRule r1 = new ImmunizationRule(1,12,30,"DTap",4);
-		ImmunizationRule r2 = new ImmunizationRule(2,12,30,"HepB",3);
-		ImmunizationRule r3 = new ImmunizationRule(3,12,30,"MMR",1);
-		dayCareCompany.getImmunizationRules().add(r1);
-		dayCareCompany.getImmunizationRules().add(r2);
-		dayCareCompany.getImmunizationRules().add(r3);
+		ImmunizationRule DTap_rule1 = new ImmunizationRule(1,12,29,"DTap",4);
+		ImmunizationRule polio_rule1 = new ImmunizationRule(2,12,29,"Polio",3);
+		ImmunizationRule hepB_rule1 = new ImmunizationRule(3,12,29,"HepB",3);
+		ImmunizationRule mmr_rule1 = new ImmunizationRule(4,12,29,"MMR",1);
+		ImmunizationRule hib_rule1 = new ImmunizationRule(5,12,29,"Hib",4);
+		ImmunizationRule v1 = new ImmunizationRule(6,12,29,"Varicella",1);
 		
+		ImmunizationRule DTap_rule2 = new ImmunizationRule(1,30,71,"DTap",5);
+		ImmunizationRule polio_rule2 = new ImmunizationRule(2,30,71,"Polio",4);
+		ImmunizationRule hepB_rule2 = new ImmunizationRule(3,30,71,"HepB",3);
+		ImmunizationRule mmr_rule2= new ImmunizationRule(4,30,71,"MMR",2);
+		ImmunizationRule v2 = new ImmunizationRule(6,30,71,"Varicella",2);
 		
+//		dayCareCompany.addImmunizationRule(DTap_rule1);
+//		dayCareCompany.addImmunizationRule(polio_rule1);
+//		dayCareCompany.addImmunizationRule(hepB_rule1);
+//		dayCareCompany.addImmunizationRule(mmr_rule1);
+//		dayCareCompany.addImmunizationRule(hib_rule1);
+//		dayCareCompany.addImmunizationRule(v1);
+//		
+//		dayCareCompany.addImmunizationRule(DTap_rule2);
+//		dayCareCompany.addImmunizationRule(polio_rule2);
+//		dayCareCompany.addImmunizationRule(hepB_rule2);
+//		dayCareCompany.addImmunizationRule(mmr_rule2);
+//		dayCareCompany.addImmunizationRule(v2);
+		
+		//write immunizationRule to immunizationRules.csv
+//		try {
+//			dayCareCompany.getWriter().writeImmunizationRuleData();
+//		} catch (IOException e1) {
+//			// TODO Auto-generated catch block
+//			e1.printStackTrace();
+//		}
+		
+		//read immunizationRule from immunizationRules.csv
+		try {
+			loader.readImmunizationRules();
+		} catch (NumberFormatException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (FileNotFoundException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		} catch (ParseException e1) {
+			// TODO Auto-generated catch block
+			e1.printStackTrace();
+		}
 		
 		//write immunization records to records.csv
 //		try {

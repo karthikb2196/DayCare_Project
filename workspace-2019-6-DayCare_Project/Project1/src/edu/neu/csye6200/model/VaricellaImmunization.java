@@ -4,12 +4,11 @@ import java.util.Date;
 
 public class VaricellaImmunization extends Immunization {
 
-	private String varicellaVaccine = "Varicella Immunization"; 
+	private static String NAME = "Varicella Immunization"; 
 
 
-	public VaricellaImmunization(int immunizationID, String immunizationName, int ageReceived, Date dateReceived) {
-		super(immunizationID, immunizationName, ageReceived, dateReceived);
-		this.setImmunizationName(varicellaVaccine);
+	public VaricellaImmunization(int ageReceived, Date dateReceived) {
+		super(6, NAME, ageReceived, dateReceived);
 	}
 
 }

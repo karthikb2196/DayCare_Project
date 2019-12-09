@@ -70,7 +70,15 @@ public class ImmunizationRule implements Rule {
 	public void setRuleDescription(String descr) {
 		this.ruleDescription=descr;
 		
+	}
+
+	@Override
+	public String toString() {
+		return "ImmunizationRule [ruleID=" + ruleID + ", ageLowerLimit=" + ageLowerLimit + ", ageUpperLimit="
+				+ ageUpperLimit + ", ruleDescription=" + ruleDescription + ", requiredAmt=" + requiredAmt + "]";
 	} 
+	
+	
 
 	
 
