@@ -5,6 +5,8 @@
  */
 package edu.neu.csye6200.ui;
 
+import javax.swing.JFrame;
+
 /**
  *
  * @author hairihan
@@ -100,7 +102,12 @@ public class StudentPanel extends javax.swing.JPanel {
     }// </editor-fold>                        
 
     private void btnAddStudentActionPerformed(java.awt.event.ActionEvent evt) {                                              
-        // TODO add your handling code here:
+    	JFrame addStudentFrame = new JFrame();
+    	addStudentFrame.setBounds(0, 0,934,680);
+		AddStudentJPanel AS = new AddStudentJPanel();
+        AS.setVisible(true);
+        addStudentFrame.add(AS);
+        addStudentFrame.setVisible(true);
     }                                             
 
     private void btnSearchStudentActionPerformed(java.awt.event.ActionEvent evt) {                                                 

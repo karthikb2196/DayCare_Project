@@ -6,6 +6,10 @@
 package edu.neu.csye6200.ui;
 
 import java.awt.CardLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 /**
@@ -61,6 +65,18 @@ public class TeacherJPanel extends javax.swing.JPanel {
         btnAddTeacher.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         btnAddTeacher.setForeground(new java.awt.Color(51, 0, 153));
         btnAddTeacher.setText("Add Teacher");
+        btnAddTeacher.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame addTeacherFrame = new JFrame();
+				addTeacherFrame.setBounds(0, 0,950,645);
+				AddTeacherJPanel addTeacherPanel = new AddTeacherJPanel();
+				addTeacherPanel.setVisible(true);
+				addTeacherFrame.add(addTeacherPanel);
+				addTeacherFrame.setVisible(true);
+			}
+		});
 
         backBtn.setText("<< Back");
         backBtn.addActionListener(new java.awt.event.ActionListener() {
@@ -84,7 +100,7 @@ public class TeacherJPanel extends javax.swing.JPanel {
                             .addGroup(layout.createSequentialGroup()
                                 .addComponent(backBtn)
                                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-                                .addComponent(btnAddTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 148, javax.swing.GroupLayout.PREFERRED_SIZE))
+                                .addComponent(btnAddTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 167, javax.swing.GroupLayout.PREFERRED_SIZE))
                             .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 865, javax.swing.GroupLayout.PREFERRED_SIZE))))
                 .addContainerGap(217, Short.MAX_VALUE))
         );
