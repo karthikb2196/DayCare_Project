@@ -255,18 +255,24 @@ public class DayCareCompany {
 		return (checkRequiredDose(p.getAge(), immu) - doseTaken(p,immu.getImmunizationID()));
 	}
 
-	public void CheckImmunizationRecord(Person p) {
+	public String CheckImmunizationRecord(Person p) {
 		/*
 		 * Check a person's immu record and decide what requirements are not meet yet
 		 */
 		StringBuilder sb = new StringBuilder();
+		sb.append("Student "+p.getId()+" still needs to take: ");
+		StringBuilder sb1 = sb;
 		for (Immunization im : p.getImmunizationRecord().getImmunizationList()) {
 			int needDoseAmt = expectedDose(p, im);
 			if(needDoseAmt > 0) {
-				sb.append("Student "+p.getId()+" still needs to take "+(needDoseAmt)+" "+im.getImmunizationName()+"\n");
+				sb.append((needDoseAmt)+" "+im.getImmunizationName()+"\n");
 			}
 		}
+		if(sb1==sb) {
+			sb.append("All requirements are fulfilled.");
+		}
 		System.out.println(sb);
+		return sb.toString();
 	}
 	
 

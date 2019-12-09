@@ -5,6 +5,9 @@
  */
 package edu.neu.csye6200.ui;
 
+import edu.neu.csye6200.controller.DayCareCompany;
+import edu.neu.csye6200.model.Person;
+
 /**
  *
  * @author hairihan
@@ -14,7 +17,13 @@ public class UpdateRecordJPanel extends javax.swing.JPanel {
     /**
      * Creates new form UpdateRecordJPanel
      */
-    public UpdateRecordJPanel() {
+	
+	private DayCareCompany d;
+	private Person p;
+	
+    public UpdateRecordJPanel(DayCareCompany d,Person p) {
+    	this.p=p;
+    	this.d=d;
         initComponents();
     }
 

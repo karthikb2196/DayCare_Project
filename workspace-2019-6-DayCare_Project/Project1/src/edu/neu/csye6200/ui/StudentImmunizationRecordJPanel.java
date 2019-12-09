@@ -6,7 +6,17 @@
 package edu.neu.csye6200.ui;
 
 import java.awt.CardLayout;
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
+import edu.neu.csye6200.controller.DayCareCompany;
+import edu.neu.csye6200.model.Immunization;
+import edu.neu.csye6200.model.Person;
 
 /**
  *
@@ -15,10 +25,14 @@ import javax.swing.JPanel;
 public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
+    private DayCareCompany d;
+    private Person p;
     /**
      * Creates new form StudentImmunizationRecordJPanel
      */
-    public StudentImmunizationRecordJPanel() {
+    public StudentImmunizationRecordJPanel(DayCareCompany d,Person p) {
+    	this.d=d;
+    	this.p=p;
         initComponents();
     }
 
@@ -40,7 +54,7 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
         txtFirstname = new javax.swing.JTextField();
         jLabel7 = new javax.swing.JLabel();
         txtLastname = new javax.swing.JTextField();
-        jButton1 = new javax.swing.JButton();
+        requirementCheckButton = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
         btnUpdateRecord = new javax.swing.JButton();
 
@@ -52,17 +66,15 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Student Immunization Record");
 
-        jTable2.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "Immunization ID", "Immunization Name", "Date Received"
-            }
-        ));
+        DefaultTableModel table = new DefaultTableModel();
+        String [] colTitles = {"Immunization ID", "Immunization Name", "Date Received"};
+        table.setColumnCount(colTitles.length);
+        table.setColumnIdentifiers(colTitles);
+    	for(Immunization i:p.getImmunizationRecord().getImmunizationList()) {
+    		table.addRow(new Object[]{i.getImmunizationID(),i.getImmunizationName(),i.getDateReceived()});
+    	}
+        jTable2.setModel(table);
+        
         jScrollPane2.setViewportView(jTable2);
 
         jLabel4.setBackground(new java.awt.Color(51, 0, 153));
@@ -94,8 +106,8 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
         txtLastname.setForeground(new java.awt.Color(51, 0, 153));
         txtLastname.setEnabled(false);
 
-        jButton1.setText("Requirement");
-        jButton1.addActionListener(new java.awt.event.ActionListener() {
+        requirementCheckButton.setText("Requirement");
+        requirementCheckButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
             }
@@ -116,6 +128,21 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
                 btnUpdateRecordActionPerformed(evt);
             }
         });
+        
+        /*
+         *   btn_Teacher.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame teacherFrame = new JFrame();
+				teacherFrame.setBounds(0, 0,1248,794);
+				TeacherJPanel teacherPanel = new TeacherJPanel();
+				teacherPanel.setVisible(true);
+	            teacherFrame.add(teacherPanel);
+	            teacherFrame.setVisible(true);
+			}
+		});
+         */
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -145,7 +172,7 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
                         .addGap(12, 12, 12)
                         .addComponent(btnUpdateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(jButton1, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(requirementCheckButton, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(83, 83, 83))
@@ -172,7 +199,7 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
                 .addGap(18, 18, 18)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
                     .addComponent(btnUpdateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(jButton1, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
+                    .addComponent(requirementCheckButton, javax.swing.GroupLayout.DEFAULT_SIZE, 60, Short.MAX_VALUE)
                     .addComponent(backBtn, javax.swing.GroupLayout.Alignment.TRAILING, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE))
                 .addGap(15, 15, 15))
         );
@@ -187,17 +214,24 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
+    	JOptionPane.showMessageDialog(userProcessContainer,d.CheckImmunizationRecord(p));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnUpdateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateRecordActionPerformed
         // TODO add your handling code here:
+    	JFrame uframe = new JFrame();
+    	uframe.setBounds(0, 0,1248,794);
+    	UpdateRecordJPanel u = new UpdateRecordJPanel(d,p);
+    	u.setVisible(true);
+    	uframe.add(u);
+    	uframe.setVisible(true);
     }//GEN-LAST:event_btnUpdateRecordActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
     private javax.swing.JButton btnUpdateRecord;
-    private javax.swing.JButton jButton1;
+    private javax.swing.JButton requirementCheckButton;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
