@@ -12,7 +12,7 @@ private String lastName;
 private int age;
 private ImmunizationRecord immunizationRecord;
 //to add to csv
-SimpleDateFormat ft = new SimpleDateFormat ("MM-dd-yyyy");//MM-dd-yyyy
+SimpleDateFormat ft = new SimpleDateFormat ("MM/dd/yyyy");//MM-dd-yyyy
 private Date dateOfEnrollment;
 private int ruleID;
 
