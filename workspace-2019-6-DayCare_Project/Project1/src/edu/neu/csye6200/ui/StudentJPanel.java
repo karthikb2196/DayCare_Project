@@ -5,6 +5,9 @@
  */
 package edu.neu.csye6200.ui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
 import edu.neu.csye6200.controller.DayCareCompany;
 
 /**
@@ -60,6 +63,14 @@ public class StudentJPanel extends javax.swing.JPanel {
         btnSearch.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         btnSearch.setForeground(new java.awt.Color(51, 0, 153));
         btnSearch.setText("Search");
+        btnSearch.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				
+			}
+		});
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

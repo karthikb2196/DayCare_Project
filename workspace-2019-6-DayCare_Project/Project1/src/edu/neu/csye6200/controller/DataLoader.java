@@ -31,7 +31,7 @@ public class DataLoader {
 	private final String recordCSV = "records.csv";
 	private final String classroomCSV = "classrooms.txt";
 	private final String ImmunizationRuleCSV = "ImmunizationRules.csv";
-	
+	public static int studentIds = 0;
 
 	public DataLoader(DayCareCompany company) {
 		this.company = company;
@@ -82,6 +82,7 @@ public class DataLoader {
 		for (String student : students) {
 			String[] info = student.split(",");
 			this.company.addStudentToList((new Student(info)));
+			studentIds+=1;
 		}
 	}
 	

@@ -7,6 +7,7 @@ package edu.neu.csye6200.ui;
 
 import java.util.Date;
 
+import edu.neu.csye6200.controller.DataLoader;
 import edu.neu.csye6200.controller.DayCareCompany;
 import edu.neu.csye6200.model.Student;
 
@@ -16,12 +17,13 @@ import edu.neu.csye6200.model.Student;
  */
 public class AddStudentJPanel extends javax.swing.JPanel {
 	private DayCareCompany d;
-	private int id=100;
+	private int id;
     /**
      * Creates new form AddStudentJPanel
      */
     public AddStudentJPanel(DayCareCompany d) {
     	this.d=d;
+    	this.id = DataLoader.studentIds;
         initComponents();
     }
 
