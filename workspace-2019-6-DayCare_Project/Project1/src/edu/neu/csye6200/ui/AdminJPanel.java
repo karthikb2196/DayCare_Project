@@ -5,6 +5,15 @@
  */
 package edu.neu.csye6200.ui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+
+import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
+
+import edu.neu.csye6200.controller.DayCareCompany;
+import edu.neu.csye6200.model.ClassRoom;
+
 /**
  *
  * @author hairihan
@@ -14,7 +23,12 @@ public class AdminJPanel extends javax.swing.JPanel {
     /**
      * Creates new form AdminJPanel
      */
-    public AdminJPanel() {
+
+	
+	private DayCareCompany company;
+	
+    public AdminJPanel(DayCareCompany company) {
+    	this.company=company;
         initComponents();
     }
 
@@ -32,20 +46,31 @@ public class AdminJPanel extends javax.swing.JPanel {
         jLabel1 = new javax.swing.JLabel();
         btnDetails = new javax.swing.JButton();
         btnViewRules = new javax.swing.JButton();
+        btnViewRules.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				JFrame teacherFrame = new JFrame();
+				teacherFrame.setBounds(0, 0,1248,794);
+				ImmunizationRulesJPanel i = new ImmunizationRulesJPanel(company);
+				i.setVisible(true);
+	            teacherFrame.add(i);
+	            teacherFrame.setVisible(true);
+			}
+		});
 
         setBackground(new java.awt.Color(51, 0, 153));
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Class Num", "Student Age", "Teacher", "Class Size"
-            }
-        ));
+        
+        DefaultTableModel table = new DefaultTableModel();
+        String [] colTitles = {"Class ID", "Student Amount", "Teacher Amount"};
+        table.setColumnCount(colTitles.length);
+        table.setColumnIdentifiers(colTitles);
+    	for(ClassRoom c:company.getClassRooms()) {
+    		table.addRow(new Object[]{c.getClassRoomID(),c.getNumberOfStudents(),c.getTeachers().size()});
+    	}
+        jTable1.setModel(table);
+        
         jScrollPane1.setViewportView(jTable1);
 
         jLabel1.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N

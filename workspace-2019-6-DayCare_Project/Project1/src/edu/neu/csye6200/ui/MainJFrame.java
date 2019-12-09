@@ -177,6 +177,12 @@ public class MainJFrame extends javax.swing.JFrame {
 
     private void btn_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AdminActionPerformed
         // TODO add your handling code here:
+    	JFrame f = new JFrame();
+    	f.setBounds(0, 0,1248,794);
+    	AdminJPanel a = new AdminJPanel(d);
+    	a.setVisible(true);
+    	f.add(a);
+    	f.setVisible(true);
     }//GEN-LAST:event_btn_AdminActionPerformed
 
     /**

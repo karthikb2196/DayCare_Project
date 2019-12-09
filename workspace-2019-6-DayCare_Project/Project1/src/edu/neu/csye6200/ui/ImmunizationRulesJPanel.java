@@ -5,6 +5,12 @@
  */
 package edu.neu.csye6200.ui;
 
+import javax.swing.table.DefaultTableModel;
+
+import edu.neu.csye6200.controller.DayCareCompany;
+import edu.neu.csye6200.model.Immunization;
+import edu.neu.csye6200.model.ImmunizationRule;
+
 /**
  *
  * @author hairihan
@@ -14,7 +20,9 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
     /**
      * Creates new form ImmunizationRulesJPanel
      */
-    public ImmunizationRulesJPanel() {
+	private DayCareCompany d;
+    public ImmunizationRulesJPanel(DayCareCompany d) {
+    	this.d=d;
         initComponents();
     }
 
@@ -38,18 +46,16 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Immunization Rules");
+         
+        DefaultTableModel table = new DefaultTableModel();
+        String [] colTitles = {"Immunization ID", "Immunization Name", "Age Range", "Required Amount"};
+        table.setColumnCount(colTitles.length);
+        table.setColumnIdentifiers(colTitles);
+    	for(ImmunizationRule i:d.getImmunizationRules()) {
+    		table.addRow(new Object[]{i.getRuleID(),i.getImmunization(),i.getAgeLowerLimit()+"-"+i.getAgeUpperLimit(),i.getRequiredAmt()});
+    	}
+        jTable1.setModel(table);
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Immunization ID", "Immunization Name", "Age Range", "Required Amount"
-            }
-        ));
         jScrollPane1.setViewportView(jTable1);
 
         btnAddRole.setText("Add Role");
