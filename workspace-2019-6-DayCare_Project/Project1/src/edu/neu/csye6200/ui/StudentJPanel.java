@@ -8,7 +8,10 @@ package edu.neu.csye6200.ui;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
+import javax.swing.JFrame;
+
 import edu.neu.csye6200.controller.DayCareCompany;
+import edu.neu.csye6200.model.Person;
 
 /**
  *
@@ -68,7 +71,26 @@ public class StudentJPanel extends javax.swing.JPanel {
 			@Override
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
+				String text = txtStudentID.getText();
+				Person foundPerson = null;
+				try {
+				int id = Integer.parseInt(text);
+				for(Person s:d.getStudents()) {
+					if(s.getId()==id) {
+						foundPerson=s;
+					}
+				}
+				JFrame searchInfoFrame = new JFrame();
+				searchInfoFrame.setBounds(0, 0,651,631);
+				StudentInfoJPanel AS = new StudentInfoJPanel(d);
+		        AS.setVisible(true);
+		        searchInfoFrame.add(AS);
+		        searchInfoFrame.setVisible(true);
 				
+				}
+				catch(Exception f) {
+					System.out.println("Invailid ID entered");
+				}
 			}
 		});
 

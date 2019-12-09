@@ -8,16 +8,20 @@ package edu.neu.csye6200.ui;
 import java.awt.CardLayout;
 import javax.swing.JPanel;
 
+import edu.neu.csye6200.controller.DayCareCompany;
+
 /**
  *
  * @author hairihan
  */
 public class StudentInfoJPanel extends javax.swing.JPanel {
+	private DayCareCompany d;
     private JPanel userProcessContainer;
     /**
      * Creates new form StudentInfoJPanel
      */
-    public StudentInfoJPanel() {
+    public StudentInfoJPanel(DayCareCompany d) {
+    	this.d=d;
         initComponents();
     }
 
