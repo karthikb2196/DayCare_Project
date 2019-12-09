@@ -14,7 +14,7 @@ public class Driver {
 ////		System.out.println(dtap.getRule().demo());
 //		Student.demo();
 //		Teacher.demo();
-		DayCareCompany.demo();
+		//DayCareCompany.demo();
 	}
 
 }

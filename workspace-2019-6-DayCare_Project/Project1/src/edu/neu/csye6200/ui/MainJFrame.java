@@ -10,6 +10,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 
+import edu.neu.csye6200.controller.DataLoader;
+import edu.neu.csye6200.controller.DataWriter;
+import edu.neu.csye6200.controller.DayCareCompany;
+import edu.neu.csye6200.model.ClassRoomRule;
+
 /**
  *
  * @author hairihan
@@ -19,7 +24,11 @@ public class MainJFrame extends javax.swing.JFrame {
     /**
      * Creates new form MainJFrame
      */
-    public MainJFrame() {
+	
+	private DayCareCompany d;
+	
+    public MainJFrame(DayCareCompany d) {
+    	this.d=d;
         initComponents();
     }
 
@@ -67,7 +76,7 @@ public class MainJFrame extends javax.swing.JFrame {
 			public void actionPerformed(ActionEvent e) {
 				JFrame studentFrame = new JFrame();
 				studentFrame.setBounds(0, 0,1248,794);
-				StudentPanel AS = new StudentPanel();
+				StudentPanel AS = new StudentPanel(d);
 	            AS.setVisible(true);
 	            studentFrame.add(AS);
 	            studentFrame.setVisible(true);
@@ -196,11 +205,28 @@ public class MainJFrame extends javax.swing.JFrame {
             java.util.logging.Logger.getLogger(MainJFrame.class.getName()).log(java.util.logging.Level.SEVERE, null, ex);
         }
         //</editor-fold>
+        
+        DayCareCompany dayCareCompany = new DayCareCompany();
+		dayCareCompany.setW(new DataWriter(dayCareCompany));
+		DataLoader loader = new DataLoader(dayCareCompany);
+		ClassRoomRule rule1 = new ClassRoomRule(1,"Classroom for ages 6-12", 12, 6, 0.25,4, 12,3);
+		ClassRoomRule rule2 = new ClassRoomRule(2,"Classroom for ages 13-24", 24, 13, 0.20,5, 15,3);
+		ClassRoomRule rule3 = new ClassRoomRule(3,"Classroom for ages 25-35", 35, 25, 0.20,6, 18,3);
+		ClassRoomRule rule4 = new ClassRoomRule(4,"Classroom for ages 36-47", 47, 36, 0.20,8, 24,3);
+		ClassRoomRule rule5 = new ClassRoomRule(5,"Classroom for ages 48-59", 59, 48, 0.20,12, 24,2);
+		ClassRoomRule rule6 = new ClassRoomRule(6,"Classroom for ages 60 and above", 24,60, 0.20,15,30,2);
+		dayCareCompany.setClassRuleSet(rule1);
+		dayCareCompany.setClassRuleSet(rule2);
+		dayCareCompany.setClassRuleSet(rule3);
+		dayCareCompany.setClassRuleSet(rule4);
+		dayCareCompany.setClassRuleSet(rule5);
+		dayCareCompany.setClassRuleSet(rule6);
+		loader.readEverything();
 
         /* Create and display the form */
         java.awt.EventQueue.invokeLater(new Runnable() {
             public void run() {
-            	MainJFrame mainFrame =  new MainJFrame();
+            	MainJFrame mainFrame =  new MainJFrame(dayCareCompany);
             	mainFrame.setVisible(true);
             }
         });

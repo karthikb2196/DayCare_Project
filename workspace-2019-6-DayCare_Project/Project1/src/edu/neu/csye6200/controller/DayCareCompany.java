@@ -41,6 +41,9 @@ public class DayCareCompany {
 	
 	
 	
+	public DayCareCompany() {
+		
+	}
 	public DataWriter getWriter() {
 		return writer;
 	}
