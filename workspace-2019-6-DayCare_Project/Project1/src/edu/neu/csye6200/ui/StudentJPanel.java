@@ -5,16 +5,19 @@
  */
 package edu.neu.csye6200.ui;
 
+import edu.neu.csye6200.controller.DayCareCompany;
+
 /**
  *
  * @author hairihan
  */
 public class StudentJPanel extends javax.swing.JPanel {
-
+	private DayCareCompany d;
     /**
      * Creates new form StudentJPanel
      */
-    public StudentJPanel() {
+    public StudentJPanel(DayCareCompany d) {
+    	this.d=d;
         initComponents();
     }
 

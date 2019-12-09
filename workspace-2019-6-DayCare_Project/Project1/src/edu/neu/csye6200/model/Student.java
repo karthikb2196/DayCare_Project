@@ -27,7 +27,7 @@ public class Student extends Person implements Comparable<Student> {
 		super(Integer.parseInt(info[0]), 
 				info[1], info[2], 
 				Integer.parseInt(info[3]),
-				new SimpleDateFormat("MM-dd-yyyy").parse(info[4]));
+				new SimpleDateFormat("MM/dd/yyyy").parse(info[4]));
 		fatherName = info[5];
 		motherName = info[6];
 		
