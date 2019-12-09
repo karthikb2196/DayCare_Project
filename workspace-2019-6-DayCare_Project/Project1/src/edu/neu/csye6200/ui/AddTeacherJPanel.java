@@ -65,7 +65,7 @@ public class AddTeacherJPanel extends javax.swing.JPanel {
         jLabel3.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel3.setText("Firstname:");
+        jLabel3.setText("First Name:");
 
         txtFirstname.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         txtFirstname.setForeground(new java.awt.Color(51, 0, 153));
@@ -74,7 +74,7 @@ public class AddTeacherJPanel extends javax.swing.JPanel {
         jLabel4.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel4.setForeground(new java.awt.Color(255, 255, 255));
         jLabel4.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel4.setText("Lastname:");
+        jLabel4.setText("Last Name:");
 
         txtLastname.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         txtLastname.setForeground(new java.awt.Color(51, 0, 153));
@@ -83,7 +83,7 @@ public class AddTeacherJPanel extends javax.swing.JPanel {
         jLabel5.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel5.setForeground(new java.awt.Color(255, 255, 255));
         jLabel5.setHorizontalAlignment(javax.swing.SwingConstants.RIGHT);
-        jLabel5.setText("Class Number:");
+        jLabel5.setText("Class Level:");
 
         txtClassNumber.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         txtClassNumber.setForeground(new java.awt.Color(51, 0, 153));
