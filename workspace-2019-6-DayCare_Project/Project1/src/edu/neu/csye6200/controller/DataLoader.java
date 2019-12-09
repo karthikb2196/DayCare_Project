@@ -29,7 +29,7 @@ public class DataLoader {
 	private final String studentCSV = "students.csv";
 	private final String teacherCSV = "teachers.csv";
 	private final String recordCSV = "records.csv";
-	private final String classroomCSV = "classrooms.csv";
+	private final String classroomCSV = "classrooms.txt";
 	private final String ImmunizationRuleCSV = "ImmunizationRules.csv";
 	
 
@@ -60,7 +60,7 @@ public class DataLoader {
 		List<String> students = readFile(studentCSV);
 		for (String student : students) {
 			String[] info = student.split(",");
-			this.company.addStudent(new Student(info));
+			this.company.addStudentToList((new Student(info)));
 		}
 	}
 	
@@ -68,7 +68,7 @@ public class DataLoader {
 		//id,fname,lname,age,dateOfEnrollment,stateLevel
 		List<String> teacher = readFile(teacherCSV);
 		for (String t : teacher) {
-			this.company.addTeacher(new Teacher(t));
+			this.company.addTeacherToList((new Teacher(t)));
 		}
 	}
 
@@ -111,28 +111,47 @@ public class DataLoader {
 		 * 		classroomID;Rule_ID;student1_ID,student2_ID,student3_ID;teacherID
 		 */
 		List<String> classrooms = readFile(classroomCSV);
+		String[] students = null; // students'id
+		String[] teachers = null;
+		int numberOfClassRooms=1;
 		for (String classroom : classrooms) {
 			String[] info = classroom.split(";");
+			for(String l:info) {
+			System.out.print(l);
+			System.out.println();
+			
+			}
 			int classroom_id = Integer.parseInt(info[0]); // classroom id
 			int classroom_rule_id = Integer.parseInt(info[1]); // classroomRule id
-			String[] students = info[2].split(","); // students'id
-			String[] teachers = info[3].split(","); // teachers'id
+			if(info.length > 2) {
+			 students = info[2].split(","); // students'id
+			 teachers = info[3].split(","); // teachers'id
+			}
 
 			// create a classroom object
 			ClassRoom aClass = new ClassRoom(classroom_id,classroom_rule_id,findClassroomRule(classroom_rule_id));
 			
 			//add students to the classroom
+			if(students != null) {
 			for(String student_id:students) {
 				aClass.addStudent(findStudent(Integer.parseInt(student_id)));
 			}
+			}
 			
 			//add teachers to the classroom
+			if(teachers != null) {
 			for(String teacher_id:teachers) {
-				aClass.addTeacher(findStudent(Integer.parseInt(teacher_id)));
+				Teacher t=(Teacher) findTeacher(Integer.parseInt(teacher_id));
+				t.setIdle(false);
+				aClass.addTeacher(t);
+			}
 			}
 			
 			// add the new classroom object to the company
+			System.out.println(aClass.Output());
 			this.company.addClassRoom(aClass);
+			numberOfClassRooms+=1;
+			this.company.setClassRoomID(numberOfClassRooms);
 
 		}
 	}

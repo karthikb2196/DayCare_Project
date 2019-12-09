@@ -115,12 +115,6 @@ public class ClassRoom {
 	public void setNumberOfGroups(int numberOfGroups) {
 		this.numberOfGroups = numberOfGroups;
 	}
-	@Override
-	public String toString() {
-		return "ClassRoom [classRoomID=" + classRoomID + ", ruleID=" + ruleID + ", teachers=" + teachers + ", students="
-				+ students + ", classRatio=" + classRatio + ", maxStudents=" + maxStudents + ", maxTeachers="
-				+ maxTeachers + ", classRoomRule=" + classRoomRule + ", numberOfStudents=" + numberOfStudents + "]";
-	}
 	
 	//Check if the classroom is full or not, and check the ratio for the student
 	public boolean CheckClassroom(Person student) {
@@ -171,6 +165,60 @@ public class ClassRoom {
 	public void setTeachertoClass(Teacher teacher) {
 		this.getTeachers().add(teacher);
 		
+	}
+	
+	@Override
+	public String toString() {
+		//classroomID;Rule_ID;student1_ID,student2_ID,student3_ID;teacherID
+		return  classRoomID + ";" + ruleID + ";" + this.getStudentIDs() + ";"+ this.getTeacherIDs();
+	}
+	public String Output() {
+		return "ClassRoom [classRoomID=" + classRoomID + ", ruleID=" + ruleID + ", teachers=" + teachers + ", students="
+				+ students + ", classRatio=" + classRatio + ", groupSize=" + groupSize + ", maxStudents=" + maxStudents
+				+ ", maxTeachers=" + maxTeachers + ", classRoomRule=" + classRoomRule + ", numberOfStudents="
+				+ numberOfStudents + ", numberOfTeachers=" + numberOfTeachers + "]";
+	}
+	
+	public String getStudentIDs() {
+		StringBuilder sb = null;
+		if(this.getStudents().isEmpty()==false) {
+		for(Person s: this.students) {
+			if(sb==null) {
+			sb=new StringBuilder();
+			sb.append(s.getId());
+			}
+			else {
+				sb.append(","+s.getId());
+			}
+		}
+		}
+		if(sb!=null) {
+		return sb.toString();
+		}
+		else {
+			return "";
+		}
+	}
+	
+	public String getTeacherIDs() {
+		StringBuilder sb = null;
+		if(this.getTeachers().isEmpty()==false) {
+		for(Person s: this.teachers) {
+			if(sb==null) {
+			sb=new StringBuilder();
+			sb.append(s.getId());
+			}
+			else {
+				sb.append(","+s.getId());
+			}
+		}
+		}
+		if(sb!=null) {
+			return sb.toString();
+			}
+			else {
+				return "";
+			}
 	}
 	
 }

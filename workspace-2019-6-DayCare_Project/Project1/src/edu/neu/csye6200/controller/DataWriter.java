@@ -20,7 +20,7 @@ public class DataWriter {
 	private final String studentCSV = "students.csv";
 	private final String teacherCSV = "teachers.csv";
 	private final String recordCSV = "records.csv";
-	private final String classroomCSV = "classrooms.csv";
+	private final String classroomCSV = "classrooms.txt";
 	private final String ImmunizationRuleCSV = "ImmunizationRules.csv";
 	SimpleDateFormat ft = new SimpleDateFormat ("MM-dd-yyyy");//MM-dd-yyyy
 
@@ -137,21 +137,22 @@ public class DataWriter {
 		String info = "";
 		for (ClassRoom c : this.company.getClassRooms()) {
 
-			// add classroomID and classRoomRuleID
-			info = c.getClassRoomID() + ";" + c.getRuleID() + ";";
+//			// add classroomID and classRoomRuleID
+//			info = c.getClassRoomID() + ";" + c.getRuleID() + ";";
+//
+//			// add students' id
+//			for (Person p : c.getStudents()) {
+//				info = info + p.getId() + ",";
+//			}
+//			if (c.getStudents().size() > 0) {// if the classroom is non-empty
+//				// replace the last string ","
+//				info = info.substring(0, info.length() - 1);
+//			}
+//
+//			// add teacherID
+//			info = info + ";" + c.getTeachers().get(0);
 
-			// add students' id
-			for (Person p : c.getStudents()) {
-				info = info + p.getId() + ",";
-			}
-			if (c.getStudents().size() > 0) {// if the classroom is non-empty
-				// replace the last string ","
-				info = info.substring(0, info.length() - 1);
-			}
-
-			// add teacherID
-			info = info + ";" + c.getTeachers().get(0);
-
+			info = c.toString();
 			// add classroom info to the csv
 			bufferWriter.write(info);
 			bufferWriter.newLine();
@@ -159,5 +160,6 @@ public class DataWriter {
 		bufferWriter.flush();
 		bufferWriter.close();
 	}
+
 
 }
