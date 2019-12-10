@@ -5,6 +5,7 @@
  */
 package edu.neu.csye6200.ui;
 
+import javax.swing.JFrame;
 import javax.swing.table.DefaultTableModel;
 
 import edu.neu.csye6200.controller.DayCareCompany;
@@ -21,8 +22,10 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
      * Creates new form ImmunizationRulesJPanel
      */
 	private DayCareCompany d;
-    public ImmunizationRulesJPanel(DayCareCompany d) {
+	private JFrame frame;
+    public ImmunizationRulesJPanel(DayCareCompany d, JFrame f) {
     	this.d=d;
+    	this.frame=f;
         initComponents();
     }
 
@@ -108,6 +111,15 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 
     private void btnAddRoleActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnAddRoleActionPerformed
         // TODO add your handling code here:
+    	
+    	JFrame f = new JFrame();
+		f.setBounds(0, 0,1248,794);
+		AddImmunizationRuleJPanel add = new AddImmunizationRuleJPanel(d,this,f);
+		add.setVisible(true);
+        f.add(add);
+        f.setVisible(true);
+        this.frame.setVisible(false);
+        this.frame.dispose();
     }//GEN-LAST:event_btnAddRoleActionPerformed
 
 

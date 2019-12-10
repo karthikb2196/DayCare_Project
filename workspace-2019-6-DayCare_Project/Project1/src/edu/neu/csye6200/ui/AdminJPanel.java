@@ -50,12 +50,12 @@ public class AdminJPanel extends javax.swing.JPanel {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				JFrame teacherFrame = new JFrame();
-				teacherFrame.setBounds(0, 0,1248,794);
-				ImmunizationRulesJPanel i = new ImmunizationRulesJPanel(company);
+				JFrame f = new JFrame();
+				f.setBounds(0, 0,1248,794);
+				ImmunizationRulesJPanel i = new ImmunizationRulesJPanel(company,f);
 				i.setVisible(true);
-	            teacherFrame.add(i);
-	            teacherFrame.setVisible(true);
+	            f.add(i);
+	            f.setVisible(true);
 			}
 		});
 
