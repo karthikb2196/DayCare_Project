@@ -207,6 +207,7 @@ public class DayCareCompany {
 	
 	public void addTeacher(Person s) {
 		this.teachers.add(s);
+		this.getWriter().writeEverything();
 	}
 	
 	public void addImmunization(Immunization i) {

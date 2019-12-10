@@ -6,9 +6,13 @@
 package edu.neu.csye6200.ui;
 
 import java.awt.CardLayout;
+import java.util.ListIterator;
+
 import javax.swing.JPanel;
 
 import edu.neu.csye6200.controller.DayCareCompany;
+import edu.neu.csye6200.model.Person;
+import edu.neu.csye6200.model.Student;
 
 /**
  *
@@ -96,6 +100,7 @@ public class StudentInfoJPanel extends javax.swing.JPanel {
 
         txtStudentID1.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         txtStudentID1.setForeground(new java.awt.Color(51, 0, 153));
+        txtStudentID1.setEditable(false);
         txtStudentID1.setEnabled(false);
 
         jLabel5.setBackground(new java.awt.Color(51, 0, 153));
@@ -290,6 +295,24 @@ public class StudentInfoJPanel extends javax.swing.JPanel {
 
     private void btnUpdateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateRecordActionPerformed
         // TODO add your handling code here:
+    	String text = txtStudentID1.getText();
+		Student foundPerson = null;
+		ListIterator<Person> iterator = d.getStudents().listIterator();
+		try {
+		int id = Integer.parseInt(text);
+		while(iterator.hasNext()) {
+			foundPerson= (Student) iterator.next();
+			if(foundPerson.getId()==id) {
+				foundPerson.setFirstName(this.getTxtFirstname().getText());
+				foundPerson.setLastName(this.getTxtLastname().getText());
+				foundPerson.setFatherName(this.getTxtFather().getText());
+				foundPerson.setMotherName(this.getTxtMother().getText());
+			}
+		}
+		}
+		catch(Exception e) {
+			e.printStackTrace();
+		}
     }//GEN-LAST:event_btnUpdateRecordActionPerformed
 
 

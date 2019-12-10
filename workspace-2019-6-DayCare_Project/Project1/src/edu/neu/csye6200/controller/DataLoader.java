@@ -32,6 +32,7 @@ public class DataLoader {
 	private final String classroomCSV = "classrooms.txt";
 	private final String ImmunizationRuleCSV = "ImmunizationRules.csv";
 	public static int studentIds = 0;
+	public static int teacherIds= 0;
 
 	public DataLoader(DayCareCompany company) {
 		this.company = company;
@@ -91,6 +92,7 @@ public class DataLoader {
 		List<String> teacher = readFile(teacherCSV);
 		for (String t : teacher) {
 			this.company.addTeacherToList((new Teacher(t)));
+			teacherIds+=1;
 		}
 	}
 

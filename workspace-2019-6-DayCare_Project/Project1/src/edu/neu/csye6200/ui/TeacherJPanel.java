@@ -91,7 +91,7 @@ public class TeacherJPanel extends javax.swing.JPanel {
 			public void actionPerformed(ActionEvent e) {
 				JFrame addTeacherFrame = new JFrame();
 				addTeacherFrame.setBounds(0, 0,950,645);
-				AddTeacherJPanel addTeacherPanel = new AddTeacherJPanel();
+				AddTeacherJPanel addTeacherPanel = new AddTeacherJPanel(d);
 				addTeacherPanel.setVisible(true);
 				addTeacherFrame.add(addTeacherPanel);
 				addTeacherFrame.setVisible(true);
