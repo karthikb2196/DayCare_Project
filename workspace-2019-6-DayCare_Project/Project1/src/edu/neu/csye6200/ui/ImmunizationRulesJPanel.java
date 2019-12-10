@@ -23,6 +23,8 @@ import edu.neu.csye6200.controller.DayCareCompany;
 import edu.neu.csye6200.model.Immunization;
 import edu.neu.csye6200.model.ImmunizationRule;
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+
 /**
  *
  * @author hairihan
@@ -35,66 +37,49 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 	private DayCareCompany d;
 	private JFrame frame;
 	private DefaultTableModel t;
-	private int selectedID=-1;
-	private int selectedAge1=-1;
-	private int selectedAge2=-1;
-	
+	private int selectedID = -1;
+	private int selectedAge1 = -1;
+	private int selectedAge2 = -1;
 
 	public ImmunizationRulesJPanel(DayCareCompany d, JFrame f) {
 		this.d = d;
 		this.frame = f;
 		initComponents();
 	}
-	
-	
 
 	public int getSelectedID() {
 		return selectedID;
 	}
 
-
-
 	public void setSelectedID(int selectedID) {
 		this.selectedID = selectedID;
 	}
-
-
 
 	public int getSelectedAge1() {
 		return selectedAge1;
 	}
 
-
-
 	public void setSelectedAge1(int selectedAge1) {
 		this.selectedAge1 = selectedAge1;
 	}
-
-
 
 	public int getSelectedAge2() {
 		return selectedAge2;
 	}
 
-
-
 	public void setSelectedAge2(int selectedAge2) {
 		this.selectedAge2 = selectedAge2;
 	}
-	
+
 	public boolean notSelected() {
-		return ( selectedAge1==-1 &&
-	            selectedAge2==-1 &&
-	            selectedID==-1);
+		return (selectedAge1 == -1 && selectedAge2 == -1 && selectedID == -1);
 	}
-	
+
 	public void setUnselected() {
-		selectedAge1=-1;
-	            selectedAge2=-1;
-	            selectedID=-1;
+		selectedAge1 = -1;
+		selectedAge2 = -1;
+		selectedID = -1;
 	}
-
-
 
 	/**
 	 * This method is called from within the constructor to initialize the form.
@@ -122,30 +107,29 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 		String[] colTitles = { "Immunization ID", "Immunization Name", "Age Range", "Required Amount" };
 		table.setColumnCount(colTitles.length);
 		table.setColumnIdentifiers(colTitles);
-		
-		
+
 		for (ImmunizationRule i : d.getImmunizationRules()) {
 			table.addRow(new Object[] { i.getRuleID(), i.getImmunization(),
 					i.getAgeLowerLimit() + "-" + i.getAgeUpperLimit(), i.getRequiredAmt() });
 		}
 
 		jTable1.setModel(table);
-		
-		//select a row
-		jTable1.getSelectionModel().addListSelectionListener(new ListSelectionListener(){
-	        public void valueChanged(ListSelectionEvent event) {
-	            // do some actions here, for example
-	            // print first column value from selected row
-	            System.out.println("Selected "+table.getValueAt(jTable1.getSelectedRow(), 0).toString());
-	            int id=Integer.parseInt(table.getValueAt(jTable1.getSelectedRow(), 0).toString());
-	            String range = (table.getValueAt(jTable1.getSelectedRow(), 2).toString());
-	            int age1 = Integer.parseInt(range.split("-")[0]);
-	            int age2 = Integer.parseInt(range.split("-")[1]);
-	            selectedAge1=age1;
-	            selectedAge2=age2;
-	            selectedID=id;
-	        }
-	    });
+
+		// select a row
+		jTable1.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent event) {
+				// do some actions here, for example
+				// print first column value from selected row
+				System.out.println("Selected " + table.getValueAt(jTable1.getSelectedRow(), 0).toString());
+				int id = Integer.parseInt(table.getValueAt(jTable1.getSelectedRow(), 0).toString());
+				String range = (table.getValueAt(jTable1.getSelectedRow(), 2).toString());
+				int age1 = Integer.parseInt(range.split("-")[0]);
+				int age2 = Integer.parseInt(range.split("-")[1]);
+				selectedAge1 = age1;
+				selectedAge2 = age2;
+				selectedID = id;
+			}
+		});
 		this.t = table;
 
 		jScrollPane1.setViewportView(jTable1);
@@ -166,35 +150,42 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 
 		btnDeleteRule.setText("Delete Rule");
 		btnDeleteRule.addActionListener(new ActionListener() {
-			
+
 			@Override
 			public void actionPerformed(ActionEvent e) {
-				if(notSelected()) {
-					//pop up warning window
+				if (notSelected()) {
+					// pop up warning window
 					System.out.println("No rule is selected");
-				}
-				else {
-					ImmunizationRule remove=null;
-					for(ImmunizationRule r:d.getImmunizationRules()) {
-						if(r.getRuleID()==selectedID && r.getAgeLowerLimit()==selectedAge1 && r.getAgeUpperLimit()==selectedAge2) {
+				} else {
+					ImmunizationRule remove = null;
+					for (ImmunizationRule r : d.getImmunizationRules()) {
+						if (r.getRuleID() == selectedID && r.getAgeLowerLimit() == selectedAge1
+								&& r.getAgeUpperLimit() == selectedAge2) {
 							remove = r;
 						}
 					}
-					
-					if(remove==null) {
+
+					if (remove == null) {
 						System.out.println("Cannot locate the rule for removal");
+						
+					} else {
+						d.getImmunizationRules().remove(remove);
+						try {
+							d.getWriter().writeImmunizationRuleData();
+							System.out.println("Remove rule successfully");
+							frame.setVisible(false);
+							frame.dispose();
+						} catch (IOException e1) {
+							// TODO Auto-generated catch block
+							e1.printStackTrace();
+						}
+						
 					}
-					else{d.getImmunizationRules().remove(remove);
-					try {
-						d.getWriter().writeImmunizationRuleData();
-					} catch (IOException e1) {
-						// TODO Auto-generated catch block
-						e1.printStackTrace();
-					}
-				}
 				}
 				
+
 			}
+			
 		});
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
@@ -235,10 +226,10 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 			if (d.getImmunizationRules().get(row).getRequiredAmt() != Integer.parseInt(val)) {
 				System.out.println(row + ":" + col + "=" + val);
 				d.getImmunizationRules().get(row).setRequiredAmt(Integer.parseInt(val));
-				change="Changes are made successfully";
+				change = "Changes are made successfully";
 				try {
 					d.getWriter().writeImmunizationRuleData();
-					t.fireTableDataChanged();
+				//	t.fireTableDataChanged();
 				} catch (IOException e) {
 					// TODO Auto-generated catch block
 					e.printStackTrace();
@@ -246,7 +237,8 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 			}
 
 		}
-		JOptionPane.showMessageDialog(this,change);
+		JOptionPane.showMessageDialog(this, change);
+		
 
 	}
 
@@ -259,9 +251,9 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 		add.setVisible(true);
 		f.add(add);
 		f.setVisible(true);
-
-        this.frame.setVisible(false);
-        this.frame.dispose();
+	
+		this.frame.setVisible(false);
+		this.frame.dispose();
 	}// GEN-LAST:event_btnAddRoleActionPerformed
 
 	// Variables declaration - do not modify//GEN-BEGIN:variables

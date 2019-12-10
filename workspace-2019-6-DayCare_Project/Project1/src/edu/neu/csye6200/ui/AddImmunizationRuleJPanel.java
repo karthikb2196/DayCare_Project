@@ -180,8 +180,7 @@ public class AddImmunizationRuleJPanel extends javax.swing.JPanel {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
 		}
-		
-		
+
 		f.setVisible(false);
 		f.dispose();
 
