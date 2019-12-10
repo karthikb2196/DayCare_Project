@@ -7,10 +7,13 @@ package edu.neu.csye6200.ui;
 
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.util.ArrayList;
+import java.util.List;
 
 import javax.swing.JFrame;
 
 import edu.neu.csye6200.controller.DayCareCompany;
+import edu.neu.csye6200.model.ClassRoom;
 import edu.neu.csye6200.model.Person;
 import edu.neu.csye6200.model.Student;
 import javax.swing.JOptionPane;
@@ -93,6 +96,7 @@ public class StudentJPanel extends javax.swing.JPanel {
 				AS.getTxtAge().setText(ageString);
 				AS.getTxtFather().setText(foundPerson.getFatherName());
 				AS.getTxtMother().setText(foundPerson.getMotherName());
+				AS.getTxtClassNumber().setText(getClassRoom(foundPerson));;
 				AS.getTxtRegisterDate().setText(foundPerson.ft.format(foundPerson.getDateOfEnrollment()));
 		        AS.setVisible(true);
 		        searchInfoFrame.add(AS);
@@ -104,7 +108,7 @@ public class StudentJPanel extends javax.swing.JPanel {
 				}
 			}
 		});
-
+        
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
         layout.setHorizontalGroup(
@@ -153,4 +157,18 @@ public class StudentJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel3;
     private javax.swing.JTextField txtStudentID;
     // End of variables declaration//GEN-END:variables
+    
+    public String getClassRoom(Student s) {
+    	Integer classRoomId = null;
+    	List<ClassRoom> classRooms = d.getClassRooms();
+    	for(ClassRoom c: classRooms) {
+    		List<Person> students = c.getStudents();
+    		for(Person student : students) {
+    			if(s.getId()==student.getId()) {
+    				classRoomId = c.getClassRoomID();
+    			}
+    		}
+    	}	
+		return classRoomId.toString();
+    }
 }

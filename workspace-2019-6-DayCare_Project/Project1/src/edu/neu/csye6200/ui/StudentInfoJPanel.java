@@ -60,7 +60,7 @@ public class StudentInfoJPanel extends javax.swing.JPanel {
         txtMother = new javax.swing.JTextField();
         jLabel12 = new javax.swing.JLabel();
         txtRegisterDate = new javax.swing.JTextField();
-        btnUpdateRecord = new javax.swing.JButton();
+        btnImmunizationRecord = new javax.swing.JButton();
         backBtn = new javax.swing.JButton();
 
         jLabel1.setBackground(new java.awt.Color(51, 0, 153));
@@ -173,10 +173,10 @@ public class StudentInfoJPanel extends javax.swing.JPanel {
         txtRegisterDate.setForeground(new java.awt.Color(51, 0, 153));
         txtRegisterDate.setEnabled(false);
 
-        btnUpdateRecord.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
-        btnUpdateRecord.setForeground(new java.awt.Color(51, 0, 153));
-        btnUpdateRecord.setText("Update Record");
-        btnUpdateRecord.addActionListener(new java.awt.event.ActionListener() {
+        btnImmunizationRecord.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        btnImmunizationRecord.setForeground(new java.awt.Color(51, 0, 153));
+        btnImmunizationRecord.setText("Show Immunization Record");
+        btnImmunizationRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateRecordActionPerformed(evt);
             }
@@ -197,7 +197,7 @@ public class StudentInfoJPanel extends javax.swing.JPanel {
                 .addGap(0, 0, Short.MAX_VALUE)
                 .addComponent(backBtn)
                 .addGap(59, 59, 59)
-                .addComponent(btnUpdateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnImmunizationRecord,  javax.swing.GroupLayout.PREFERRED_SIZE, 302, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(195, 195, 195))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -280,7 +280,7 @@ public class StudentInfoJPanel extends javax.swing.JPanel {
                     .addComponent(txtRegisterDate, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(27, 27, 27)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnUpdateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(btnImmunizationRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addContainerGap(50, Short.MAX_VALUE))
         );
@@ -318,7 +318,7 @@ public class StudentInfoJPanel extends javax.swing.JPanel {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton backBtn;
-    private javax.swing.JButton btnUpdateRecord;
+    private javax.swing.JButton btnImmunizationRecord;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
