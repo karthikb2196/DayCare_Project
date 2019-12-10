@@ -14,7 +14,7 @@ import javax.swing.table.DefaultTableModel;
 
 import edu.neu.csye6200.controller.DayCareCompany;
 import edu.neu.csye6200.model.ImmunizationRule;
-
+import javax.swing.JOptionPane;
 /**
  *
  * @author hairihan
