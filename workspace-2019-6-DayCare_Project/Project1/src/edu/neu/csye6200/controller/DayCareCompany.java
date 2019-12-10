@@ -125,22 +125,23 @@ public class DayCareCompany {
 		public void addTeacherToList(Person s) {
 			this.teachers.add(s);
 		}
-	public void addStudent(Person s) {
+	public String addStudent(Person s) {
 		/*
 		 * add a new student to the classroom 
 		 * create classroom based on classroom rule
 		 */
 		this.getStudents().add(s);
 		tempClassRooms = getClassRoomList(s);
+		String result = null;
 		for(ClassRoom classRoom : tempClassRooms) {
 			int addStudent= classRoom.addStudent(s);
 			if(addStudent <= classRoom.getMaxStudents() && addStudent >=  0) {
 				this.addStudentToCSV();
 				this.addClassRoomToCSV();
-				System.out.println("Student added to classroom: "+classRoom.getClassRoomID());
+				result="Student added to classroom: "+classRoom.getClassRoomID();
 			}
 			else {
-				System.out.println("Student not added");
+				result="Student not added";
 			}
 			
 			if(addStudent==1) {
@@ -172,6 +173,7 @@ public class DayCareCompany {
 				}
 			}
 		}
+		return result;
 	}
 	
 	public void setTeacherStatus() {
