@@ -11,6 +11,11 @@ import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
+import edu.neu.csye6200.controller.DayCareCompany;
+import edu.neu.csye6200.model.ClassRoom;
+import edu.neu.csye6200.model.Person;
 
 /**
  *
@@ -19,11 +24,26 @@ import javax.swing.JPanel;
 public class TeacherJPanel extends javax.swing.JPanel {
 
     private JPanel userProcessContainer;
+    private DayCareCompany d;
     /**
      * Creates new form TeacherJPanel
      */
-    public TeacherJPanel() {
+    public TeacherJPanel(DayCareCompany d) {
+    	this.d=d;
         initComponents();
+    }
+    
+    public String findClass(int t_id) {
+    	//find teacher's class
+		String teach = "No class";
+		for(ClassRoom c:d.getClassRooms()) {
+			for(Person t:c.getTeachers()) {
+				if(t.getId()==t_id) {
+					return String.valueOf(c.getClassRoomID());
+				}
+			}
+		}
+		return "Inactive";
     }
 
     /**
@@ -48,18 +68,18 @@ public class TeacherJPanel extends javax.swing.JPanel {
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Teacher");
+        
+        
 
-        jTable1.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null},
-                {null, null, null, null}
-            },
-            new String [] {
-                "Teacher ID", "Class Number", "Firstname", "Lastname"
-            }
-        ));
+        DefaultTableModel table = new DefaultTableModel();
+        String [] colTitles = {"Teacher ID", "Class Number", "Name"};
+        table.setColumnCount(colTitles.length);
+        table.setColumnIdentifiers(colTitles);
+    	for(Person p:d.getTeachers()) {
+    		table.addRow(new Object[]{p.getId(),findClass(p.getId()),p.getFirstName()+" "+p.getLastName()});
+    	}
+    	 jTable1.setModel(table);
+ 
         jScrollPane1.setViewportView(jTable1);
 
         btnAddTeacher.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N

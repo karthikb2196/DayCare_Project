@@ -93,7 +93,7 @@ public class MainJFrame extends javax.swing.JFrame {
 			public void actionPerformed(ActionEvent e) {
 				JFrame teacherFrame = new JFrame();
 				teacherFrame.setBounds(0, 0,1248,794);
-				TeacherJPanel teacherPanel = new TeacherJPanel();
+				TeacherJPanel teacherPanel = new TeacherJPanel(d);
 				teacherPanel.setVisible(true);
 	            teacherFrame.add(teacherPanel);
 	            teacherFrame.setVisible(true);
