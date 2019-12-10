@@ -161,6 +161,7 @@ public class DayCareCompany {
 					if(teacher!=null) {
 					System.out.println("Teacher"+teacher.getId()+" added to class"+classRoom.getClassRoomID());
 					classRoom.addTeacher(teacher);
+					this.getWriter().writeEverything();
 					}
 					else {
 						System.out.println("No teacher available");
