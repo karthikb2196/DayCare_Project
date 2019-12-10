@@ -58,7 +58,7 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 
         jScrollPane1.setViewportView(jTable1);
 
-        btnAddRole.setText("Add Role");
+        btnAddRole.setText("Add Rule");
         btnAddRole.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddRoleActionPerformed(evt);
