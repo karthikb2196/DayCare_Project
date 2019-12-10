@@ -173,8 +173,8 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 						try {
 							d.getWriter().writeImmunizationRuleData();
 							System.out.println("Remove rule successfully");
-							frame.setVisible(false);
-							frame.dispose();
+//							frame.setVisible(false);
+//							frame.dispose();
 						} catch (IOException e1) {
 							// TODO Auto-generated catch block
 							e1.printStackTrace();
@@ -238,6 +238,7 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 
 		}
 		JOptionPane.showMessageDialog(this, change);
+		 initComponents();
 		
 
 	}

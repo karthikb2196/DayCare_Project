@@ -12,7 +12,7 @@ import edu.neu.csye6200.model.Person;
  *
  * @author hairihan
  */
-public class UpdateRecordJPanel extends javax.swing.JPanel {
+public class AddImmunizationJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form UpdateRecordJPanel
@@ -21,7 +21,7 @@ public class UpdateRecordJPanel extends javax.swing.JPanel {
 	private DayCareCompany d;
 	private Person p;
 	
-    public UpdateRecordJPanel(DayCareCompany d,Person p) {
+    public AddImmunizationJPanel(DayCareCompany d,Person p) {
     	this.p=p;
     	this.d=d;
         initComponents();
@@ -57,7 +57,7 @@ public class UpdateRecordJPanel extends javax.swing.JPanel {
         jLabel2.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-        jLabel2.setText("Update Immunization");
+        jLabel2.setText("Add Immunization");
 
         jTextField1.setBackground(new java.awt.Color(51, 0, 153));
         jTextField1.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
@@ -85,7 +85,7 @@ public class UpdateRecordJPanel extends javax.swing.JPanel {
 
         btnUpdateRecord.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         btnUpdateRecord.setForeground(new java.awt.Color(51, 0, 153));
-        btnUpdateRecord.setText("Update");
+        btnUpdateRecord.setText("Add");
 
         txtYear.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         txtYear.setForeground(new java.awt.Color(51, 0, 153));
