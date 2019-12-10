@@ -131,7 +131,8 @@ public class AddTeacherJPanel extends javax.swing.JPanel {
 				String data = stringId+","+firstName+","+lastName+","+age+","+dateOfEnrollment+","+stateLevel;
 				System.out.println(data);
 				Teacher teacher = new Teacher(data);
-				d.addTeacher(teacher);
+				String result = d.addTeacher(teacher);
+				System.out.println(result);
 			}
 		});
 

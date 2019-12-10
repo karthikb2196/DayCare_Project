@@ -313,7 +313,7 @@ public class AddStudentJPanel extends javax.swing.JPanel {
 		String data = stringId+","+firstName+","+lastName+","+ age +","+dateOfEnrollment+","+fatherName+","+motherName ;
 		System.out.println(data);
 		Student s = new Student(data);
-		d.addStudent(s);
+		String result =d.addStudent(s);
     }                                             
 
 
