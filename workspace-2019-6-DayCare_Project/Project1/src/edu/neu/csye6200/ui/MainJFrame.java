@@ -173,6 +173,7 @@ public class MainJFrame extends javax.swing.JFrame {
         );
 
         pack();
+        
     }// </editor-fold>//GEN-END:initComponents
 
     private void btn_AdminActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btn_AdminActionPerformed

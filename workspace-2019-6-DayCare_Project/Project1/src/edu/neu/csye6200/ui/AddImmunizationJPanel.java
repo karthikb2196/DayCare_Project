@@ -5,7 +5,13 @@
  */
 package edu.neu.csye6200.ui;
 
+import java.awt.event.ActionEvent;
+import java.awt.event.ActionListener;
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+
 import edu.neu.csye6200.controller.DayCareCompany;
+import edu.neu.csye6200.model.Immunization;
 import edu.neu.csye6200.model.Person;
 
 /**
@@ -62,7 +68,7 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
         jTextField1.setBackground(new java.awt.Color(51, 0, 153));
         jTextField1.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("Student ID:  XXXXXX");
+        jTextField1.setText("Student ID: "+p.getId());
 
         jLabel4.setBackground(new java.awt.Color(51, 0, 153));
         jLabel4.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
@@ -86,15 +92,35 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
         btnUpdateRecord.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         btnUpdateRecord.setForeground(new java.awt.Color(51, 0, 153));
         btnUpdateRecord.setText("Add");
+        btnUpdateRecord.addActionListener(new ActionListener() {
+			
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				// TODO Auto-generated method stub
+				int id = Integer.parseInt(txtImmunID.getText());
+				String name = txtImmunName.getText();
+				//12/8/2019
+				String month = txtMonth.getText();
+				String day = txtDay.getText();
+				String y = txtYear.getText();
+				String date = month+"/"+day+"/"+y;
+				SimpleDateFormat ft = new SimpleDateFormat ("MM-dd-yyyy");//MM-dd-yyyy
+				Immunization i;
+				try {
+					i = new Immunization(id, name, p.getAge(), ft.parse(date));
+					d.addImmunizationToStudent(p.getId(), i);
+					System.out.println("add immu record through ui succeed");
+				} catch (ParseException e1) {
+					// TODO Auto-generated catch block
+					e1.printStackTrace();
+				}
+				
+			}
+		});
 
         txtYear.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         txtYear.setForeground(new java.awt.Color(51, 0, 153));
-        txtYear.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtYearActionPerformed(evt);
-            }
-        });
-
+       
         jLabel10.setBackground(new java.awt.Color(51, 0, 153));
         jLabel10.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         jLabel10.setForeground(new java.awt.Color(255, 255, 255));
@@ -109,11 +135,7 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
 
         txtMonth.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         txtMonth.setForeground(new java.awt.Color(51, 0, 153));
-        txtMonth.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtMonthActionPerformed(evt);
-            }
-        });
+
 
         jLabel12.setBackground(new java.awt.Color(51, 0, 153));
         jLabel12.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
@@ -123,11 +145,7 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
 
         txtDay.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
         txtDay.setForeground(new java.awt.Color(51, 0, 153));
-        txtDay.addActionListener(new java.awt.event.ActionListener() {
-            public void actionPerformed(java.awt.event.ActionEvent evt) {
-                txtDayActionPerformed(evt);
-            }
-        });
+
 
         jLabel6.setBackground(new java.awt.Color(51, 0, 153));
         jLabel6.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
@@ -209,17 +227,6 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
         );
     }// </editor-fold>//GEN-END:initComponents
 
-    private void txtYearActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtYearActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtYearActionPerformed
-
-    private void txtMonthActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtMonthActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtMonthActionPerformed
-
-    private void txtDayActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_txtDayActionPerformed
-        // TODO add your handling code here:
-    }//GEN-LAST:event_txtDayActionPerformed
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
