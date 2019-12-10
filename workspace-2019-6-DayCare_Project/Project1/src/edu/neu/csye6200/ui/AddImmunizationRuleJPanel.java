@@ -10,6 +10,7 @@ import java.awt.event.WindowEvent;
 import java.io.IOException;
 
 import javax.swing.JFrame;
+import javax.swing.table.DefaultTableModel;
 
 import edu.neu.csye6200.controller.DayCareCompany;
 import edu.neu.csye6200.model.ImmunizationRule;
@@ -26,12 +27,14 @@ public class AddImmunizationRuleJPanel extends javax.swing.JPanel {
 	private DayCareCompany d;
 	private ImmunizationRulesJPanel i;
 	private JFrame f;
+	private DefaultTableModel t;
 	
-	public AddImmunizationRuleJPanel(DayCareCompany d, ImmunizationRulesJPanel i, JFrame f) {
+	public AddImmunizationRuleJPanel(DayCareCompany d, ImmunizationRulesJPanel i, JFrame f, DefaultTableModel t) {
 		// TODO Auto-generated constructor stub
 		this.d = d;
 		this.i= i;
 		this.f=f;
+		this.t=t;
 		initComponents();
 	}
 
@@ -181,6 +184,7 @@ public class AddImmunizationRuleJPanel extends javax.swing.JPanel {
 		
 		f.setVisible(false);
 		f.dispose();
+
 		
 	}
 
