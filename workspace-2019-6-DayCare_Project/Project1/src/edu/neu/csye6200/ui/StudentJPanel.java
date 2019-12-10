@@ -12,6 +12,7 @@ import javax.swing.JFrame;
 
 import edu.neu.csye6200.controller.DayCareCompany;
 import edu.neu.csye6200.model.Person;
+import edu.neu.csye6200.model.Student;
 
 /**
  *
@@ -72,17 +73,26 @@ public class StudentJPanel extends javax.swing.JPanel {
 			public void actionPerformed(ActionEvent e) {
 				// TODO Auto-generated method stub
 				String text = txtStudentID.getText();
-				Person foundPerson = null;
+				Student foundPerson = null;
 				try {
 				int id = Integer.parseInt(text);
 				for(Person s:d.getStudents()) {
 					if(s.getId()==id) {
-						foundPerson=s;
+						foundPerson= (Student) s;
 					}
 				}
 				JFrame searchInfoFrame = new JFrame();
 				searchInfoFrame.setBounds(0, 0,651,631);
 				StudentInfoJPanel AS = new StudentInfoJPanel(d);
+				String idString=Integer.toString(foundPerson.getId());
+				AS.getTxtStudentID1().setText(idString);
+				AS.getTxtFirstname().setText(foundPerson.getFirstName());
+				AS.getTxtLastname().setText(foundPerson.getLastName());
+				String ageString = Integer.toString(foundPerson.getAge());
+				AS.getTxtAge().setText(ageString);
+				AS.getTxtFather().setText(foundPerson.getFatherName());
+				AS.getTxtMother().setText(foundPerson.getMotherName());
+				AS.getTxtRegisterDate().setText(foundPerson.ft.format(foundPerson.getDateOfEnrollment()));
 		        AS.setVisible(true);
 		        searchInfoFrame.add(AS);
 		        searchInfoFrame.setVisible(true);

@@ -319,4 +319,85 @@ public class StudentInfoJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtStudentID1;
     private javax.swing.JTextField txtStudentID3;
     // End of variables declaration//GEN-END:variables
+	public javax.swing.JTextField getTxtAge() {
+		return txtAge;
+	}
+
+	public void setTxtAge(javax.swing.JTextField txtAge) {
+		this.txtAge = txtAge;
+	}
+
+	public javax.swing.JTextField getTxtClassNumber() {
+		return txtClassNumber;
+	}
+
+	public void setTxtClassNumber(javax.swing.JTextField txtClassNumber) {
+		this.txtClassNumber = txtClassNumber;
+	}
+
+	public javax.swing.JTextField getTxtFather() {
+		return txtFather;
+	}
+
+	public void setTxtFather(javax.swing.JTextField txtFather) {
+		this.txtFather = txtFather;
+	}
+
+	public javax.swing.JTextField getTxtFirstname() {
+		return txtFirstname;
+	}
+
+	public void setTxtFirstname(javax.swing.JTextField txtFirstname) {
+		this.txtFirstname = txtFirstname;
+	}
+
+	public javax.swing.JTextField getTxtLastname() {
+		return txtLastname;
+	}
+
+	public void setTxtLastname(javax.swing.JTextField txtLastname) {
+		this.txtLastname = txtLastname;
+	}
+
+	public javax.swing.JTextField getTxtMother() {
+		return txtMother;
+	}
+
+	public void setTxtMother(javax.swing.JTextField txtMother) {
+		this.txtMother = txtMother;
+	}
+
+	public javax.swing.JTextField getTxtRegisterDate() {
+		return txtRegisterDate;
+	}
+
+	public void setTxtRegisterDate(javax.swing.JTextField txtRegisterDate) {
+		this.txtRegisterDate = txtRegisterDate;
+	}
+
+	public javax.swing.JTextField getTxtStudentID() {
+		return txtStudentID;
+	}
+
+	public void setTxtStudentID(javax.swing.JTextField txtStudentID) {
+		this.txtStudentID = txtStudentID;
+	}
+
+	public javax.swing.JTextField getTxtStudentID1() {
+		return txtStudentID1;
+	}
+
+	public void setTxtStudentID1(javax.swing.JTextField txtStudentID1) {
+		this.txtStudentID1 = txtStudentID1;
+	}
+
+	public javax.swing.JTextField getTxtStudentID3() {
+		return txtStudentID3;
+	}
+
+	public void setTxtStudentID3(javax.swing.JTextField txtStudentID3) {
+		this.txtStudentID3 = txtStudentID3;
+	}
+    
+    
 }
