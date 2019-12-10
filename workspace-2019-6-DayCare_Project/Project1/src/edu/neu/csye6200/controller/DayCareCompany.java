@@ -207,9 +207,10 @@ public class DayCareCompany {
 		return teacher;
 	}
 	
-	public void addTeacher(Person s) {
+	public String addTeacher(Person s) {
 		this.teachers.add(s);
 		this.getWriter().writeEverything();
+		return "Teacher Added Succesfully";
 	}
 	
 	public void addImmunization(Immunization i) {
