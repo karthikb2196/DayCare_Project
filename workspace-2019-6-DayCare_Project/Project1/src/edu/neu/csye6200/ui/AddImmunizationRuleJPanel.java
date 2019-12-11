@@ -162,6 +162,7 @@ public class AddImmunizationRuleJPanel extends javax.swing.JPanel {
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void btnSubmitActionPerformed(ActionEvent evt) {
+		JOptionPane.showMessageDialog(null, "Successfully added Rule!");
 		int id = Integer.parseInt(txtImmunizationID.getText());
 		int age1 = Integer.parseInt(txtAgeFrom.getText());
 		int age2 = Integer.parseInt(txtAgeTo.getText());

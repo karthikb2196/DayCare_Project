@@ -9,6 +9,8 @@ import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
+import javax.swing.JOptionPane;
+
 import edu.neu.csye6200.controller.DataLoader;
 import edu.neu.csye6200.controller.DayCareCompany;
 import edu.neu.csye6200.model.Teacher;
@@ -119,6 +121,7 @@ public class AddTeacherJPanel extends javax.swing.JPanel {
 //				Date dateOfEnrollment = null;
 //				dateOfEnrollment = ft.parse(args[4]);
 //				int stateLevel = Integer.parseInt(args[5]);
+				JOptionPane.showMessageDialog(null, "Successfully added Teacher!");
 				Integer thisId = id;
 		    	id+=1;
 		    	String stringId = thisId.toString();

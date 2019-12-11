@@ -7,6 +7,8 @@ package edu.neu.csye6200.ui;
 
 import java.util.Date;
 
+import javax.swing.JOptionPane;
+
 import edu.neu.csye6200.controller.DataLoader;
 import edu.neu.csye6200.controller.DayCareCompany;
 import edu.neu.csye6200.model.Student;
@@ -301,6 +303,7 @@ public class AddStudentJPanel extends javax.swing.JPanel {
 //		 dateOfEnrollment = ft.parse(args[4]);
 //		 String fatherName = args[5];
 //		 String motherName = args[6];
+    	JOptionPane.showMessageDialog(null, "Successfully added Student!");
     	Integer thisId = this.id;
     	id+=1;
     	String stringId = thisId.toString();
