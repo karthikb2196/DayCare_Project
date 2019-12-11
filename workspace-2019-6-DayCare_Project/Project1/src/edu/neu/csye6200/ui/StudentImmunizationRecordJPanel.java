@@ -242,4 +242,28 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtLastname;
     private javax.swing.JTextField txtStudentID1;
     // End of variables declaration//GEN-END:variables
+	public javax.swing.JTextField getTxtFirstname() {
+		return txtFirstname;
+	}
+
+	public void setTxtFirstname(javax.swing.JTextField txtFirstname) {
+		this.txtFirstname = txtFirstname;
+	}
+
+	public javax.swing.JTextField getTxtLastname() {
+		return txtLastname;
+	}
+
+	public void setTxtLastname(javax.swing.JTextField txtLastname) {
+		this.txtLastname = txtLastname;
+	}
+
+	public javax.swing.JTextField getTxtStudentID1() {
+		return txtStudentID1;
+	}
+
+	public void setTxtStudentID1(javax.swing.JTextField txtStudentID1) {
+		this.txtStudentID1 = txtStudentID1;
+	}
+    
 }

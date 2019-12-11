@@ -8,6 +8,7 @@ package edu.neu.csye6200.ui;
 import java.awt.CardLayout;
 import java.util.ListIterator;
 
+import javax.swing.JFrame;
 import javax.swing.JPanel;
 
 import edu.neu.csye6200.controller.DayCareCompany;
@@ -300,16 +301,23 @@ public class StudentInfoJPanel extends javax.swing.JPanel {
 		ListIterator<Person> iterator = d.getStudents().listIterator();
 		try {
 		int id = Integer.parseInt(text);
-		while(iterator.hasNext()) {
-			foundPerson= (Student) iterator.next();
-			if(foundPerson.getId()==id) {
-				foundPerson.setFirstName(this.getTxtFirstname().getText());
-				foundPerson.setLastName(this.getTxtLastname().getText());
-				foundPerson.setFatherName(this.getTxtFather().getText());
-				foundPerson.setMotherName(this.getTxtMother().getText());
+		for(Person p : d.getStudents()) {
+			if(p.getId()== id) {
+				foundPerson = (Student) p;
 			}
 		}
+		
+		JFrame addImmunizationRecordFrame = new JFrame();
+		addImmunizationRecordFrame.setBounds(0, 0, 934, 680);
+		StudentImmunizationRecordJPanel AS = new StudentImmunizationRecordJPanel(d,foundPerson);
+		AS.getTxtStudentID1().setText(text);
+		AS.getTxtFirstname().setText(foundPerson.getFirstName());
+		AS.getTxtLastname().setText(foundPerson.getLastName());
+		AS.setVisible(true);
+		addImmunizationRecordFrame.add(AS);
+		addImmunizationRecordFrame.setVisible(true);
 		}
+		
 		catch(Exception e) {
 			e.printStackTrace();
 		}
