@@ -50,11 +50,14 @@ public class StudentPanel extends javax.swing.JPanel {
 		btnSearchStudent = new javax.swing.JButton();
 
 		jLabel1.setBackground(new java.awt.Color(51, 0, 153));
-		jLabel1.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N
+		jLabel1.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
 		jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		jLabel1.setText("Student");
+		jLabel1.setForeground(new java.awt.Color(255,255,255));
 
 		btnAddStudent.setText("Add Student");
+		btnAddStudent.setForeground(new java.awt.Color(20,61,89));
+		btnAddStudent.setFont(new java.awt.Font("Garamond", 1, 18));
 		btnAddStudent.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				btnAddStudentActionPerformed(evt);
@@ -62,12 +65,15 @@ public class StudentPanel extends javax.swing.JPanel {
 		});
 
 		btnSearchStudent.setText("Search Student");
+		btnSearchStudent.setForeground(new java.awt.Color(20,61,89));
+		btnSearchStudent.setFont(new java.awt.Font("Garamond", 1, 18));
 		btnSearchStudent.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				btnSearchStudentActionPerformed(evt);
 			}
 		});
 
+		setBackground(new java.awt.Color(20,61,89));
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
 		this.setLayout(layout);
 		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
@@ -81,8 +87,8 @@ public class StudentPanel extends javax.swing.JPanel {
 												.addComponent(btnSearchStudent))
 										.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 931,
 												javax.swing.GroupLayout.PREFERRED_SIZE)))
-						.addGroup(layout.createSequentialGroup().addGap(546, 546, 546).addComponent(jLabel1,
-								javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+						.addGroup(layout.createSequentialGroup().addGap(546, 546, 546).
+								addComponent(jLabel1, javax.swing.GroupLayout.PREFERRED_SIZE, 119, javax.swing.GroupLayout.PREFERRED_SIZE)))
 				.addContainerGap(189, Short.MAX_VALUE)));
 		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 				.addGroup(layout.createSequentialGroup().addGap(83, 83, 83).addComponent(jLabel1).addGap(18, 18, 18)

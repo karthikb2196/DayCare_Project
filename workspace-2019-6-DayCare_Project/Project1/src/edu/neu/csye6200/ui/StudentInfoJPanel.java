@@ -189,6 +189,8 @@ public class StudentInfoJPanel extends javax.swing.JPanel {
                 backBtnActionPerformed(evt);
             }
         });
+        
+        setBackground(new java.awt.Color(20,61,89));
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);

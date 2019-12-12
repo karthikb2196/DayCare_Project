@@ -90,6 +90,8 @@ public class AddStudentJPanel extends javax.swing.JPanel {
         btnAddStudent.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         btnAddStudent.setForeground(new java.awt.Color(51, 0, 153));
         btnAddStudent.setText("Add");
+        btnAddStudent.setForeground(new java.awt.Color(20,61,89));
+        btnAddStudent.setFont(new java.awt.Font("Garamond", 1, 18));
         btnAddStudent.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddStudentActionPerformed(evt);
@@ -97,6 +99,8 @@ public class AddStudentJPanel extends javax.swing.JPanel {
         });
 
         backBtn.setText("<< Back");
+        backBtn.setForeground(new java.awt.Color(20,61,89));
+        backBtn.setFont(new java.awt.Font("Garamond", 1, 18));
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backBtnActionPerformed(evt);

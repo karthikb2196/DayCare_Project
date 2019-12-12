@@ -65,10 +65,11 @@ public class TeacherJPanel extends javax.swing.JPanel {
 //		backBtn = new javax.swing.JButton();
 
 		jLabel2.setBackground(new java.awt.Color(51, 0, 153));
-		jLabel2.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N
+		jLabel2.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
 		jLabel2.setForeground(new java.awt.Color(255, 255, 255));
 		jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		jLabel2.setText("Teacher");
+		
 
 //		btnAddTeacher.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
 //		btnAddTeacher.setForeground(new java.awt.Color(51, 0, 153));
@@ -86,12 +87,15 @@ public class TeacherJPanel extends javax.swing.JPanel {
 //		});
 
 		btnAddTeacher.setText("Add Teacher");
+		btnAddTeacher.setForeground(new java.awt.Color(20,61,89));
+		btnAddTeacher.setFont(new java.awt.Font("Garamond", 1, 18));
 		btnAddTeacher.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				btnAddTeacherActionPerformed(evt);
 			}
 		});
 
+		setBackground(new java.awt.Color(20,61,89));
 //		backBtn.setText("<< Back");
 //		backBtn.addActionListener(new java.awt.event.ActionListener() {
 //			public void actionPerformed(java.awt.event.ActionEvent evt) {

@@ -65,17 +65,32 @@ public class AddImmunizationRuleJPanel extends javax.swing.JPanel {
 		jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		jLabel2.setText("Add Immunization Rule");
 
-		jLabel1.setText("Immunization ID:");
+		jLabel1.setText("ID:");
 
-		jLabel3.setText("Age:");
+		jLabel3.setText("Age");
 
-		jLabel4.setText("Required Amount:");
+		jLabel4.setText("Required");
 
-		jLabel5.setText("From:");
+		jLabel5.setText("From");
 
 		jLabel6.setText("to");
+		jLabel1.setForeground(new java.awt.Color(255,255,255));
+		jLabel2.setForeground(new java.awt.Color(255,255,255));
+		jLabel3.setForeground(new java.awt.Color(255,255,255));
+		jLabel4.setForeground(new java.awt.Color(255,255,255));
+		jLabel5.setForeground(new java.awt.Color(255,255,255));
+		jLabel6.setForeground(new java.awt.Color(255,255,255));
+		
+		jLabel1.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
+		jLabel2.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
+		jLabel3.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
+		jLabel4.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
+		jLabel5.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
+		jLabel6.setFont(new java.awt.Font("Garamond", 1, 14)); // NOI18N
 
 		btnSubmit.setText("Submit");
+		btnSubmit.setForeground(new java.awt.Color(20,61,89));
+		btnSubmit.setFont(new java.awt.Font("Garamond", 1, 18));
 		btnSubmit.addActionListener(new java.awt.event.ActionListener() {
 			@Override
 			public void actionPerformed(java.awt.event.ActionEvent evt) {

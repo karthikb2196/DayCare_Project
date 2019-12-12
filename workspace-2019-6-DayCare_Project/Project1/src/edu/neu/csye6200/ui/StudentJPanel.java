@@ -47,7 +47,8 @@ public class StudentJPanel extends javax.swing.JPanel {
         txtStudentID = new javax.swing.JTextField();
         btnSearch = new javax.swing.JButton();
 
-        setBackground(new java.awt.Color(51, 0, 153));
+     //   setBackground(new java.awt.Color(51, 0, 153));
+        setBackground(new java.awt.Color(20,61,89));
 
         jLabel1.setBackground(new java.awt.Color(51, 0, 153));
         jLabel1.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N
