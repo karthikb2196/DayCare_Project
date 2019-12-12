@@ -10,6 +10,9 @@ import java.awt.event.ActionListener;
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
 
+import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+
 import edu.neu.csye6200.controller.DayCareCompany;
 import edu.neu.csye6200.model.Immunization;
 import edu.neu.csye6200.model.Person;
@@ -26,10 +29,12 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
 	
 	private DayCareCompany d;
 	private Person p;
+	JFrame uf;
 	
-    public AddImmunizationJPanel(DayCareCompany d,Person p) {
+    public AddImmunizationJPanel(DayCareCompany d,Person p, JFrame uframe) {
     	this.p=p;
     	this.d=d;
+    	this.uf=uframe;
         initComponents();
     }
 
@@ -48,7 +53,7 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
         txtImmunID = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
         txtImmunName = new javax.swing.JTextField();
-        btnUpdateRecord = new javax.swing.JButton();
+        btnAddRecord = new javax.swing.JButton();
         txtYear = new javax.swing.JTextField();
         jLabel10 = new javax.swing.JLabel();
         jLabel11 = new javax.swing.JLabel();
@@ -77,7 +82,7 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
 
         txtImmunID.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         txtImmunID.setForeground(new java.awt.Color(51, 0, 153));
-        txtImmunID.setEnabled(false);
+        txtImmunID.setEnabled(true);
 
         jLabel5.setBackground(new java.awt.Color(51, 0, 153));
         jLabel5.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
@@ -87,12 +92,12 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
 
         txtImmunName.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         txtImmunName.setForeground(new java.awt.Color(51, 0, 153));
-        txtImmunName.setEnabled(false);
+        txtImmunName.setEnabled(true);
 
-        btnUpdateRecord.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
-        btnUpdateRecord.setForeground(new java.awt.Color(51, 0, 153));
-        btnUpdateRecord.setText("Add");
-        btnUpdateRecord.addActionListener(new ActionListener() {
+        btnAddRecord.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        btnAddRecord.setForeground(new java.awt.Color(51, 0, 153));
+        btnAddRecord.setText("Add");
+        btnAddRecord.addActionListener(new ActionListener() {
 			
 			@Override
 			public void actionPerformed(ActionEvent e) {
@@ -104,12 +109,15 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
 				String day = txtDay.getText();
 				String y = txtYear.getText();
 				String date = month+"/"+day+"/"+y;
-				SimpleDateFormat ft = new SimpleDateFormat ("MM-dd-yyyy");//MM-dd-yyyy
+				SimpleDateFormat ft = new SimpleDateFormat ("MM/dd/yyyy");//MM-dd-yyyy
 				Immunization i;
 				try {
 					i = new Immunization(id, name, p.getAge(), ft.parse(date));
 					d.addImmunizationToStudent(p.getId(), i);
 					System.out.println("add immu record through ui succeed");
+					JOptionPane.showMessageDialog(null, "Successfully added new immunization!");
+					uf.setVisible(false);
+					uf.dispose();
 				} catch (ParseException e1) {
 					// TODO Auto-generated catch block
 					e1.printStackTrace();
@@ -159,7 +167,7 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
-                .addComponent(btnUpdateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(202, 202, 202))
             .addGroup(layout.createSequentialGroup()
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -222,7 +230,7 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
                     .addComponent(txtDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel12))
                 .addGap(31, 31, 31)
-                .addComponent(btnUpdateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addComponent(btnAddRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 52, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addContainerGap(103, Short.MAX_VALUE))
         );
     }// </editor-fold>//GEN-END:initComponents
@@ -230,7 +238,7 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnUpdateRecord;
+    private javax.swing.JButton btnAddRecord;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;

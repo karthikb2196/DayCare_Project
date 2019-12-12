@@ -289,7 +289,7 @@ public class DayCareCompany {
 		sb.append("Student still needs: \n");
 		Person p = findStudentByID(id);
 		for(ImmunizationRule r:this.getImmunizationRules()) {
-			if(r.getAgeLowerLimit()<=p.getAge() && r.getAgeUpperLimit()>p.getAge()) {
+			if(r.getAgeLowerLimit()<=p.getAge() && r.getAgeUpperLimit()>=p.getAge()) {
 				int taken = p.getImmunizationRecord().doseTaken(r.getRuleID());
 				int stillNeed = r.getRequiredAmt()-taken;
 				if(stillNeed>0) {
@@ -318,11 +318,23 @@ public class DayCareCompany {
 	public void addImmunizationToStudent(int student_id,Immunization i) {
 		//add an immunization to a student 
 		findStudentByID(student_id).getImmunizationRecord().AddImmunization(i);
+		try {
+			this.getWriter().writeImmunizationRecordData();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 	}
 	
 	public void addImmunizationRule(ImmunizationRule r) {
 		//add an immunizationRule
 		this.getImmunizationRules().add(r);
+		try {
+			this.getWriter().writeImmunizationRuleData();
+		} catch (IOException e) {
+			// TODO Auto-generated catch block
+			e.printStackTrace();
+		}
 		System.out.println("Add new immunization rule: \n"+r.toString());
 	}
 	

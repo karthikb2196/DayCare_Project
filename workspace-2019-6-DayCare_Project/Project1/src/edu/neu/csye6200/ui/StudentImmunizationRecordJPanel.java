@@ -221,7 +221,7 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
         // TODO add your handling code here:
     	JFrame uframe = new JFrame();
     	uframe.setBounds(0, 0,1248,794);
-    	AddImmunizationJPanel u = new AddImmunizationJPanel(d,p);
+    	AddImmunizationJPanel u = new AddImmunizationJPanel(d,p,uframe);
     	u.setVisible(true);
     	uframe.add(u);
     	uframe.setVisible(true);
