@@ -83,7 +83,7 @@ public class AdminDetailsJPanel extends javax.swing.JPanel {
 		studentTable.setColumnCount(stitles.length);
 		studentTable.setColumnIdentifiers(stitles);
 
-		for (Person s : company.getClassRooms().get(classNo).getStudents()) {
+		for (Person s : company.getClassRooms().get(classNo-1).getStudents()) {
 			String ifRenew = "NO";
 			int l = s.getDateOfEnrollment().toString().length();
 			String x = s.getDateOfEnrollment().toString();
@@ -112,7 +112,7 @@ public class AdminDetailsJPanel extends javax.swing.JPanel {
 		String[] colTitles_t = { "Teacher ID", "Name" };
 		teacherTable.setColumnCount(colTitles_t.length);
 		teacherTable.setColumnIdentifiers(colTitles_t);
-		for (Person p : company.getClassRooms().get(classNo).getTeachers()) {
+		for (Person p : company.getClassRooms().get(classNo-1).getTeachers()) {
 			teacherTable.addRow(new Object[] { p.getId(), p.getFirstName() + " " + p.getLastName() });
 		}
     	jTableTeacher.setModel(teacherTable);
