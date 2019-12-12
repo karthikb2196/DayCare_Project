@@ -62,10 +62,11 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
         txtDay = new javax.swing.JTextField();
         jLabel6 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(51, 0, 153));
+      //  setBackground(new java.awt.Color(51, 0, 153));
+        setBackground(new java.awt.Color(20,61,89));
 
         jLabel2.setBackground(new java.awt.Color(51, 0, 153));
-        jLabel2.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Add Immunization");

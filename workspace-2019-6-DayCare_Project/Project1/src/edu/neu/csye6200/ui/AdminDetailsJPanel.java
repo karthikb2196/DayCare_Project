@@ -69,10 +69,12 @@ public class AdminDetailsJPanel extends javax.swing.JPanel {
         ));
         jScrollPane2.setViewportView(jTable2);
 
-        setBackground(new java.awt.Color(51, 0, 153));
+        setBackground(new java.awt.Color(20,61,89));
+      //  setBackground(new java.awt.Color(255,255,255));
 
-        jLabel1.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N
-        jLabel1.setForeground(new java.awt.Color(255, 255, 255));
+        jLabel1.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
+        jLabel1.setForeground(new java.awt.Color(255,255,255));
+        //jPanel1.setBackground(new java.awt.Color(20,61,89));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Class Details");
 

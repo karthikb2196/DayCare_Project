@@ -67,7 +67,7 @@ public class AdminJPanel extends javax.swing.JPanel {
 			}
 		});
 
-        setBackground(new java.awt.Color(51, 0, 153));
+        setBackground(new java.awt.Color(20,61,89));
 
         
         DefaultTableModel table = new DefaultTableModel();
@@ -89,13 +89,14 @@ public class AdminJPanel extends javax.swing.JPanel {
         
         jScrollPane1.setViewportView(jTable1);
 
-        jLabel1.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Administrator");
 
         btnDetails.setFont(new java.awt.Font("Georgia", 1, 13)); // NOI18N
-        btnDetails.setForeground(new java.awt.Color(51, 0, 153));
+        btnDetails.setForeground(new java.awt.Color(20,61,89));
         btnDetails.setText("Details");
+        
         btnDetails.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				btnDetailsActionPerformed(evt);
@@ -104,7 +105,7 @@ public class AdminJPanel extends javax.swing.JPanel {
 
 
         btnViewRules.setFont(new java.awt.Font("Georgia", 1, 13)); // NOI18N
-        btnViewRules.setForeground(new java.awt.Color(51, 0, 153));
+        btnViewRules.setForeground(new java.awt.Color(20,61,89));
         btnViewRules.setText("View Rules");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);

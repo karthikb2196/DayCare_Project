@@ -98,20 +98,26 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 		btnEditRule = new javax.swing.JButton();
 		btnDeleteRule = new javax.swing.JButton();
 
-		jLabel2.setBackground(new java.awt.Color(51, 0, 153));
-		jLabel2.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N
+	//	jLabel2.setBackground(new java.awt.Color(255,255,255));
+		  jLabel2.setBackground(new java.awt.Color(51, 0, 153));
+		jLabel2.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
+		//jPanel1.setBackground(new java.awt.Color(20,61,89));
 		jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		jLabel2.setText("Immunization Rules");
+		jLabel2.setForeground(new java.awt.Color(255,255,255));
 
 		DefaultTableModel table = new DefaultTableModel();
 		String[] colTitles = { "Immunization ID", "Immunization Name", "Age Range", "Required Amount" };
 		table.setColumnCount(colTitles.length);
 		table.setColumnIdentifiers(colTitles);
+		
+
 
 		for (ImmunizationRule i : d.getImmunizationRules()) {
 			table.addRow(new Object[] { i.getRuleID(), i.getImmunization(),
 					i.getAgeLowerLimit() + "-" + i.getAgeUpperLimit(), i.getRequiredAmt() });
 		}
+		setBackground(new java.awt.Color(20,61,89));
 
 		jTable1.setModel(table);
 
@@ -133,8 +139,13 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 		this.t = table;
 
 		jScrollPane1.setViewportView(jTable1);
+	//	setBackground(new java.awt.Color(255,255,255));
 
 		btnAddRole.setText("Add Rule");
+		//btnAddRole.setBackground(new java.awt.Color(255,255,255));
+		btnAddRole.setForeground(new java.awt.Color(20,61,89));
+		btnAddRole.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
+		//  jLabel2.setBackground(new java.awt.Color(51, 0, 153));
 		btnAddRole.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				btnAddRoleActionPerformed(evt);
@@ -142,6 +153,9 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 		});
 
 		btnEditRule.setText("Confirm Update");
+		//btnEditRule.setBackground(new java.awt.Color(255,255,255));
+		btnEditRule.setForeground(new java.awt.Color(20,61,89));
+		btnEditRule.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
 		btnEditRule.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
 				btnEditRuleActionPerformed(evt);
@@ -149,6 +163,9 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 		});
 
 		btnDeleteRule.setText("Delete Rule");
+		//btnDeleteRule.setBackground(new java.awt.Color(255,255,255));
+		btnDeleteRule.setForeground(new java.awt.Color(20,61,89));
+		btnDeleteRule.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
 		btnDeleteRule.addActionListener(new ActionListener() {
 
 			@Override

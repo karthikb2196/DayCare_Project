@@ -61,7 +61,7 @@ public class AddImmunizationRuleJPanel extends javax.swing.JPanel {
 		btnSubmit = new javax.swing.JButton();
 
 		jLabel2.setBackground(new java.awt.Color(51, 0, 153));
-		jLabel2.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N
+		jLabel2.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
 		jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		jLabel2.setText("Add Immunization Rule");
 
@@ -86,7 +86,7 @@ public class AddImmunizationRuleJPanel extends javax.swing.JPanel {
 		/*
 		
 		 */
-
+		setBackground(new java.awt.Color(20,61,89));
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
 		this.setLayout(layout);
 		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
