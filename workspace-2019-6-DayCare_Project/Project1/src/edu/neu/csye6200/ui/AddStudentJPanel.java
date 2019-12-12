@@ -66,8 +66,8 @@ public class AddStudentJPanel extends javax.swing.JPanel {
         jLabelDay = new javax.swing.JLabel();
         txtDay = new javax.swing.JTextField();
 
-        setBackground(new java.awt.Color(255,255,255));
-       // setBackground(new java.awt.Color(20,61,89));
+       // setBackground(new java.awt.Color(255,255,255));
+        setBackground(new java.awt.Color(20,61,89));
 
         jLabelFirstName.setBackground(new java.awt.Color(51, 0, 153));
         jLabelFirstName.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
