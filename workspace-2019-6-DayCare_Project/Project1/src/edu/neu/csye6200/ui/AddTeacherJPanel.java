@@ -5,11 +5,14 @@
  */
 package edu.neu.csye6200.ui;
 
+import java.awt.CardLayout;
+import java.awt.Component;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
+import javax.swing.JPanel;
 
 import edu.neu.csye6200.controller.DataLoader;
 import edu.neu.csye6200.controller.DayCareCompany;
@@ -22,14 +25,21 @@ import edu.neu.csye6200.model.Teacher;
 public class AddTeacherJPanel extends javax.swing.JPanel {
 	private DayCareCompany d;
 	private int id;
+    private JPanel userProcessContainer;
     /**
      * Creates new form AddTeacherJPanel
      */
-    public AddTeacherJPanel(DayCareCompany d) {
-    	this.d = d;
-    	this.id=DataLoader.teacherIds+12;
+    public AddTeacherJPanel(DayCareCompany d, JPanel userProcessContainer) {
+    	this.d=d;
+    	this.id = DataLoader.studentIds+12;
+    	this.userProcessContainer = userProcessContainer;
         initComponents();
     }
+//    public AddTeacherJPanel(DayCareCompany d) {
+//    	this.d = d;
+//    	this.id=DataLoader.teacherIds+12;
+//        initComponents();
+//    }
 
     /**
      * This method is called from within the constructor to initialize the form.
@@ -61,8 +71,13 @@ public class AddTeacherJPanel extends javax.swing.JPanel {
         jLabel6 = new javax.swing.JLabel();
         jLabel8 = new javax.swing.JLabel();
 
-        setBackground(new java.awt.Color(51, 0, 153));
 
+        backBtn.setText("<< Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        }); 
         jLabel1.setBackground(new java.awt.Color(51, 0, 153));
         jLabel1.setFont(new java.awt.Font("Snell Roundhand", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -110,34 +125,11 @@ public class AddTeacherJPanel extends javax.swing.JPanel {
         btnAddTeacher.setForeground(new java.awt.Color(51, 0, 153));
         btnAddTeacher.setText("Add");
         btnAddTeacher.addActionListener(new ActionListener() {
-			
-			@Override
-			public void actionPerformed(ActionEvent e) {
-				// TODO Auto-generated method stub
-//				int Id = Integer.parseInt(args[0]);
-//				String firstName = args[1];
-//				String lastName = args[2];
-//				int age = Integer.parseInt(args[3]);
-//				Date dateOfEnrollment = null;
-//				dateOfEnrollment = ft.parse(args[4]);
-//				int stateLevel = Integer.parseInt(args[5]);
-				JOptionPane.showMessageDialog(null, "Successfully added Teacher!");
-				Integer thisId = id;
-		    	id+=1;
-		    	String stringId = thisId.toString();
-		    	String firstName =txtFirstname.getText();
-				String lastName = txtLastname.getText();
-				String age = txtAge.getText();
-				String dateOfEnrollment = txtMonth.getText()+"/"+txtDay.getText()+"/"+txtYear.getText();
-				String stateLevel = txtStateLevel.getText();
-				
-				String data = stringId+","+firstName+","+lastName+","+age+","+dateOfEnrollment+","+stateLevel;
-				System.out.println(data);
-				Teacher teacher = new Teacher(data);
-				String result = d.addTeacher(teacher);
-				System.out.println(result);
-			}
-		});
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btnAddTeacherActionPerformed(evt);
+            }
+        });
+        	
 
         jLabel10.setBackground(new java.awt.Color(51, 0, 153));
         jLabel10.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
@@ -313,6 +305,46 @@ public class AddTeacherJPanel extends javax.swing.JPanel {
     }                                       
 
 
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
+        Component[] comps = this.userProcessContainer.getComponents();
+        	for(Component comp: comps) {
+        		if(comp instanceof TeacherJPanel) {
+        			TeacherJPanel panel = (TeacherJPanel) comp;
+        			panel.populate();
+        		}
+        	}
+        cardLayout.previous(userProcessContainer);
+    } 
+    
+	private void btnAddTeacherActionPerformed(java.awt.event.ActionEvent evt) {
+		// TODO Auto-generated method stub
+//		int Id = Integer.parseInt(args[0]);
+//		String firstName = args[1];
+//		String lastName = args[2];
+//		int age = Integer.parseInt(args[3]);
+//		Date dateOfEnrollment = null;
+//		dateOfEnrollment = ft.parse(args[4]);
+//		int stateLevel = Integer.parseInt(args[5]);
+		JOptionPane.showMessageDialog(null, "Successfully added Teacher!");
+		Integer thisId = id;
+    	id+=1;
+    	String stringId = thisId.toString();
+    	String firstName =txtFirstname.getText();
+		String lastName = txtLastname.getText();
+		String age = txtAge.getText();
+		String dateOfEnrollment = txtMonth.getText()+"/"+txtDay.getText()+"/"+txtYear.getText();
+		String stateLevel = txtStateLevel.getText();
+		
+		String data = stringId+","+firstName+","+lastName+","+age+","+dateOfEnrollment+","+stateLevel;
+		System.out.println(data);
+		Teacher teacher = new Teacher(data);
+		String result = d.addTeacher(teacher);
+		System.out.println(result);
+	}
+
     // Variables declaration - do not modify                     
     private javax.swing.JButton btnAddTeacher;
     private javax.swing.JLabel jLabel1;
@@ -334,5 +366,6 @@ public class AddTeacherJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtMonth;
     private javax.swing.JTextField txtTeacherID;
     private javax.swing.JTextField txtYear;
+    private javax.swing.JButton backBtn;
     // End of variables declaration                   
 }

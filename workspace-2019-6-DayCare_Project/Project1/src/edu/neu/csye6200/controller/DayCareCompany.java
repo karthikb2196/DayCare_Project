@@ -281,22 +281,27 @@ public class DayCareCompany {
 	}
 	
 
-	public void CheckImmunizationRecord(int id) {
+	public String CheckImmunizationRecord(int id) {
 		/*
 		 * Check a person's immu record and decide what requirements are not meet yet
 		 */
 		StringBuilder sb = new StringBuilder();
+		sb.append("Student still needs: \n");
 		Person p = findStudentByID(id);
 		for(ImmunizationRule r:this.getImmunizationRules()) {
 			if(r.getAgeLowerLimit()<=p.getAge() && r.getAgeUpperLimit()>p.getAge()) {
 				int taken = p.getImmunizationRecord().doseTaken(r.getRuleID());
 				int stillNeed = r.getRequiredAmt()-taken;
 				if(stillNeed>0) {
-					sb.append("Student "+p.getId()+" still needs to take "+(stillNeed)+" "+r.getImmunization()+"\n");
+					sb.append((stillNeed)+" "+r.getImmunization()+"\n");
 				}
 			}
 		}
+		if("Student still needs: \n"==sb.toString()) {
+			sb.append("All requirements are fulfilled.");
+		}
 		System.out.println(sb);
+		return sb.toString();
 	}
 
 	public Person findStudentByID(int id) {

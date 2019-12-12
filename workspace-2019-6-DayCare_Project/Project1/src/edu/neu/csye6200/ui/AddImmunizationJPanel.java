@@ -43,7 +43,7 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
     private void initComponents() {
 
         jLabel2 = new javax.swing.JLabel();
-        jTextField1 = new javax.swing.JTextField();
+        jLabelx = new javax.swing.JLabel();
         jLabel4 = new javax.swing.JLabel();
         txtImmunID = new javax.swing.JTextField();
         jLabel5 = new javax.swing.JLabel();
@@ -65,10 +65,10 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Add Immunization");
 
-        jTextField1.setBackground(new java.awt.Color(51, 0, 153));
-        jTextField1.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        jTextField1.setForeground(new java.awt.Color(255, 255, 255));
-        jTextField1.setText("Student ID: "+p.getId());
+        jLabelx.setBackground(new java.awt.Color(51, 0, 153));
+        jLabelx.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+        jLabelx.setForeground(new java.awt.Color(255, 255, 255));
+        jLabelx.setText("Student ID: "+p.getId());
 
         jLabel4.setBackground(new java.awt.Color(51, 0, 153));
         jLabel4.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
@@ -167,7 +167,7 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
                         .addGap(27, 27, 27)
                         .addComponent(jLabel2)
                         .addGap(47, 47, 47)
-                        .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(jLabelx, javax.swing.GroupLayout.PREFERRED_SIZE, 187, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addGroup(layout.createSequentialGroup()
                         .addGap(117, 117, 117)
                         .addComponent(jLabel10)
@@ -202,7 +202,7 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
                 .addGap(43, 43, 43)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(jTextField1, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(jLabelx, javax.swing.GroupLayout.PREFERRED_SIZE, 46, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(102, 102, 102)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel4)
@@ -238,7 +238,7 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
     private javax.swing.JLabel jLabel4;
     private javax.swing.JLabel jLabel5;
     private javax.swing.JLabel jLabel6;
-    private javax.swing.JTextField jTextField1;
+    private javax.swing.JLabel jLabelx;
     private javax.swing.JTextField txtDay;
     private javax.swing.JTextField txtImmunID;
     private javax.swing.JTextField txtImmunName;

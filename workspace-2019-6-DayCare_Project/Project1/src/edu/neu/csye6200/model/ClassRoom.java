@@ -152,7 +152,7 @@ public class ClassRoom {
 	//adding teacher
 	public int addTeacher(Teacher teacher) {
 		if(this.numberOfTeachers<this.maxTeachers) {
-			teacher.setIdle(false);
+//			teacher.setIdle(false);
 			this.setTeachertoClass(teacher);
 			numberOfTeachers+=1;
 			return numberOfTeachers;

@@ -5,10 +5,16 @@
  */
 package edu.neu.csye6200.ui;
 
+import java.awt.CardLayout;
+import java.awt.Component;
+import java.io.FileNotFoundException;
+import java.text.ParseException;
 import java.util.Date;
 
 import javax.swing.JOptionPane;
-
+import javax.swing.JPanel;
+import javax.swing.JTable;
+import edu.neu.csye6200.ui.StudentPanel;
 import edu.neu.csye6200.controller.DataLoader;
 import edu.neu.csye6200.controller.DayCareCompany;
 import edu.neu.csye6200.model.Student;
@@ -20,12 +26,14 @@ import edu.neu.csye6200.model.Student;
 public class AddStudentJPanel extends javax.swing.JPanel {
 	private DayCareCompany d;
 	private int id;
+    private JPanel userProcessContainer;
     /**
      * Creates new form AddStudentJPanel
      */
-    public AddStudentJPanel(DayCareCompany d) {
+    public AddStudentJPanel(DayCareCompany d, JPanel userProcessContainer) {
     	this.d=d;
     	this.id = DataLoader.studentIds;
+    	this.userProcessContainer = userProcessContainer;
         initComponents();
     }
 
@@ -37,7 +45,7 @@ public class AddStudentJPanel extends javax.swing.JPanel {
     @SuppressWarnings("unchecked")
     // <editor-fold defaultstate="collapsed" desc="Generated Code">                          
     private void initComponents() {
-
+        backBtn = new javax.swing.JButton();
         jLabelFirstName = new javax.swing.JLabel();
         txtFirstname = new javax.swing.JTextField();
         jLabelLastName = new javax.swing.JLabel();
@@ -87,6 +95,12 @@ public class AddStudentJPanel extends javax.swing.JPanel {
             }
         });
 
+        backBtn.setText("<< Back");
+        backBtn.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                backBtnActionPerformed(evt);
+            }
+        });        
         jLabel1.setBackground(new java.awt.Color(51, 0, 153));
         jLabel1.setFont(new java.awt.Font("Snell Roundhand", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
@@ -176,6 +190,8 @@ public class AddStudentJPanel extends javax.swing.JPanel {
                 txtDayActionPerformed(evt);
             }
         });
+        
+        
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -198,6 +214,7 @@ public class AddStudentJPanel extends javax.swing.JPanel {
                             .addComponent(jLabelFatherName)
                             .addComponent(jLabelMotherName)
                             .addComponent(jLabel7))
+                        .addComponent(backBtn)
                         .addGap(78, 78, 78)
                         .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.TRAILING)
                             .addComponent(txtFirstname, javax.swing.GroupLayout.PREFERRED_SIZE, 154, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -269,6 +286,7 @@ public class AddStudentJPanel extends javax.swing.JPanel {
                     .addComponent(jLabelDay)
                     .addComponent(txtDay, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(174, 174, 174)
+                .addComponent(backBtn, javax.swing.GroupLayout.PREFERRED_SIZE, 40, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addComponent(btnAddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(41, 41, 41))
         );
@@ -293,7 +311,19 @@ public class AddStudentJPanel extends javax.swing.JPanel {
     private void txtDayActionPerformed(java.awt.event.ActionEvent evt) {                                       
         // TODO add your handling code here:
     }                                      
-
+    private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {                                        
+        // TODO add your handling code here:
+        userProcessContainer.remove(this);
+        CardLayout cardLayout = (CardLayout) userProcessContainer.getLayout();
+        Component[] comps = this.userProcessContainer.getComponents();
+        	for(Component comp: comps) {
+        		if(comp instanceof StudentPanel) {
+        			StudentPanel panel = (StudentPanel) comp;
+        			panel.populate();
+        		}
+        	}
+        cardLayout.previous(userProcessContainer);
+    } 
     private void btnAddStudentActionPerformed(java.awt.event.ActionEvent evt) {                                              
 //    	int id = Integer.parseInt(args[0]);
 //		 String firstName = args[1];
@@ -317,6 +347,25 @@ public class AddStudentJPanel extends javax.swing.JPanel {
 		System.out.println(data);
 		Student s = new Student(data);
 		String result =d.addStudent(s);
+//		
+//		DataLoader studentread = new DataLoader(d);
+//		try {
+//			studentread.readStudents();
+//		} catch (NumberFormatException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (FileNotFoundException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		} catch (ParseException e) {
+//			// TODO Auto-generated catch block
+//			e.printStackTrace();
+//		}
+//		StudentPanel.jTable1.validate();
+//		StudentPanel.jTable1.updateUI();
+//		jTable1.validate();
+//		jTable1.updateUI();
+		
     }                                             
 
 
@@ -340,5 +389,6 @@ public class AddStudentJPanel extends javax.swing.JPanel {
     private javax.swing.JTextField txtMonth;
     private javax.swing.JTextField txtMother;
     private javax.swing.JTextField txtYear;
+    private javax.swing.JButton backBtn;
     // End of variables declaration                   
 }

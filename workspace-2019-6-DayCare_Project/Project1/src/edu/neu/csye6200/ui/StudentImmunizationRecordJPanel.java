@@ -214,7 +214,7 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
 
     private void jButton1ActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_jButton1ActionPerformed
         // TODO add your handling code here:
-    	JOptionPane.showMessageDialog(userProcessContainer,d.CheckImmunizationRecord(p));
+    	JOptionPane.showMessageDialog(userProcessContainer,d.CheckImmunizationRecord(p.getId()));
     }//GEN-LAST:event_jButton1ActionPerformed
 
     private void btnUpdateRecordActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btnUpdateRecordActionPerformed

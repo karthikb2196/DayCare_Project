@@ -166,7 +166,7 @@ public class DataLoader {
 			if(teachers != null) {
 			for(String teacher_id:teachers) {
 				Teacher t=(Teacher) findTeacher(Integer.parseInt(teacher_id));
-				t.setIdle(false);
+//				t.setIdle(false);
 				aClass.addTeacher(t);
 			}
 			}

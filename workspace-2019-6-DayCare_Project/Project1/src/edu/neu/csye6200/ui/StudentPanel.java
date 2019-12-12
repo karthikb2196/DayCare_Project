@@ -5,7 +5,10 @@
  */
 package edu.neu.csye6200.ui;
 
+import java.awt.CardLayout;
+
 import javax.swing.JFrame;
+import javax.swing.JPanel;
 import javax.swing.table.DefaultTableModel;
 
 import edu.neu.csye6200.controller.DayCareCompany;
@@ -18,13 +21,16 @@ import edu.neu.csye6200.model.Person;
 public class StudentPanel extends javax.swing.JPanel {
 
 	private DayCareCompany d;
+	private JPanel userProcessContainer;
 
 	/**
 	 * Creates new form StudentPanel
 	 */
-	public StudentPanel(DayCareCompany d) {
+	public StudentPanel(DayCareCompany d, JPanel userProcessContainer) {
 		this.d = d;
+		this.userProcessContainer = userProcessContainer;
 		initComponents();
+		populate();
 
 	}
 
@@ -47,26 +53,6 @@ public class StudentPanel extends javax.swing.JPanel {
 		jLabel1.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N
 		jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		jLabel1.setText("Student");
-
-		DefaultTableModel table = new DefaultTableModel();
-		String[] colTitles = { "Student ID ", "Name", "Date of Enrollment", "Age", "Need Renewal" };
-		table.setColumnCount(colTitles.length);
-		table.setColumnIdentifiers(colTitles);
-		
-		for (Person s : d.getStudents()) {
-			String ifRenew = "NO";
-			int l = s.getDateOfEnrollment().toString().length();
-			String x = s.getDateOfEnrollment().toString();
-			if (Integer.parseInt(x.substring(l - 4, l)) < 2019) {
-				ifRenew = "YES";
-			}
-			table.addRow(new Object[] { s.getId(), s.getFirstName() + " " + s.getLastName(), s.getDateOfEnrollment(),
-					s.getAge(), ifRenew });
-			
-		}
-
-		jTable1.setModel(table);
-		jScrollPane1.setViewportView(jTable1);
 
 		btnAddStudent.setText("Add Student");
 		btnAddStudent.addActionListener(new java.awt.event.ActionListener() {
@@ -110,13 +96,33 @@ public class StudentPanel extends javax.swing.JPanel {
 						.addGap(123, 123, 123)));
 	}// </editor-fold>
 
+	void populate() {
+		DefaultTableModel table = new DefaultTableModel();
+		String[] colTitles = { "Student ID ", "Name", "Date of Enrollment", "Age", "Need Renewal" };
+		table.setColumnCount(colTitles.length);
+		table.setColumnIdentifiers(colTitles);
+
+		for (Person s : d.getStudents()) {
+			String ifRenew = "NO";
+			int l = s.getDateOfEnrollment().toString().length();
+			String x = s.getDateOfEnrollment().toString();
+			if (Integer.parseInt(x.substring(l - 4, l)) < 2019) {
+				ifRenew = "YES";
+			}
+			table.addRow(new Object[] { s.getId(), s.getFirstName() + " " + s.getLastName(), s.getDateOfEnrollment(),
+					s.getAge(), ifRenew });
+
+		}
+
+		jTable1.setModel(table);
+		jScrollPane1.setViewportView(jTable1);
+	}
+
 	private void btnAddStudentActionPerformed(java.awt.event.ActionEvent evt) {
-		JFrame addStudentFrame = new JFrame();
-		addStudentFrame.setBounds(0, 0, 934, 680);
-		AddStudentJPanel AS = new AddStudentJPanel(d);
-		AS.setVisible(true);
-		addStudentFrame.add(AS);
-		addStudentFrame.setVisible(true);
+		AddStudentJPanel panel = new AddStudentJPanel(d, userProcessContainer);
+		userProcessContainer.add("AddStudentPanel", panel);
+		CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+		layout.next(userProcessContainer);
 	}
 
 	private void btnSearchStudentActionPerformed(java.awt.event.ActionEvent evt) {
@@ -133,6 +139,6 @@ public class StudentPanel extends javax.swing.JPanel {
 	private javax.swing.JButton btnSearchStudent;
 	private javax.swing.JLabel jLabel1;
 	private javax.swing.JScrollPane jScrollPane1;
-	private javax.swing.JTable jTable1;
+	public static javax.swing.JTable jTable1;
 	// End of variables declaration
 }
