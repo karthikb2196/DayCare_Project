@@ -141,11 +141,20 @@ public class TeacherJPanel extends javax.swing.JPanel {
 	}
 
 	private void btnAddTeacherActionPerformed(java.awt.event.ActionEvent evt) {
+		System.out.println("Try to add teacher===");
 		AddTeacherJPanel panel = new AddTeacherJPanel(d, userProcessContainer);
 		userProcessContainer.add("AddTeacherPanel", panel);
 		CardLayout layout = (CardLayout) userProcessContainer.getLayout();
 		layout.next(userProcessContainer);
+		System.out.println("Try to add teacher end===");
 	}
+	
+	/*
+	 * StudentPanel panel = new StudentPanel(d, userProcessContainer);
+				userProcessContainer.add("StudentPanel", panel);
+				CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+				layout.next(userProcessContainer);
+	 */
 
 //	private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {
 //		// TODO add your handling code here:
