@@ -179,7 +179,7 @@ public class MainJFrame extends javax.swing.JFrame {
 		// TODO add your handling code here:
 		JFrame f = new JFrame();
 		f.setBounds(0, 0, 1248, 794);
-		AdminJPanel a = new AdminJPanel(d);
+		AdminJPanel a = new AdminJPanel(d, userProcessContainer);
 		a.setVisible(true);
 		f.add(a);
 		f.setVisible(true);

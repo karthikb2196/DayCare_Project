@@ -5,6 +5,13 @@
  */
 package edu.neu.csye6200.ui;
 
+import javax.swing.JPanel;
+import javax.swing.table.DefaultTableModel;
+
+import edu.neu.csye6200.controller.DayCareCompany;
+import edu.neu.csye6200.model.ClassRoom;
+import edu.neu.csye6200.model.Person;
+
 /**
  *
  * @author hairihan
@@ -13,8 +20,18 @@ public class AdminDetailsJPanel extends javax.swing.JPanel {
 
     /**
      * Creates new form AdminDetailsJPanel
+     * @param userProcessContainer 
+     * @param company 
      */
-    public AdminDetailsJPanel() {
+	
+	private DayCareCompany company;
+	 private JPanel userProcessContainer;
+	 int classNo;
+	
+    public AdminDetailsJPanel(DayCareCompany company, JPanel userProcessContainer, int classNo) {
+    	this.company=company;
+    	this.userProcessContainer=userProcessContainer;
+    	this.classNo=classNo;
         initComponents();
     }
 
@@ -36,8 +53,8 @@ public class AdminDetailsJPanel extends javax.swing.JPanel {
         jLabel3 = new javax.swing.JLabel();
         jScrollPane3 = new javax.swing.JScrollPane();
         jTableTeacher = new javax.swing.JTable();
-        btnAddStudent = new javax.swing.JButton();
-        btnAddTeacher = new javax.swing.JButton();
+      //  Student = new javax.swing.JButton();
+       // btnAddTeacher = new javax.swing.JButton();
 
         jTable2.setModel(new javax.swing.table.DefaultTableModel(
             new Object [][] {
@@ -59,23 +76,25 @@ public class AdminDetailsJPanel extends javax.swing.JPanel {
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Class Details");
 
-        jTableStudent.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null},
-                {null, null, null, null, null}
-            },
-            new String [] {
-                "StudentID", "Firstname", "Lastname", "Age", "Register Time"
-            }
-        ));
+		DefaultTableModel studentTable = new DefaultTableModel();
+		String[] stitles = { "Student ID ", "Name", "Date of Enrollment", "Age", "Need Renewal" };
+		studentTable.setColumnCount(stitles.length);
+		studentTable.setColumnIdentifiers(stitles);
+
+		for (Person s : company.getClassRooms().get(classNo).getStudents()) {
+			String ifRenew = "NO";
+			int l = s.getDateOfEnrollment().toString().length();
+			String x = s.getDateOfEnrollment().toString();
+			if (Integer.parseInt(x.substring(l - 4, l)) < 2019) {
+				ifRenew = "YES";
+			}
+			studentTable.addRow(new Object[] { s.getId(), s.getFirstName() + " " + s.getLastName(), s.getDateOfEnrollment(),
+					s.getAge(), ifRenew });
+
+		}
+		
+        jTableStudent.setModel(studentTable);
         jScrollPane1.setViewportView(jTableStudent);
-        if (jTableStudent.getColumnModel().getColumnCount() > 0) {
-            jTableStudent.getColumnModel().getColumn(3).setHeaderValue("Age");
-            jTableStudent.getColumnModel().getColumn(4).setResizable(false);
-            jTableStudent.getColumnModel().getColumn(4).setHeaderValue("Register Time");
-        }
 
         jLabel2.setBackground(new java.awt.Color(51, 0, 153));
         jLabel2.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
@@ -87,26 +106,27 @@ public class AdminDetailsJPanel extends javax.swing.JPanel {
         jLabel3.setForeground(new java.awt.Color(255, 255, 255));
         jLabel3.setText("Student");
 
-        jTableTeacher.setModel(new javax.swing.table.DefaultTableModel(
-            new Object [][] {
-                {null, null, null},
-                {null, null, null},
-                {null, null, null},
-                {null, null, null}
-            },
-            new String [] {
-                "TeacherID", "Firstname", "Lastname"
-            }
-        ));
+        DefaultTableModel teacherTable = new DefaultTableModel();
+		String[] colTitles_t = { "Teacher ID", "Name" };
+		teacherTable.setColumnCount(colTitles_t.length);
+		teacherTable.setColumnIdentifiers(colTitles_t);
+		for (Person p : company.getClassRooms().get(classNo).getTeachers()) {
+			teacherTable.addRow(new Object[] { p.getId(), p.getFirstName() + " " + p.getLastName() });
+		}
+    	jTableTeacher.setModel(teacherTable);
         jScrollPane3.setViewportView(jTableTeacher);
+        
+        /*
+         * 
+         */
 
-        btnAddStudent.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        btnAddStudent.setForeground(new java.awt.Color(51, 0, 153));
-        btnAddStudent.setText("Add Student");
-
-        btnAddTeacher.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-        btnAddTeacher.setForeground(new java.awt.Color(51, 0, 153));
-        btnAddTeacher.setText("Add Teacher");
+//        btnAddStudent.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+//        btnAddStudent.setForeground(new java.awt.Color(51, 0, 153));
+//        btnAddStudent.setText("Add Student");
+//
+//        btnAddTeacher.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
+//        btnAddTeacher.setForeground(new java.awt.Color(51, 0, 153));
+//        btnAddTeacher.setText("Add Teacher");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(this);
         this.setLayout(layout);
@@ -123,9 +143,10 @@ public class AdminDetailsJPanel extends javax.swing.JPanel {
                             .addComponent(jScrollPane3)))
                     .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                         .addContainerGap()
-                        .addComponent(btnAddTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
+                     //   .addComponent(btnAddTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(btnAddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE)))
+                        //.addComponent(btnAddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 143, javax.swing.GroupLayout.PREFERRED_SIZE
+                        		))
                 .addContainerGap(71, Short.MAX_VALUE))
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 0, Short.MAX_VALUE)
@@ -147,16 +168,17 @@ public class AdminDetailsJPanel extends javax.swing.JPanel {
                 .addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 173, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
-                    .addComponent(btnAddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
-                    .addComponent(btnAddTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE))
+                 //   .addComponent(btnAddStudent, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                   // .addComponenddTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 38, javax.swing.GroupLayout.PREFERRED_SIZE)
+                		)
                 .addGap(41, 41, 41))
         );
     }// </editor-fold>//GEN-END:initComponents
 
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
-    private javax.swing.JButton btnAddStudent;
-    private javax.swing.JButton btnAddTeacher;
+ //   private javax.swing.JButton Student;
+    private javax.swing.JButton Teacher;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel2;
     private javax.swing.JLabel jLabel3;

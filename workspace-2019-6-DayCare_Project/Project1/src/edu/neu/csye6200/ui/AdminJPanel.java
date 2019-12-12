@@ -5,10 +5,15 @@
  */
 package edu.neu.csye6200.ui;
 
+import java.awt.CardLayout;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
 
 import javax.swing.JFrame;
+import javax.swing.JOptionPane;
+import javax.swing.JPanel;
+import javax.swing.event.ListSelectionEvent;
+import javax.swing.event.ListSelectionListener;
 import javax.swing.table.DefaultTableModel;
 
 import edu.neu.csye6200.controller.DayCareCompany;
@@ -26,9 +31,12 @@ public class AdminJPanel extends javax.swing.JPanel {
 
 	
 	private DayCareCompany company;
+	 private JPanel userProcessContainer;
+	 private int classNo=-1;
 	
-    public AdminJPanel(DayCareCompany company) {
-    	this.company=company;
+    public AdminJPanel(DayCareCompany d,JPanel userProcessContainer) {
+    	this.company=d;
+    	this.userProcessContainer=userProcessContainer;
         initComponents();
     }
 
@@ -69,7 +77,15 @@ public class AdminJPanel extends javax.swing.JPanel {
     	for(ClassRoom c:company.getClassRooms()) {
     		table.addRow(new Object[]{c.getClassRoomID(),c.getNumberOfStudents(),c.getTeachers().size()});
     	}
+    	
         jTable1.setModel(table);
+		jTable1.getSelectionModel().addListSelectionListener(new ListSelectionListener() {
+			public void valueChanged(ListSelectionEvent event) {
+				System.out.println("Selected " + table.getValueAt(jTable1.getSelectedRow(), 0).toString());
+				int id = Integer.parseInt(table.getValueAt(jTable1.getSelectedRow(), 0).toString());
+				classNo = id;
+			}
+		});
         
         jScrollPane1.setViewportView(jTable1);
 
@@ -80,6 +96,12 @@ public class AdminJPanel extends javax.swing.JPanel {
         btnDetails.setFont(new java.awt.Font("Georgia", 1, 13)); // NOI18N
         btnDetails.setForeground(new java.awt.Color(51, 0, 153));
         btnDetails.setText("Details");
+        btnDetails.addActionListener(new java.awt.event.ActionListener() {
+			public void actionPerformed(java.awt.event.ActionEvent evt) {
+				btnDetailsActionPerformed(evt);
+			}
+		});
+
 
         btnViewRules.setFont(new java.awt.Font("Georgia", 1, 13)); // NOI18N
         btnViewRules.setForeground(new java.awt.Color(51, 0, 153));
@@ -117,7 +139,20 @@ public class AdminJPanel extends javax.swing.JPanel {
     }// </editor-fold>//GEN-END:initComponents
 
 
-    // Variables declaration - do not modify//GEN-BEGIN:variables
+    protected void btnDetailsActionPerformed(ActionEvent evt) {
+    	if(classNo==-1) {
+    		JOptionPane.showMessageDialog(null, "Please select a class");
+    	}
+    	else {
+	    	AdminDetailsJPanel panel = new AdminDetailsJPanel(company, userProcessContainer,classNo);
+			userProcessContainer.add("AdminDetailsJPanel", panel);
+			CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+			layout.next(userProcessContainer);
+    	}
+	}
+
+
+	// Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btnDetails;
     private javax.swing.JButton btnViewRules;
     private javax.swing.JLabel jLabel1;
