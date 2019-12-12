@@ -62,9 +62,15 @@ public class MainJFrame extends javax.swing.JFrame {
 		btn_Admin.setFont(new java.awt.Font("Georgia", 1, 15)); // NOI18N
 		btn_Admin.setForeground(new java.awt.Color(102, 0, 255));
 		btn_Admin.setText("Admin");
-		btn_Admin.addActionListener(new java.awt.event.ActionListener() {
-			public void actionPerformed(java.awt.event.ActionEvent evt) {
-				btn_AdminActionPerformed(evt);
+		btn_Admin.addActionListener(new ActionListener() {
+
+			@Override
+			public void actionPerformed(ActionEvent e) {
+				//AdminJPanel a = new AdminJPanel(d, userProcessContainer);
+				AdminJPanel panel = new AdminJPanel(d, userProcessContainer);
+				userProcessContainer.add("AdminJPanel", panel);
+				CardLayout layout = (CardLayout) userProcessContainer.getLayout();
+				layout.next(userProcessContainer);
 			}
 		});
 
@@ -175,15 +181,15 @@ public class MainJFrame extends javax.swing.JFrame {
 
 	}// </editor-fold>//GEN-END:initComponents
 
-	private void btn_AdminActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn_AdminActionPerformed
-		// TODO add your handling code here:
-		JFrame f = new JFrame();
-		f.setBounds(0, 0, 1248, 794);
-		AdminJPanel a = new AdminJPanel(d, userProcessContainer);
-		a.setVisible(true);
-		f.add(a);
-		f.setVisible(true);
-	}// GEN-LAST:event_btn_AdminActionPerformed
+//	private void btn_AdminActionPerformed(java.awt.event.ActionEvent evt) {// GEN-FIRST:event_btn_AdminActionPerformed
+//		// TODO add your handling code here:
+//		JFrame f = new JFrame();
+//		f.setBounds(0, 0, 1248, 794);
+//		AdminJPanel a = new AdminJPanel(d, userProcessContainer);
+//		a.setVisible(true);
+//		f.add(a);
+//		f.setVisible(true);
+//	}// GEN-LAST:event_btn_AdminActionPerformed
 
 	/**
 	 * @param args the command line arguments
