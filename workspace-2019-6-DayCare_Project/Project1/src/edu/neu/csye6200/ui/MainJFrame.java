@@ -56,11 +56,11 @@ public class MainJFrame extends javax.swing.JFrame {
 		setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 		setPreferredSize(new java.awt.Dimension(800, 550));
 
-		jPanel1.setBackground(new java.awt.Color(51, 0, 153));
+		jPanel1.setBackground(new java.awt.Color(20,61,89));
 
 		btn_Admin.setBackground(new java.awt.Color(255, 255, 255));
-		btn_Admin.setFont(new java.awt.Font("Georgia", 1, 15)); // NOI18N
-		btn_Admin.setForeground(new java.awt.Color(102, 0, 255));
+		btn_Admin.setFont(new java.awt.Font("Garamond", 1, 19)); // NOI18N
+		btn_Admin.setForeground(new java.awt.Color(20,61,89));
 		btn_Admin.setText("Admin");
 		btn_Admin.addActionListener(new ActionListener() {
 
@@ -75,8 +75,8 @@ public class MainJFrame extends javax.swing.JFrame {
 		});
 
 		btn_Student.setBackground(new java.awt.Color(255, 255, 255));
-		btn_Student.setFont(new java.awt.Font("Georgia", 1, 15)); // NOI18N
-		btn_Student.setForeground(new java.awt.Color(102, 0, 255));
+		btn_Student.setFont(new java.awt.Font("Garamond", 1, 19)); // NOI18N
+		btn_Student.setForeground(new java.awt.Color(20,61,89));
 		btn_Student.setText("Student");
 		btn_Student.addActionListener(new ActionListener() {
 
@@ -90,8 +90,8 @@ public class MainJFrame extends javax.swing.JFrame {
 		});
 
 		btn_Teacher.setBackground(new java.awt.Color(255, 255, 255));
-		btn_Teacher.setFont(new java.awt.Font("Georgia", 1, 15)); // NOI18N
-		btn_Teacher.setForeground(new java.awt.Color(102, 0, 255));
+		btn_Teacher.setFont(new java.awt.Font("Garamond", 1, 19)); // NOI18N
+		btn_Teacher.setForeground(new java.awt.Color(20,61,89));
 		btn_Teacher.setText("Teacher");
 		btn_Teacher.addActionListener(new ActionListener() {
 
@@ -105,8 +105,8 @@ public class MainJFrame extends javax.swing.JFrame {
 		});
 
 		btn_Exit.setBackground(new java.awt.Color(255, 255, 255));
-		btn_Exit.setFont(new java.awt.Font("Georgia", 1, 14)); // NOI18N
-		btn_Exit.setForeground(new java.awt.Color(102, 0, 255));
+		btn_Exit.setFont(new java.awt.Font("Garamond", 1, 19)); // NOI18N
+		btn_Exit.setForeground(new java.awt.Color(20,61,89));
 		btn_Exit.setText("EXIT");
 		btn_Exit.addActionListener(new ActionListener() {
 
@@ -117,10 +117,11 @@ public class MainJFrame extends javax.swing.JFrame {
 			}
 		});
 
-		jLabel3.setFont(new java.awt.Font("Snell Roundhand", 1, 27)); // NOI18N
+
 		jLabel3.setForeground(new java.awt.Color(255, 255, 255));
 		jLabel3.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
-		jLabel3.setText("DayCare");
+		jLabel3.setText("Menu");
+		jLabel3.setFont(new java.awt.Font("Garamond", 1, 30));
 
 		javax.swing.GroupLayout jPanel1Layout = new javax.swing.GroupLayout(jPanel1);
 		jPanel1.setLayout(jPanel1Layout);
@@ -160,14 +161,16 @@ public class MainJFrame extends javax.swing.JFrame {
 		userProcessContainer.setLayout(new java.awt.CardLayout());
 		jSplitPane1.setRightComponent(userProcessContainer);
 
-		userProcessContainer.setBackground(new java.awt.Color(51, 0, 153));
+		userProcessContainer.setBackground(new java.awt.Color(255,255,255));
 		userProcessContainer.setLayout(new java.awt.CardLayout());
 
-		userProcessContainer.setBackground(new java.awt.Color(102, 0, 204));
+		userProcessContainer.setBackground(new java.awt.Color(255,255,255));
 		userProcessContainer.setFont(new java.awt.Font("Snell Roundhand", 1, 48)); // NOI18N
 		userProcessContainer.setForeground(new java.awt.Color(255, 255, 255));
 		jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		jLabel2.setText("Welcome to DayCare ");
+		jLabel2.setFont(new java.awt.Font("Garamond", 1, 50));
+		jLabel2.setForeground(new java.awt.Color(20,61,89));
 		userProcessContainer.add(jLabel2, "card3");
 
 		javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
