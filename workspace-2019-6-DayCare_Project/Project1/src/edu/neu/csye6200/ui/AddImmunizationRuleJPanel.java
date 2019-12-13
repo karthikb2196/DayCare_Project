@@ -61,13 +61,13 @@ public class AddImmunizationRuleJPanel extends javax.swing.JPanel {
 		btnSubmit = new javax.swing.JButton();
 
 		jLabel2.setBackground(new java.awt.Color(51, 0, 153));
-		jLabel2.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
+		jLabel2.setFont(new java.awt.Font("Garamond", 1, 30)); // NOI18N
 		jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		jLabel2.setText("Add Immunization Rule");
 
 		jLabel1.setText("ID:");
 
-		jLabel3.setText("Age");
+		jLabel3.setText("Age:");
 
 		jLabel4.setText("Required");
 
@@ -119,11 +119,11 @@ public class AddImmunizationRuleJPanel extends javax.swing.JPanel {
 								.addGroup(layout.createSequentialGroup().addGroup(layout
 										.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 										.addGroup(layout.createSequentialGroup().addGap(41, 41, 41)
-												.addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 36,
+												.addComponent(jLabel5, javax.swing.GroupLayout.PREFERRED_SIZE, 40,
 														javax.swing.GroupLayout.PREFERRED_SIZE)
 												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
 														javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
-												.addComponent(txtAgeFrom, javax.swing.GroupLayout.PREFERRED_SIZE, 59,
+												.addComponent(txtAgeFrom, javax.swing.GroupLayout.PREFERRED_SIZE,59,
 														javax.swing.GroupLayout.PREFERRED_SIZE))
 										.addGroup(layout.createSequentialGroup()
 												.addComponent(jLabel4, javax.swing.GroupLayout.PREFERRED_SIZE, 128,

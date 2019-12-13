@@ -59,7 +59,7 @@ public class StudentJPanel extends javax.swing.JPanel {
         jLabel2.setBackground(new java.awt.Color(51, 0, 153));
         jLabel2.setFont(new java.awt.Font("Georgia", 1, 24)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
-        jLabel2.setText("Search:");
+        jLabel2.setText("Please enter a student ID:");
 
         jLabel3.setBackground(new java.awt.Color(51, 0, 153));
         jLabel3.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
@@ -120,7 +120,7 @@ public class StudentJPanel extends javax.swing.JPanel {
             .addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup()
                 .addGap(0, 177, Short.MAX_VALUE)
                 .addComponent(jLabel3)
-                .addGap(81, 81, 81)
+                .addGap(20, 20, 20)
                 .addComponent(txtStudentID, javax.swing.GroupLayout.PREFERRED_SIZE, 196, javax.swing.GroupLayout.PREFERRED_SIZE)
                 .addGap(175, 175, 175))
             .addGroup(layout.createSequentialGroup()

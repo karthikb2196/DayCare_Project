@@ -65,11 +65,10 @@ public class TeacherJPanel extends javax.swing.JPanel {
 //		backBtn = new javax.swing.JButton();
 
 		jLabel2.setBackground(new java.awt.Color(51, 0, 153));
-		jLabel2.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
+		jLabel2.setFont(new java.awt.Font("Garamond", 1, 30)); // NOI18N
 		jLabel2.setForeground(new java.awt.Color(255, 255, 255));
 		jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		jLabel2.setText("Teacher");
-		
 
 //		btnAddTeacher.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
 //		btnAddTeacher.setForeground(new java.awt.Color(51, 0, 153));
@@ -87,7 +86,7 @@ public class TeacherJPanel extends javax.swing.JPanel {
 //		});
 
 		btnAddTeacher.setText("Add Teacher");
-		btnAddTeacher.setForeground(new java.awt.Color(20,61,89));
+		btnAddTeacher.setForeground(new java.awt.Color(20, 61, 89));
 		btnAddTeacher.setFont(new java.awt.Font("Garamond", 1, 18));
 		btnAddTeacher.addActionListener(new java.awt.event.ActionListener() {
 			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -95,7 +94,7 @@ public class TeacherJPanel extends javax.swing.JPanel {
 			}
 		});
 
-		setBackground(new java.awt.Color(20,61,89));
+		setBackground(new java.awt.Color(20, 61, 89));
 //		backBtn.setText("<< Back");
 //		backBtn.addActionListener(new java.awt.event.ActionListener() {
 //			public void actionPerformed(java.awt.event.ActionEvent evt) {
@@ -108,19 +107,19 @@ public class TeacherJPanel extends javax.swing.JPanel {
 		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
 				.createSequentialGroup()
 				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(layout.createSequentialGroup().addGap(524, 524, 524).addComponent(jLabel2))
-						.addGroup(layout.createSequentialGroup().addGap(166, 166, 166)
+						.addGroup(layout.createSequentialGroup().addGap(546, 546, 546).addComponent(jLabel2))
+						.addGroup(layout.createSequentialGroup().addGap(164, 164, 164)
 								.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING, false)
 										.addGroup(layout.createSequentialGroup()
 												.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED,
 														javax.swing.GroupLayout.DEFAULT_SIZE, Short.MAX_VALUE)
 												.addComponent(btnAddTeacher, javax.swing.GroupLayout.PREFERRED_SIZE,
 														167, javax.swing.GroupLayout.PREFERRED_SIZE))
-										.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 865,
+										.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 931,
 												javax.swing.GroupLayout.PREFERRED_SIZE))))
 				.addContainerGap(217, Short.MAX_VALUE)));
 		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup().addGap(37, 37, 37)
+				.addGroup(javax.swing.GroupLayout.Alignment.TRAILING, layout.createSequentialGroup().addGap(83, 83, 83)
 						.addComponent(jLabel2).addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.UNRELATED)
 						.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 341,
 								javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -129,7 +128,7 @@ public class TeacherJPanel extends javax.swing.JPanel {
 
 								.addComponent(btnAddTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 43,
 										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(236, 236, 236)));
+						.addGap(123, 123, 123)));
 	}// </editor-fold>
 
 	void populate() {
@@ -152,12 +151,12 @@ public class TeacherJPanel extends javax.swing.JPanel {
 		layout.next(userProcessContainer);
 		System.out.println("Try to add teacher end===");
 	}
-	
+
 	/*
 	 * StudentPanel panel = new StudentPanel(d, userProcessContainer);
-				userProcessContainer.add("StudentPanel", panel);
-				CardLayout layout = (CardLayout) userProcessContainer.getLayout();
-				layout.next(userProcessContainer);
+	 * userProcessContainer.add("StudentPanel", panel); CardLayout layout =
+	 * (CardLayout) userProcessContainer.getLayout();
+	 * layout.next(userProcessContainer);
 	 */
 
 //	private void backBtnActionPerformed(java.awt.event.ActionEvent evt) {

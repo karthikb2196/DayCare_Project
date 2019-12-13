@@ -100,9 +100,9 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 
 	//	jLabel2.setBackground(new java.awt.Color(255,255,255));
 		  jLabel2.setBackground(new java.awt.Color(51, 0, 153));
-		jLabel2.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
+		jLabel2.setFont(new java.awt.Font("Garamond", 1, 30)); // NOI18N
 		//jPanel1.setBackground(new java.awt.Color(20,61,89));
-		jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
+//		jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
 		jLabel2.setText("Immunization Rules");
 		jLabel2.setForeground(new java.awt.Color(255,255,255));
 
@@ -211,20 +211,20 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 		layout.setHorizontalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING).addGroup(layout
 				.createSequentialGroup()
 				.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-						.addGroup(layout.createSequentialGroup().addGap(163, 163, 163).addComponent(jLabel2))
-						.addGroup(layout.createSequentialGroup().addGap(88, 88, 88).addGroup(layout
+						.addGroup(layout.createSequentialGroup().addGap(480, 480, 480).addComponent(jLabel2))
+						.addGroup(layout.createSequentialGroup().addGap(400, 400, 400).addGroup(layout
 								.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
 								.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 489,
 										javax.swing.GroupLayout.PREFERRED_SIZE)
 								.addGroup(layout.createSequentialGroup().addComponent(btnAddRole).addGap(88, 88, 88)
-										.addComponent(btnEditRule).addGap(92, 92, 92).addComponent(btnDeleteRule)))))
-				.addContainerGap(68, Short.MAX_VALUE)));
+										.addComponent(btnEditRule).addGap(546, 546, 546).addComponent(btnDeleteRule)))))
+				.addContainerGap(217, Short.MAX_VALUE)));
 		layout.setVerticalGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-				.addGroup(layout.createSequentialGroup().addGap(35, 35, 35).addComponent(jLabel2)
+				.addGroup(layout.createSequentialGroup().addGap(83, 83, 83).addComponent(jLabel2)
 						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED)
 						.addComponent(jScrollPane1, javax.swing.GroupLayout.PREFERRED_SIZE, 279,
 								javax.swing.GroupLayout.PREFERRED_SIZE)
-						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 42, Short.MAX_VALUE)
+						.addPreferredGap(javax.swing.LayoutStyle.ComponentPlacement.RELATED, 342, Short.MAX_VALUE)
 						.addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
 								.addComponent(btnAddRole, javax.swing.GroupLayout.PREFERRED_SIZE, 51,
 										javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -232,7 +232,7 @@ public class ImmunizationRulesJPanel extends javax.swing.JPanel {
 										javax.swing.GroupLayout.PREFERRED_SIZE)
 								.addComponent(btnDeleteRule, javax.swing.GroupLayout.PREFERRED_SIZE, 51,
 										javax.swing.GroupLayout.PREFERRED_SIZE))
-						.addGap(91, 91, 91)));
+						.addGap(123, 123, 123)));
 	}// </editor-fold>//GEN-END:initComponents
 
 	private void btnEditRuleActionPerformed(ActionEvent evt) {
