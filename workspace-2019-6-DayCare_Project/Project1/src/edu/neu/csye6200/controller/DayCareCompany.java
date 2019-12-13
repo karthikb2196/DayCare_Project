@@ -10,17 +10,13 @@ import java.util.ListIterator;
 
 import edu.neu.csye6200.model.ClassRoom;
 import edu.neu.csye6200.model.ClassRoomRule;
-import edu.neu.csye6200.model.DTapImmunization;
-import edu.neu.csye6200.model.HepBImmunization;
 import edu.neu.csye6200.model.Immunization;
 import edu.neu.csye6200.model.ImmunizationRecord;
 import edu.neu.csye6200.model.ImmunizationRule;
-import edu.neu.csye6200.model.MMRImmunization;
 import edu.neu.csye6200.model.Person;
 import edu.neu.csye6200.model.Rule;
 import edu.neu.csye6200.model.Student;
 import edu.neu.csye6200.model.Teacher;
-import edu.neu.csye6200.model.VaricellaImmunization;
 
 
 public class DayCareCompany {

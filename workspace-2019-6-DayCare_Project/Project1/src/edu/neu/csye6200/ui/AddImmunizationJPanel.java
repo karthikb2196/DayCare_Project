@@ -15,6 +15,7 @@ import javax.swing.JOptionPane;
 
 import edu.neu.csye6200.controller.DayCareCompany;
 import edu.neu.csye6200.model.Immunization;
+import edu.neu.csye6200.model.ImmunizationFactory;
 import edu.neu.csye6200.model.Person;
 
 /**
@@ -30,6 +31,7 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
 	private DayCareCompany d;
 	private Person p;
 	JFrame uf;
+	ImmunizationFactory immunizationFactory = ImmunizationFactory.getInstance();
 	
     public AddImmunizationJPanel(DayCareCompany d,Person p, JFrame uframe) {
     	this.p=p;
@@ -113,7 +115,7 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
 				SimpleDateFormat ft = new SimpleDateFormat ("MM/dd/yyyy");//MM-dd-yyyy
 				Immunization i;
 				try {
-					i = new Immunization(id, name, p.getAge(), ft.parse(date));
+					i = immunizationFactory.getImmunization(id, name, p.getAge(), ft.parse(date));
 					d.addImmunizationToStudent(p.getId(), i);
 					System.out.println("add immu record through ui succeed");
 					JOptionPane.showMessageDialog(null, "Successfully added new immunization!");
