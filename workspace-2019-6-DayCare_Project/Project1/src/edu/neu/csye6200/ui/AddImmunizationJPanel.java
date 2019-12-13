@@ -100,6 +100,8 @@ public class AddImmunizationJPanel extends javax.swing.JPanel {
         btnAddRecord.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         btnAddRecord.setForeground(new java.awt.Color(51, 0, 153));
         btnAddRecord.setText("Add");
+        btnAddRecord.setForeground(new java.awt.Color(20,61,89));
+        btnAddRecord.setFont(new java.awt.Font("Garamond", 1, 18));
         btnAddRecord.addActionListener(new ActionListener() {
 			
 			@Override

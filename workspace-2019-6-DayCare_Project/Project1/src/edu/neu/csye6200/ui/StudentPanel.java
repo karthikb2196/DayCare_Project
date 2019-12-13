@@ -9,6 +9,7 @@ import java.awt.CardLayout;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
+import javax.swing.JTable;
 import javax.swing.table.DefaultTableModel;
 
 import edu.neu.csye6200.controller.DayCareCompany;
@@ -119,8 +120,10 @@ public class StudentPanel extends javax.swing.JPanel {
 					s.getAge(), ifRenew });
 
 		}
+		
 
 		jTable1.setModel(table);
+		
 		jScrollPane1.setViewportView(jTable1);
 	}
 

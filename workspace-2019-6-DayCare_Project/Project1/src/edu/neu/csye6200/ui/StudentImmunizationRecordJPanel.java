@@ -76,6 +76,7 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
         jTable2.setModel(table);
         
         jScrollPane2.setViewportView(jTable2);
+        setBackground(new java.awt.Color(20,61,89));
 
         jLabel4.setBackground(new java.awt.Color(51, 0, 153));
         jLabel4.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
@@ -107,6 +108,8 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
         txtLastname.setEnabled(false);
 
         requirementCheckButton.setText("Requirement");
+        requirementCheckButton.setForeground(new java.awt.Color(20,61,89));
+        requirementCheckButton.setFont(new java.awt.Font("Garamond", 1, 18));
         requirementCheckButton.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 jButton1ActionPerformed(evt);
@@ -114,6 +117,8 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
         });
 
         backBtn.setText("<< Back");
+        backBtn.setForeground(new java.awt.Color(20,61,89));
+        backBtn.setFont(new java.awt.Font("Garamond", 1, 18));
         backBtn.setForeground(new java.awt.Color(20,61,89));
         backBtn.setFont(new java.awt.Font("Garamond", 1, 18));
         backBtn.setVisible(false);
@@ -177,7 +182,7 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
                         .addGap(12, 12, 12)
                         .addComponent(btnUpdateRecord, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE)
                         .addGap(18, 18, 18)
-                        .addComponent(requirementCheckButton, javax.swing.GroupLayout.PREFERRED_SIZE, 112, javax.swing.GroupLayout.PREFERRED_SIZE))
+                        .addComponent(requirementCheckButton, javax.swing.GroupLayout.PREFERRED_SIZE, 225, javax.swing.GroupLayout.PREFERRED_SIZE))
                     .addComponent(jScrollPane2, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
                     .addComponent(jLabel2))
                 .addGap(83, 83, 83))

@@ -1,5 +1,7 @@
 package edu.neu.csye6200.model;
 
+import java.util.Date;
+
 public class PolioImmunizationFactory extends AbstractImmunizationFactory {
 
 	private static PolioImmunizationFactory polioImmunizationFactory=null;
@@ -12,11 +14,13 @@ public class PolioImmunizationFactory extends AbstractImmunizationFactory {
 		polioImmunizationFactory = new PolioImmunizationFactory();
 		return polioImmunizationFactory;
 	}
-	
+
 	@Override
-	public Immunization getImmunization() {
+	public Immunization getImmunization(int id, String name, int age, Date date) {
 		// TODO Auto-generated method stub
 		return null;
 	}
+	
+
 
 }
