@@ -6,6 +6,7 @@
 package edu.neu.csye6200.ui;
 
 import java.awt.CardLayout;
+import java.util.Calendar;
 
 import javax.swing.JFrame;
 import javax.swing.JPanel;
@@ -111,10 +112,16 @@ public class StudentPanel extends javax.swing.JPanel {
 
 		for (Person s : d.getStudents()) {
 			String ifRenew = "NO";
-			int l = s.getDateOfEnrollment().toString().length();
-			String x = s.getDateOfEnrollment().toString();
-			if (Integer.parseInt(x.substring(l - 4, l)) < 2019) {
+			int l = s.ft.format(s.getDateOfEnrollment()).length();
+			String x = s.ft.format(s.getDateOfEnrollment());
+			if (Integer.parseInt(x.substring(l - 4, l)) < Calendar.getInstance().get(Calendar.YEAR)) {
+				int day= Integer.parseInt(x.substring(l - 7, l-5));
+				int month=Integer.parseInt(x.substring(0, 2));
+				System.out.println("Day: "+Calendar.getInstance().get(Calendar.DATE));
+				System.out.println(Calendar.getInstance().get(Calendar.MONTH));
+				if((day==Calendar.getInstance().get(Calendar.DATE))&&(month==Calendar.getInstance().get(Calendar.MONTH)+1)) {
 				ifRenew = "YES";
+				}
 			}
 			table.addRow(new Object[] { s.getId(), s.getFirstName() + " " + s.getLastName(), s.getDateOfEnrollment(),
 					s.getAge(), ifRenew });
