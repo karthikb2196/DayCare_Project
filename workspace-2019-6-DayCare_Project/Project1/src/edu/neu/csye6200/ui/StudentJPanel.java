@@ -51,7 +51,7 @@ public class StudentJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(20,61,89));
 
         jLabel1.setBackground(new java.awt.Color(51, 0, 153));
-        jLabel1.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Student");
@@ -69,9 +69,12 @@ public class StudentJPanel extends javax.swing.JPanel {
         txtStudentID.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         txtStudentID.setForeground(new java.awt.Color(51, 0, 153));
 
-        btnSearch.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
+        btnSearch.setFont(new java.awt.Font("Garamond", 1, 18)); // NOI18N
         btnSearch.setForeground(new java.awt.Color(51, 0, 153));
-        btnSearch.setText("Search");
+        btnSearch.setText("Search");       
+        btnSearch.setForeground(new java.awt.Color(20,61,89));
+        btnSearch.setFont(new java.awt.Font("Garamond", 1, 18));
+        
         btnSearch.addActionListener(new ActionListener() {
 			
 			@Override

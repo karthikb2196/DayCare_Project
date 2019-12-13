@@ -65,7 +65,7 @@ public class StudentInfoJPanel extends javax.swing.JPanel {
         backBtn = new javax.swing.JButton();
 
         jLabel1.setBackground(new java.awt.Color(51, 0, 153));
-        jLabel1.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel1.setText("Student");
@@ -89,7 +89,7 @@ public class StudentInfoJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(51, 0, 153));
 
         jLabel2.setBackground(new java.awt.Color(51, 0, 153));
-        jLabel2.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Student Information");
@@ -176,7 +176,9 @@ public class StudentInfoJPanel extends javax.swing.JPanel {
 
         btnImmunizationRecord.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         btnImmunizationRecord.setForeground(new java.awt.Color(51, 0, 153));
-        btnImmunizationRecord.setText("Show Immunization Record");
+        btnImmunizationRecord.setText("Immunization Record");
+        btnImmunizationRecord.setForeground(new java.awt.Color(20,61,89));
+        btnImmunizationRecord.setFont(new java.awt.Font("Garamond", 1, 18));
         btnImmunizationRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateRecordActionPerformed(evt);
@@ -184,6 +186,8 @@ public class StudentInfoJPanel extends javax.swing.JPanel {
         });
 
         backBtn.setText("<< Back");
+        backBtn.setForeground(new java.awt.Color(20,61,89));
+        backBtn.setFont(new java.awt.Font("Garamond", 1, 18));
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backBtnActionPerformed(evt);

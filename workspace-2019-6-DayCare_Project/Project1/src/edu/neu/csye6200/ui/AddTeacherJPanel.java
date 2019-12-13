@@ -74,7 +74,7 @@ public class AddTeacherJPanel extends javax.swing.JPanel {
 
 
         jLabel1.setBackground(new java.awt.Color(51, 0, 153));
-        jLabel1.setFont(new java.awt.Font("Snell Roundhand", 1, 24)); // NOI18N
+        jLabel1.setFont(new java.awt.Font("Garamond", 1, 24)); // NOI18N
         jLabel1.setForeground(new java.awt.Color(255, 255, 255));
         jLabel1.setText("Add Teacher");
 
@@ -119,6 +119,8 @@ public class AddTeacherJPanel extends javax.swing.JPanel {
         btnAddTeacher.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         btnAddTeacher.setForeground(new java.awt.Color(51, 0, 153));
         btnAddTeacher.setText("Add");
+        btnAddTeacher.setForeground(new java.awt.Color(20,61,89));
+        btnAddTeacher.setFont(new java.awt.Font("Garamond", 1, 18));
         btnAddTeacher.addActionListener(new ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnAddTeacherActionPerformed(evt);
@@ -285,6 +287,7 @@ public class AddTeacherJPanel extends javax.swing.JPanel {
                         .addComponent(btnAddTeacher, javax.swing.GroupLayout.PREFERRED_SIZE, 50, javax.swing.GroupLayout.PREFERRED_SIZE)))
                 .addContainerGap(132, Short.MAX_VALUE))
         );
+        setBackground(new java.awt.Color(20,61,89));
     }// </editor-fold>                        
 
     private void txtMonthActionPerformed(java.awt.event.ActionEvent evt) {                                         

@@ -61,7 +61,7 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
         setBackground(new java.awt.Color(51, 0, 153));
 
         jLabel2.setBackground(new java.awt.Color(51, 0, 153));
-        jLabel2.setFont(new java.awt.Font("Snell Roundhand", 1, 36)); // NOI18N
+        jLabel2.setFont(new java.awt.Font("Garamond", 1, 36)); // NOI18N
         jLabel2.setForeground(new java.awt.Color(255, 255, 255));
         jLabel2.setHorizontalAlignment(javax.swing.SwingConstants.CENTER);
         jLabel2.setText("Student Immunization Record");
@@ -114,6 +114,8 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
         });
 
         backBtn.setText("<< Back");
+        backBtn.setForeground(new java.awt.Color(20,61,89));
+        backBtn.setFont(new java.awt.Font("Garamond", 1, 18));
         backBtn.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 backBtnActionPerformed(evt);
@@ -123,6 +125,8 @@ public class StudentImmunizationRecordJPanel extends javax.swing.JPanel {
         btnUpdateRecord.setFont(new java.awt.Font("Georgia", 1, 18)); // NOI18N
         btnUpdateRecord.setForeground(new java.awt.Color(51, 0, 153));
         btnUpdateRecord.setText("Add Immunization");
+        btnUpdateRecord.setForeground(new java.awt.Color(20,61,89));
+        btnUpdateRecord.setFont(new java.awt.Font("Garamond", 1, 18));
         btnUpdateRecord.addActionListener(new java.awt.event.ActionListener() {
             public void actionPerformed(java.awt.event.ActionEvent evt) {
                 btnUpdateRecordActionPerformed(evt);
